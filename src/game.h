@@ -1,7 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include"def.h"
+#include "personnage.h"
+#include "def.h"
 #include <iostream>
 
 class game
@@ -9,8 +10,10 @@ class game
 private:
     /* data */
     bool isRunning;
+    personnage* joueur;
     SDL_Window * window;
     SDL_Renderer *renderer;
+    
 
 public:
     game();
