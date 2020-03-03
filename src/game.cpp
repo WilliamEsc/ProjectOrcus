@@ -42,40 +42,26 @@ void game::handleEvents()
 {
     SDL_Event events;
     SDL_PollEvent(&events);
-    float f=0;
-    double ang=0;
-    if (events.type == SDL_KEYDOWN) { // Si une touche est enfoncee
-        switch (events.key.keysym.sym) {
-        case SDLK_z:
-            f=1;
-            break;
-        case SDLK_s:
-            f=-1;
-            break;
-        case SDLK_q:
-            ang=1;
-            break;
-        case SDLK_d:
-            ang=-1;
-            break;
-        case SDLK_ESCAPE:
-            isRunning=false;
-            break;
-        default: break;
-        }
+    float f;
+    double ang;
+    const Uint8* keystates;
+    keystates = SDL_GetKeyboardState(NULL);
+    if (keystates[SDL_SCANCODE_W]) {
+        f=0.01;
+    }
+    if (keystates[SDL_SCANCODE_S]) {
+        f=-0.01;
+    }
+    if (keystates[SDL_SCANCODE_A]) {
+        ang=0.01;
+    }
+    if (keystates[SDL_SCANCODE_D]) {
+       ang=-0.01;
+    }
+    if (keystates[SDL_SCANCODE_ESCAPE]){
+        isRunning=false;
     }
     joueur->deplace(f,ang);
-    if (events.type == SDL_KEYUP) { // Si une touche est relaché
-        switch (events.key.keysym.sym) {
-        case SDLK_z:
-            f=0;
-            break;
-        case SDLK_s:
-            f=0;
-            break;
-        default: break;
-        }
-    }
     if (events.type == SDL_QUIT) isRunning=false;// Si l'utilisateur a clique sur la croix de fermeture
 }
 
