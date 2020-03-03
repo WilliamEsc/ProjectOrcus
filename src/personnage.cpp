@@ -37,8 +37,6 @@ void personnage::setTexture(SDL_Renderer* renderer,SDL_Surface* surface){
 void personnage::ajoutAngle(double deg){
     Complex e(cos(-deg*3.14/180),sin(-deg*3.14/180));
     *vit=((*vit-*pos)*e)+*pos;
-    printf("vit x %f \n",vit->getComplexX());
-    printf("vit y %f \n",vit->getComplexY());
     angle+=deg;
 }
 
