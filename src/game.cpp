@@ -1,8 +1,10 @@
 #include "game.h"
 
 
+
 game::game(){};
 game::~game(){};
+map* m;
 
 void game::init(const char* title, int posX, int posY, int width, int height, bool fullscreen)
 {
@@ -36,6 +38,7 @@ void game::init(const char* title, int posX, int posY, int width, int height, bo
     SDL_Surface* tmpsurface=IMG_Load("Data/asset.png");
     joueur->setTexture(renderer,tmpsurface);
     SDL_FreeSurface(tmpsurface);
+    m = new map(renderer);
 }
 
 void game::handleEvents()
@@ -47,16 +50,16 @@ void game::handleEvents()
     const Uint8* keystates;
     keystates = SDL_GetKeyboardState(NULL);
     if (keystates[SDL_SCANCODE_W]) {
-        f=0.01;
+        f=0.10;
     }
     if (keystates[SDL_SCANCODE_S]) {
-        f=-0.01;
+        f=-0.10;
     }
     if (keystates[SDL_SCANCODE_A]) {
-        ang=0.01;
+        ang=0.05;
     }
     if (keystates[SDL_SCANCODE_D]) {
-       ang=-0.01;
+       ang=-0.05;
     }
     if (keystates[SDL_SCANCODE_ESCAPE]){
         isRunning=false;
@@ -74,6 +77,7 @@ void game::render()
 {
     SDL_RenderClear(renderer);
     //this is where we would add stuff to render
+    m->drawMap(renderer);
     SDL_RenderCopyEx(renderer,joueur->getTexture(),NULL,joueur->getRect(),-joueur->getAngle(),NULL,SDL_FLIP_NONE);
     SDL_RenderPresent(renderer);
 }
