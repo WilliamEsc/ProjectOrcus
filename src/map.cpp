@@ -8,17 +8,17 @@ int map1[20][25] = {
     { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
     { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
     { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
-    { 0,0,0,0,1,2,2,2,2,2,1,1,2,2,2,2,2,2,2,2,1,0,0,0,0 },
-    { 0,0,0,0,1,2,2,2,2,1,2,2,1,2,2,2,2,2,2,2,1,0,0,0,0 },
-    { 0,0,0,0,1,2,2,2,2,1,1,1,1,2,2,2,2,2,2,2,1,0,0,0,0 },
-    { 0,0,0,0,1,2,2,2,2,1,2,2,1,2,2,2,2,2,2,2,1,0,0,0,0 },
-    { 0,0,0,0,1,2,2,2,2,1,2,2,1,2,2,2,2,2,2,2,1,0,0,0,0 },
-    { 0,0,0,0,1,2,2,2,2,1,2,2,1,2,2,2,2,2,2,2,1,0,0,0,0 },
-    { 0,0,0,0,1,2,2,2,2,1,2,2,1,2,2,2,2,2,2,2,1,0,0,0,0 },
-    { 0,0,0,0,1,2,2,1,1,1,1,1,1,1,1,2,2,2,2,2,1,0,0,0,0 },
-    { 0,0,0,0,1,2,2,1,2,2,1,1,2,2,1,2,2,2,2,2,1,0,0,0,0 },
-    { 0,0,0,0,1,2,2,1,2,2,1,1,2,2,1,2,2,2,2,2,1,0,0,0,0 },
-    { 0,0,0,0,1,2,2,1,1,1,1,1,1,1,1,2,2,2,2,2,1,0,0,0,0 },
+    { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
+    { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
+    { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
+    { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
+    { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
+    { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
+    { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
+    { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
+    { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
+    { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
+    { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
     { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
     { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 },
     { 0,0,0,0,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,0,0,0,0 }
@@ -31,23 +31,31 @@ map::map()
 
 map::map(SDL_Renderer* renderer)
 {
-    SDL_Surface* surface1 = IMG_Load("Data/dirt.png");
-    SDL_Surface* surface2 = IMG_Load("Data/water.png");
-    SDL_Surface* surface3 = IMG_Load("Data/stone.png");
-    dirt = SDL_CreateTextureFromSurface(renderer,surface1);
-    water = SDL_CreateTextureFromSurface(renderer,surface2);
-    stone = SDL_CreateTextureFromSurface(renderer,surface3);
-    SDL_FreeSurface(surface1);
-    SDL_FreeSurface(surface2);
-    SDL_FreeSurface(surface3);
+    // SDL_Surface* surface1 = IMG_Load("Data/dirt.png");
+    // SDL_Surface* surface2 = IMG_Load("Data/water.png");
+    // SDL_Surface* surface3 = IMG_Load("Data/stone.png");
+    // dirt = SDL_CreateTextureFromSurface(renderer,surface1);
+    // water = SDL_CreateTextureFromSurface(renderer,surface2);
+    // stone = SDL_CreateTextureFromSurface(renderer,surface3);
+    // SDL_FreeSurface(surface1);
+    // SDL_FreeSurface(surface2);
+    // SDL_FreeSurface(surface3);
 
+    dirt->setFileName("Data/dirt.png");
+    water->setFileName("Data/water.png");
+    stone->setFileName("Data/stone.png");
+
+    dirt->setTexture(dirt->loadTexture(dirt->getFileName(),renderer));
+    water->setTexture(water->loadTexture(water->getFileName(),renderer));
+    stone->setTexture(stone->loadTexture(stone->getFileName(),renderer));
+    
     loadMap(map1);
 
-    src.x = src.y = 0;
-    src.w = dest.w = 32;
-    src.h = dest.h = 32;
+    // src.x = src.y = 0;
+    // src.w = dest.w = 32;
+    // src.h = dest.h = 32;
 
-    dest.x = dest.y = 0;   
+    // dest.x = dest.y = 0;   
 }
 
 map::~map()
@@ -82,15 +90,15 @@ void map::drawMap(SDL_Renderer* rend)
                 switch (type)
                 {
                     case 0:
-                        SDL_RenderCopy(rend, water, &src, &dest);
+                        water->renderTexture(water->getTexture(),rend,dest.x,dest.y);
                         break;
                     
                     case 1: 
-                        SDL_RenderCopy(rend, dirt, &src, &dest);
+                        stone->renderTexture(stone->getTexture(),rend,dest.x,dest.y);
                         break;
                     
                     case 2: 
-                        SDL_RenderCopy(rend, stone, &src, &dest);
+                        dirt->renderTexture(dirt->getTexture(),rend,dest.x,dest.y);
                         break;
 
                     default: 
