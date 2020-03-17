@@ -3,6 +3,7 @@
 
 #include "game.h"
 #include "def.h"
+#include "texture.h"
 
 class map 
 {
@@ -20,9 +21,13 @@ class map
 
         SDL_Rect src, dest;
         
-        SDL_Texture* dirt;
-        SDL_Texture* water;
-        SDL_Texture* stone;
+        // SDL_Texture* dirt;
+        // SDL_Texture* water;
+        // SDL_Texture* stone;
+
+        texture *dirt = new texture() ;
+        texture *water = new texture() ;
+        texture *stone = new texture() ;
 
         int carte[20][25];
 
