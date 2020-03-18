@@ -4,8 +4,8 @@ personnage::personnage(){
     pos=new Complex(20,20);
     vit=new Complex(20,21);
     angle=0;
-    destRect.h=64;
-    destRect.w=64;
+    destRect.h=128;
+    destRect.w=128;
     destRect.x=pos->getComplexX();
     destRect.y=pos->getComplexY();
 }
