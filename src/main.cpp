@@ -13,6 +13,7 @@ int main(int argc, const char* argv[]) {
         render changes to the display */
 
         g.handleEvents();
+        g.heal();
         g.update();
         g.render();
 
