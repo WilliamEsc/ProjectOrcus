@@ -4,7 +4,7 @@
 
 game::game(){};
 game::~game(){};
-map* m;
+ map* m;
 
 void game::init(const char* title, int posX, int posY, int width, int height, bool fullscreen)
 {
@@ -34,11 +34,14 @@ void game::init(const char* title, int posX, int posY, int width, int height, bo
     } else {
         isRunning = false ;
     }
+    
     joueur=new personnage;
     SDL_Surface* tmpsurface=IMG_Load("Data/asset.png");
     joueur->setTexture(renderer,tmpsurface);
     SDL_FreeSurface(tmpsurface);
     m = new map(renderer);
+    s = new soin();
+    s->setPos(400-16,300-16);
 }
 
 void game::handleEvents()
@@ -61,10 +64,23 @@ void game::handleEvents()
     if (keystates[SDL_SCANCODE_D]) {
        ang=-0.05;
     }
+    if (keystates[SDL_SCANCODE_X]) {
+       s->setPointDeVie(s->getPointDeVie()-10);
+       std::cout << "Point de vie : " << s->getPointDeVie() << std::endl ; 
+    }
     if (keystates[SDL_SCANCODE_ESCAPE]){
         isRunning=false;
     }
     joueur->deplace(f,ang);
+     if(joueur->getPos()->getComplexX() >= s->getPosX() && 
+        joueur->getPos()->getComplexX() <= s->getPosX()+32 && 
+        joueur->getPos()->getComplexY() >= s->getPosY() &&
+        joueur->getPos()->getComplexY() <= s->getPosY()+32 
+        )
+    {
+        s->setPointDeVie(s->getPointDeVie()+10);
+        std::cout << "Point de vie : " << s->getPointDeVie() << std::endl ; 
+    }
     if (events.type == SDL_QUIT) isRunning=false;// Si l'utilisateur a clique sur la croix de fermeture
 }
 
@@ -78,6 +94,7 @@ void game::render()
     SDL_RenderClear(renderer);
     //this is where we would add stuff to render
     m->drawMap(renderer);
+    s->setTexture(renderer, s->getPosX(), s->getPosY());
     SDL_RenderCopyEx(renderer,joueur->getTexture(),NULL,joueur->getRect(),-joueur->getAngle(),NULL,SDL_FLIP_NONE);
     SDL_RenderPresent(renderer);
 }
