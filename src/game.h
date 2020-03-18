@@ -4,6 +4,7 @@
 #include "personnage.h"
 #include "def.h"
 #include "map.h"
+#include "soin.h"
 #include <iostream>
 
 class game
@@ -14,6 +15,7 @@ private:
     personnage* joueur;
     SDL_Window * window;
     SDL_Renderer *renderer;
+    soin* s;
     
 
 public:
