@@ -1,0 +1,58 @@
+#include "text.h"
+
+text::text()
+{
+    texte = "" ;
+    color = { 0, 0, 0 };
+    font = TTF_OpenFont("fonts/Life_is_goofy.ttf", 50);
+}
+
+text::~text() {} ;
+
+const char * text::getTexte()
+{
+    return texte;
+}
+
+SDL_Color text::getColor()
+{
+    return color;
+}
+
+TTF_Font *text::getFont()
+{
+    return font ;
+}
+
+int text::getPosX()
+{
+    return posX;
+}
+
+int text::getPosY()
+{
+    return posY;
+}
+
+void text::setFont(TTF_Font *f)
+{
+    font = f ;
+}
+
+void text::setColor(SDL_Color c)
+{
+    color = c ;
+}
+
+void text::setPosText(int x, int y)
+{
+    posX = x ;
+    posY = y ;
+}
+
+void text::setTexte(const char *t1, SDL_Renderer *ren, int x, int y)
+{
+    texte = t1;
+    t->setTexture(t->loadTextureText(texte,font,color,ren));
+    t->renderTexture(t->getTexture(),ren, x, y);
+}
