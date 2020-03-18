@@ -1,12 +1,12 @@
 all : bin/affichage
 
-bin/affichage: obj/main.o obj/game.o obj/complex.o obj/personnage.o obj/texture.o obj/map.o 
-	g++ obj/main.o obj/game.o obj/personnage.o obj/complex.o obj/texture.o obj/map.o -o bin/affichage -lSDL2 -lSDL2_image
+bin/affichage: obj/main.o obj/game.o obj/complex.o obj/personnage.o obj/texture.o obj/map.o obj/soin.o
+	g++ obj/main.o obj/game.o obj/personnage.o obj/complex.o obj/texture.o obj/map.o obj/soin.o -o bin/affichage -lSDL2 -lSDL2_image
 
-obj/main.o: src/main.cpp src/terrain.h src/obstacle.h src/game.h src/complex.h src/personnage.h src/map.h src/texture.h
+obj/main.o: src/main.cpp src/terrain.h src/obstacle.h src/game.h src/complex.h src/personnage.h src/map.h src/texture.h src/soin.o
 	g++ -Wall -c src/main.cpp -o obj/main.o
 
-obj/game.o : src/game.cpp src/game.h src/complex.h src/personnage.h src/map.h
+obj/game.o : src/game.cpp src/game.h src/complex.h src/personnage.h src/map.h src/soin.h
 	g++ -Wall -c src/game.cpp -o obj/game.o -lSDL2 -lSDL2_image
 
 obj/terrain.o: src/terrain.cpp src/terrain.h src/obstacle.h
@@ -23,6 +23,9 @@ obj/complex.o: src/complex.cpp src/complex.h
 
 obj/texture.o: src/texture.cpp src/texture.h 
 	g++ -Wall -c src/texture.cpp -o obj/texture.o -lSDL2 -lSDL2_image
+
+obj/soin.o: src/soin.cpp src/soin.h 
+	g++ -Wall -c src/soin.cpp -o obj/soin.o 
 
 obj/map.o: src/map.cpp src/map.h src/texture.h
 	g++ -Wall -c src/map.cpp -o obj/map.o -lSDL2 -lSDL2_image
