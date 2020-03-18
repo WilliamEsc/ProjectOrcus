@@ -28,6 +28,27 @@
         return texture ;
     }
 
+       SDL_Texture* texture::loadTextureText(const char * texte, TTF_Font *font, SDL_Color color, SDL_Renderer *ren)
+    {
+        SDL_Texture *texture = nullptr;
+        SDL_Surface *surface = TTF_RenderText_Solid(font, texte, color);
+
+        if (surface != nullptr)
+        {
+            texture = SDL_CreateTextureFromSurface(ren, surface);
+            SDL_FreeSurface(surface);
+            if(texture == nullptr)
+            {
+               std::cout << " error CreateTextureFromSurface " << std::endl;
+            }
+        }
+        else 
+        {
+             std::cout << " Image load " << std::endl;
+        }
+        return texture ;
+    }
+
     void texture::renderTexture(SDL_Texture*tex, SDL_Renderer *ren, int x, int y){
         SDL_Rect dst;
         dst.x = x;
