@@ -5,6 +5,7 @@
 #include "def.h"
 #include "map.h"
 #include "soin.h"
+#include "text.h"
 #include <iostream>
 
 class game
@@ -16,6 +17,7 @@ private:
     SDL_Window * window;
     SDL_Renderer *renderer;
     soin* s;
+    text* t;
     
 
 public:
@@ -25,6 +27,7 @@ public:
     void init(const char* title, int posX, int posY, int width, int height, bool fullscreen);
     
     void handleEvents();
+    void heal();
     void update();
     void render();
     void clean();
