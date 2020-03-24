@@ -48,7 +48,7 @@ void game::init(const char* title, int posX, int posY, int width, int height, bo
     SDL_FreeSurface(tmpsurface);
     m = new map(renderer);
     s = new soin();
-    s->setPos(400-16,300-16);
+    s->setPos(384,284);
     t = new text() ;
 }
 
@@ -78,12 +78,13 @@ void game::handleEvents()
     joueur->deplace(f,ang);
 
     if (events.type == SDL_QUIT) isRunning=false;// Si l'utilisateur a clique sur la croix de fermeture
-    events.type = SDL_KEYDOWN;
-    if (events.key.keysym.sym == SDL_SCANCODE_X)
+    if (keystates[SDL_SCANCODE_X])
     {
          //s->setPointDeVie(s->getPointDeVie()-10);
         //std::cout << "Point de vie : " << s->getPointDeVie() << std::endl ;
-        std::cout << "position perso : " << joueur->getPos() << std::endl ;
+        std::cout << "pdv : " << joueur->getPdv() << std::endl ;
+
+        std::cout << "position perso : " << joueur->getPos()->getComplexX() <<" "<< joueur->getPos()->getComplexY() << std::endl ;
         std::cout << "position kit x: " << s->getPosX() << "y :"<< s->getPosY() << std::endl ;
     }
 }
@@ -96,16 +97,14 @@ void game::heal()
 void game::update()
 {
     joueur->update();
-    //  if(
-    //     joueur->getRect()->x+joueur->getRect()->w >= s->getRect()->x &&
-    //     s->getRect()->x+s->getRect()->w >= joueur->getRect()->x &&
-    //     joueur->getRect()->y+joueur->getRect()->h >= s->getRect()->y &&
-    //     s->getRect()->y+s->getRect()->h >= joueur->getRect()->y 
-    // )
-    // {
-    //     s->setPointDeVie(s->getPointDeVie()+10);
-    //     std::cout << "Point de vie : " << s->getPointDeVie() << std::endl ; 
-    // }
+    Complex pos= *joueur->getPos();
+    Complex posS(s->getPosX(),s->getPosY());
+    pos.Soustrait(&posS);
+    if(pos.norme()<50 && s->getPop())
+    {
+        joueur->setPdv(joueur->getPdv()+10);
+        s->setPop(false);
+    }
 }
 
 void game::render()
@@ -113,9 +112,13 @@ void game::render()
     SDL_RenderClear(renderer);
     //this is where we would add stuff to render
     m->drawMap(renderer);
-    SDL_RenderCopyEx(renderer,joueur->getTexture(),NULL,joueur->getRect(),-joueur->getAngle(),NULL,SDL_FLIP_NONE);
+    if(s->getPop())
     s->setTexture(renderer, s->getPosX(), s->getPosY());
     t->setTexte("Point de vie",renderer,0,0);
+    std::string txtPdv=std::to_string(joueur->getPdv());
+    t->setTexte(txtPdv.c_str(),renderer,0,20);
+    SDL_RenderCopyEx(renderer,joueur->getTexture(),NULL,joueur->getRect(),-joueur->getAngle(),NULL,SDL_FLIP_NONE);
+
     //TTF_CloseFont(t->getFont());
     SDL_RenderPresent(renderer);
     
