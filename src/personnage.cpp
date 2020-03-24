@@ -4,6 +4,7 @@ personnage::personnage(){
     pos=new Complex(20,20);
     vit=new Complex(20,21);
     angle=0;
+    pdv=100;
     destRect.h=128;
     destRect.w=128;
     destRect.x=pos->getComplexX();
@@ -28,6 +29,14 @@ Complex* personnage::getVit()const{
 
 double personnage::getAngle()const{
     return angle;
+}
+
+int personnage::getPdv()const{
+    return pdv;
+}
+
+void personnage::setPdv(int n){
+    pdv=n;
 }
 
 void personnage::setTexture(SDL_Renderer* renderer,SDL_Surface* surface){
