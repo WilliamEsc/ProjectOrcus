@@ -9,8 +9,8 @@ class soin
 private:
     float pdv; 
     texture *s = new texture();
-    int posX;
-    int posY;
+    float posX;
+    float posY;
 
 public:
 
@@ -19,12 +19,14 @@ public:
     int getPointDeVie();
     void setPointDeVie(float nbv);
 
-    int getPosX();
-    int getPosY();
-    void setPos(int x, int y);
+    float getPosX();
+    float getPosY();
+    void setPos(float x, float y);
 
     // SDL_Texture *getTexture();
-    void setTexture(SDL_Renderer *ren, int x, int y);
+    void setTexture(SDL_Renderer *ren, float x, float y);
+
+    SDL_Rect* getRect() ;
 
     ~soin();
 };
