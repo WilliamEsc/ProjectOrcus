@@ -10,31 +10,36 @@ int soin::getPointDeVie()
     return pdv ;
 }
 
-int soin::getPosX()
+float soin::getPosX()
 {
     return posX;
 }
 
-int soin::getPosY()
+float soin::getPosY()
 {
     return posY;
 }
 
-void soin::setPos(int x, int y)
+void soin::setPos(float x, float y)
 {
     posX = x;
     posY = y;
 }
 
-void soin::setTexture(SDL_Renderer *ren, int x, int y)
+void soin::setTexture(SDL_Renderer *ren, float x, float y)
 {
     s->setTexture(s->loadTexture("Data/kitDeSoin.png",ren));
-    s->renderTexture(s->getTexture(),ren,x,y);
+    s->renderTexture(s->getTexture(),ren,s->getRect2(),x,y);
 }
 
 void soin::setPointDeVie(float nbv)
 {
     pdv = nbv ;
+}
+
+SDL_Rect* soin::getRect()
+{
+    return s->getRect();
 }
 
 soin::~soin(){}
