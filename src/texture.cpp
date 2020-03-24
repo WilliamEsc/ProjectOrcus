@@ -49,8 +49,7 @@
         return texture ;
     }
 
-    void texture::renderTexture(SDL_Texture*tex, SDL_Renderer *ren, int x, int y){
-        SDL_Rect dst;
+    void texture::renderTexture(SDL_Texture*tex, SDL_Renderer *ren, SDL_Rect dst, float x, float y){
         dst.x = x;
         dst.y = y;
         SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
@@ -75,4 +74,14 @@
     SDL_Texture *texture::getTexture()
     {
         return tex;
+    }
+
+    SDL_Rect* texture::getRect()
+    {
+        return &dest;
+    }
+
+    SDL_Rect texture::getRect2()
+    {
+        return dest;
     }
