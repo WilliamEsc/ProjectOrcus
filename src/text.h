@@ -11,8 +11,8 @@ private:
     const char *texte ;
     SDL_Color color ;
     TTF_Font *font ;
-    int posX;
-    int posY;
+    float posX;
+    float posY;
     texture *t= new texture();
 
 public:
@@ -23,13 +23,13 @@ public:
     const char *getTexte();
     SDL_Color getColor();
     TTF_Font *getFont();
-    int getPosX();
-    int getPosY();
+    float getPosX();
+    float getPosY();
 
-    void setTexte(const char *t1,SDL_Renderer *ren, int x, int y);
+    void setTexte(const char *t1,SDL_Renderer *ren, float x, float y);
     void setColor(SDL_Color c);
     void setFont(TTF_Font *f);
-    void setPosText(int x, int y);
+    void setPosText(float x, float y);
 };
 
 #endif
