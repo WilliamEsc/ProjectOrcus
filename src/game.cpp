@@ -6,6 +6,8 @@ game::game(){};
 game::~game(){};
  map* m;
 
+ 
+
 void game::init(const char* title, int posX, int posY, int width, int height, bool fullscreen)
 {
     int flags = 0;
@@ -59,16 +61,16 @@ void game::handleEvents()
     const Uint8* keystates;
     keystates = SDL_GetKeyboardState(NULL);
     if (keystates[SDL_SCANCODE_W]) {
-        f=0.10;
+        f=0.6;
     }
     if (keystates[SDL_SCANCODE_S]) {
-        f=-0.10;
+        f=-0.6;
     }
     if (keystates[SDL_SCANCODE_A]) {
-        ang=0.05;
+        ang=0.3;
     }
     if (keystates[SDL_SCANCODE_D]) {
-       ang=-0.05;
+       ang=-0.3;
     }
     if (keystates[SDL_SCANCODE_ESCAPE]){
         isRunning=false;
@@ -76,33 +78,34 @@ void game::handleEvents()
     joueur->deplace(f,ang);
 
     if (events.type == SDL_QUIT) isRunning=false;// Si l'utilisateur a clique sur la croix de fermeture
+    events.type = SDL_KEYDOWN;
+    if (events.key.keysym.sym == SDL_SCANCODE_X)
+    {
+         //s->setPointDeVie(s->getPointDeVie()-10);
+        //std::cout << "Point de vie : " << s->getPointDeVie() << std::endl ;
+        std::cout << "position perso : " << joueur->getPos() << std::endl ;
+        std::cout << "position kit x: " << s->getPosX() << "y :"<< s->getPosY() << std::endl ;
+    }
 }
 
 void game::heal()
 {
-    const Uint8* keystates;
-    keystates = SDL_GetKeyboardState(NULL);
-    if (keystates[SDL_SCANCODE_X]) {
-       s->setPointDeVie(s->getPointDeVie()-10);
-       std::cout << "Point de vie : " << s->getPointDeVie() << std::endl ; 
-    }
-
-    if(joueur->getPos()->getComplexX() >= s->getPosX() && 
-        joueur->getPos()->getComplexX() <= s->getPosX()+32 && 
-        joueur->getPos()->getComplexY() >= s->getPosY() &&
-        joueur->getPos()->getComplexY() <= s->getPosY()+32 
-        )
-    {
-        s->setPointDeVie(s->getPointDeVie()+10);
-        std::cout << "Point de vie : " << s->getPointDeVie() << std::endl ; 
-    }
-
-
+     //SDL_bool col = SDL_HasIntersection(joueur->getRect(), s->getRect());
 }
 
 void game::update()
 {
     joueur->update();
+    //  if(
+    //     joueur->getRect()->x+joueur->getRect()->w >= s->getRect()->x &&
+    //     s->getRect()->x+s->getRect()->w >= joueur->getRect()->x &&
+    //     joueur->getRect()->y+joueur->getRect()->h >= s->getRect()->y &&
+    //     s->getRect()->y+s->getRect()->h >= joueur->getRect()->y 
+    // )
+    // {
+    //     s->setPointDeVie(s->getPointDeVie()+10);
+    //     std::cout << "Point de vie : " << s->getPointDeVie() << std::endl ; 
+    // }
 }
 
 void game::render()
@@ -110,8 +113,8 @@ void game::render()
     SDL_RenderClear(renderer);
     //this is where we would add stuff to render
     m->drawMap(renderer);
-    s->setTexture(renderer, s->getPosX(), s->getPosY());
     SDL_RenderCopyEx(renderer,joueur->getTexture(),NULL,joueur->getRect(),-joueur->getAngle(),NULL,SDL_FLIP_NONE);
+    s->setTexture(renderer, s->getPosX(), s->getPosY());
     t->setTexte("Point de vie",renderer,0,0);
     //TTF_CloseFont(t->getFont());
     SDL_RenderPresent(renderer);
