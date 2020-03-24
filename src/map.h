@@ -13,7 +13,7 @@ class map
         map(SDL_Renderer* rend);
         ~map();
 
-        void loadMap(int arr[20][25]);
+        void loadMap(int arr[36][64]);
         void drawMap(SDL_Renderer* rend);
 
 
@@ -29,7 +29,7 @@ class map
         texture *water = new texture() ;
         texture *stone = new texture() ;
 
-        int carte[20][25];
+        int carte[36][64];
 
 };
 
