@@ -55,7 +55,7 @@ void Complex::AjoutY(const float y2){
 
 void Complex::Soustrait(const Complex* cplx){
     x-=cplx->getComplexX();
-    y-=y-cplx->getComplexY();
+    y-=cplx->getComplexY();
 }
 
 void Complex::Multiplie(const Complex* cplx){
