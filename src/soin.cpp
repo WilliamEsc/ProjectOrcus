@@ -2,12 +2,17 @@
 
 soin::soin()
 {
-    pdv = 100 ;
+    pop =true;
 }
 
-int soin::getPointDeVie()
+bool soin::getPop() const
 {
-    return pdv ;
+    return pop ;
+}
+
+void soin::setPop(bool b)
+{
+    pop = b ;
 }
 
 float soin::getPosX()
@@ -30,11 +35,6 @@ void soin::setTexture(SDL_Renderer *ren, float x, float y)
 {
     s->setTexture(s->loadTexture("Data/kitDeSoin.png",ren));
     s->renderTexture(s->getTexture(),ren,s->getRect2(),x,y);
-}
-
-void soin::setPointDeVie(float nbv)
-{
-    pdv = nbv ;
 }
 
 SDL_Rect* soin::getRect()

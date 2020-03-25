@@ -8,6 +8,7 @@ private:
     Complex* pos;
     Complex* vit;
     double angle;
+    int pdv;
     SDL_Texture* Pion;
     SDL_Rect destRect;
 
@@ -19,6 +20,8 @@ public:
     Complex* getPos()const;
     Complex* getVit()const;
     double getAngle()const;
+    int getPdv()const;
+    void setPdv(int n);
     void setTexture(SDL_Renderer* renderer,SDL_Surface* surface);
     void ajoutAngle(double deg);
     void deplace(float f,double ang);

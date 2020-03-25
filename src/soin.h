@@ -7,7 +7,7 @@
 class soin
 {
 private:
-    float pdv; 
+    bool pop;
     texture *s = new texture();
     float posX;
     float posY;
@@ -16,7 +16,8 @@ public:
 
     soin();
 
-    int getPointDeVie();
+    bool getPop()const;
+    void setPop(bool b);
     void setPointDeVie(float nbv);
 
     float getPosX();
