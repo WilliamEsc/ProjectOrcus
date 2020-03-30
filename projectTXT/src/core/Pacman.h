@@ -8,15 +8,15 @@
 #ifndef _PACMAN_H
 #define _PACMAN_H
 
-#include "Fantome.h"
-
 #include "Arme.h"
 #include "Personnage.h"
+#include <cassert>
 #include "iostream"
 
 /**
 @brief Un Pacman = sa position 2D
 */
+
 class Fantome;
 class Pacman : public Personnage {
 
@@ -35,11 +35,14 @@ public:
     char *affichePdv(char *str)const;
     void tir(const Terrain & t);
 
-    void updateBalle(const Terrain & t,Fantome& fan,Fantome& fan2);
+    void updateBalle(const Terrain & t,Fantome fan[],int nbF);
+    // void updateBalle(const Terrain & t,Fantome& fan,Fantome& fan2);
     void canonB();
     void canonG();
     void canonH();
     void canonD();
+
+     void testRegression() ;
 };
 
 #endif
