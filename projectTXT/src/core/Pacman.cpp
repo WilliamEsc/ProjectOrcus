@@ -87,12 +87,21 @@ char* Pacman::affichePdv(char *str)const
 }
 
  void Pacman::testRegression(){
-	
+	Terrain t;
+
 	int i=1;
 	
 	assert(x==1 && y==2 && pdv==50 && a.getPosX()==x && a.getPosY()==y && a.getIncX()==0 && a.getIncY()==1 && !a.getPop());
 	std::cout << "test " << i << " reussi" << std::endl ;
     i++ ;
+
+	bas(t);
+	canonB();
+	assert(x==1 && y==3 && a.getPosX()==x && a.getPosY()==y);
+	std::cout << "test " << i << " reussi" << std::endl ;
+	std::cout << "descend! " << std::endl ;
+    i++ ;
+
 
 	setPdv(99);
 	assert(pdv==99);
@@ -103,6 +112,57 @@ char* Pacman::affichePdv(char *str)const
 
 	assert(b.getPosX()==a.getPosX() && b.getPosY()==a.getPosY() && b.getIncX()==a.getIncX() && b.getIncY()==a.getIncY() && !b.getPop());
 	std::cout << "test " << i << " reussi" << std::endl ;
+    i++ ;
+
+	Fantome fan1(1,4);
+	Fantome fan2(2,3);
+	Fantome fan3(3,3);
+
+	tir(t);
+	assert(fan1.getPop() && fan2.getPop() && fan3.getPop() && a.getPop());
+	std::cout << "test " << i << " reussi" << std::endl ;
+	std::cout << "tir,balle active,aucun update de la balle,tous fantome vivant"<< std::endl;
+    i++ ;
+
+
+	updateBalle(t,fan1,fan2);
+	assert(!fan1.getPop() && fan2.getPop() && fan3.getPop() && !a.getPop());
+	std::cout << "test " << i << " reussi" << std::endl ;
+	std::cout << "update de la balle,fan1 mort, fan2 vivant,fan3 vivant, balle inactive"<< std::endl;
+    i++ ;
+
+	canonD();
+	assert(!fan1.getPop() && fan2.getPop() && fan3.getPop() && !a.getPop());
+	std::cout << "test " << i << " reussi" << std::endl ;
+	std::cout << "tourne a droite, balle inactive"<< std::endl;
+    i++ ;
+
+	tir(t);
+	updateBalle(t,fan1,fan2);
+	assert(!fan1.getPop() && !fan2.getPop() && fan3.getPop() && !a.getPop());
+	std::cout << "test " << i << " reussi" << std::endl ;
+	std::cout << "tir,update,fan1 toujours mort,fan2 mort,fan3 vivant, balle inactive"<< std::endl;
+    i++ ;
+
+	updateBalle(t,fan2,fan3);
+	assert(!fan1.getPop() && !fan2.getPop() && fan3.getPop() && !a.getPop());
+	std::cout << "test " << i << " reussi" << std::endl ;
+	std::cout << "update balle inactive,fan1 mort,fan2 mort,fan3 toujours vivant"<< std::endl;
+    i++ ;
+
+	tir(t);
+	updateBalle(t,fan1,fan2);
+	canonG();
+	tir(t);
+	assert(a.getPosX()==2 && a.getPosY()==3 && a.getPop());
+	std::cout << "test " << i << " reussi" << std::endl ;
+	std::cout << "tir,update de la balle (active),tourne,tir impossible balle toujours a droite"<< std::endl;
+    i++ ;
+
+	a.setPop(false);
+	assert(!a.getPop());
+	std::cout << "test " << i << " reussi" << std::endl ;
+	std::cout << "desactive la balle"<< std::endl;
     i++ ;
  }
 
