@@ -67,7 +67,7 @@ void Arme::bougeBalle(const Terrain & t,Fantome fan[],int size,const int & pacx,
         Incy=Savy;
     }
     for(int i=0;i<size;i++){
-    if(tx==fan[i].getX() && ty==fan[i].getY() && fan[i].getPop()){
+    if(tx==fan[i].getX() && ty==fan[i].getY() && fan[i].getPop() && pop){
         pop=false;
         fan[i].setPop(false);
         tx=pacx;
