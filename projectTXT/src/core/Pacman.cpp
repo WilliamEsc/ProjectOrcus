@@ -1,4 +1,5 @@
 #include "Pacman.h"
+#include "Fantome.h"
 
 Pacman::Pacman () : Personnage(){
  	x = 1 ;
@@ -29,14 +30,10 @@ void Pacman::tir(const Terrain & t)
 		a.setPop(true);
 }
 
-void Pacman::updateBalle(const Terrain & t,Fantome& fan,Fantome& fan2){
-	bool fanb=fan.getPop();
-	bool fan2b=fan2.getPop();
+void Pacman::updateBalle(const Terrain & t,Fantome fan[],int nbF){
 	if(a.getPop()){
-		a.bougeBalle(t,fan.getX(),fan.getY(),fanb,fan2.getX(),fan2.getY(),fan2b,x,y);
+		a.bougeBalle(t,fan,nbF,x,y);
 	}
-	fan.setPop(fanb);
-	fan2.setPop(fan2b);
 }
 
 void Pacman::canonG(){
@@ -114,44 +111,48 @@ char* Pacman::affichePdv(char *str)const
 	std::cout << "test " << i << " reussi" << std::endl ;
     i++ ;
 
-	Fantome fan1(1,4);
-	Fantome fan2(2,3);
-	Fantome fan3(3,3);
+	Fantome fan[3];
+	fan[0].setX(1);
+	fan[0].setY(4);
+	fan[1].setX(2);
+	fan[1].setY(3);
+	fan[2].setX(3);
+	fan[2].setY(3);
 
 	tir(t);
-	assert(fan1.getPop() && fan2.getPop() && fan3.getPop() && a.getPop());
+	assert(fan[0].getPop() && fan[1].getPop() && fan[2].getPop() && a.getPop());
 	std::cout << "test " << i << " reussi" << std::endl ;
 	std::cout << "tir,balle active,aucun update de la balle,tous fantome vivant"<< std::endl;
     i++ ;
 
 
-	updateBalle(t,fan1,fan2);
-	assert(!fan1.getPop() && fan2.getPop() && fan3.getPop() && !a.getPop());
+	updateBalle(t,fan,3);
+	assert(!fan[0].getPop() && fan[1].getPop() && fan[2].getPop() && !a.getPop());
 	std::cout << "test " << i << " reussi" << std::endl ;
 	std::cout << "update de la balle,fan1 mort, fan2 vivant,fan3 vivant, balle inactive"<< std::endl;
     i++ ;
 
 	canonD();
-	assert(!fan1.getPop() && fan2.getPop() && fan3.getPop() && !a.getPop());
+	assert(!fan[0].getPop() && fan[1].getPop() && fan[2].getPop() && !a.getPop());
 	std::cout << "test " << i << " reussi" << std::endl ;
 	std::cout << "tourne a droite, balle inactive"<< std::endl;
     i++ ;
 
 	tir(t);
-	updateBalle(t,fan1,fan2);
-	assert(!fan1.getPop() && !fan2.getPop() && fan3.getPop() && !a.getPop());
+	updateBalle(t,fan,3);
+	assert(!fan[0].getPop() && !fan[1].getPop() && fan[2].getPop() && !a.getPop());
 	std::cout << "test " << i << " reussi" << std::endl ;
 	std::cout << "tir,update,fan1 toujours mort,fan2 mort,fan3 vivant, balle inactive"<< std::endl;
     i++ ;
 
-	updateBalle(t,fan2,fan3);
-	assert(!fan1.getPop() && !fan2.getPop() && fan3.getPop() && !a.getPop());
+	updateBalle(t,fan,3);
+	assert(!fan[0].getPop() && !fan[1].getPop() && fan[2].getPop() && !a.getPop());
 	std::cout << "test " << i << " reussi" << std::endl ;
 	std::cout << "update balle inactive,fan1 mort,fan2 mort,fan3 toujours vivant"<< std::endl;
     i++ ;
 
 	tir(t);
-	updateBalle(t,fan1,fan2);
+	updateBalle(t,fan,3);
 	canonG();
 	tir(t);
 	assert(a.getPosX()==2 && a.getPosY()==3 && a.getPop());
