@@ -9,6 +9,7 @@ CORE = core/Terrain.cpp core/Personnage.cpp core/Pacman.cpp core/Jeu.cpp core/Fa
 
 SRCS_TXT = $(CORE) txt/txtJeu.cpp txt/winTxt.cpp txt/main_txt.cpp
 FINAL_TARGET_TXT = pacman_txt
+TEST_TARGET = regression
 #DEFINE_TXT = -DJEU_TXT
 
 # SRCS_SDL = $(CORE) sdl2/sdlJeu.cpp sdl2/main_sdl.cpp
@@ -40,7 +41,7 @@ CPPFLAGS 			= -Wall -ggdb   #-O2   # pour optimiser
 OBJ_DIR 			= obj
 SRC_DIR 			= src
 BIN_DIR 			= bin
-INCLUDE_DIR			= -Isrc -Isrc/core -Itxt
+INCLUDE_DIR			= -Isrc 
 # INCLUDE_DIR			= -Isrc -Isrc/core -Isrc/sdl2 -Itxt
 
 # default: make_dir $(BIN_DIR)/$(FINAL_TARGET_TXT) $(BIN_DIR)/$(FINAL_TARGET_SDL)
@@ -52,11 +53,17 @@ INCLUDE_DIR			= -Isrc -Isrc/core -Itxt
 # 	test -d $(OBJ_DIR) || mkdir -p $(OBJ_DIR) $(OBJ_DIR)/txt $(OBJ_DIR)/sdl2 $(OBJ_DIR)/core
 # endif
 
+$(BIN_DIR)/$(TEST_TARGET): $(OBJ_DIR)/core/Fantome.o $(OBJ_DIR)/mainRegression.o  $(OBJ_DIR)/core/Personnage.o $(OBJ_DIR)/core/Pacman.o $(OBJ_DIR)/core/Terrain.o $(OBJ_DIR)/core/Arme.o  
+	$(LD) $+ -o $@ $(LDFLAGS)
+
 $(BIN_DIR)/$(FINAL_TARGET_TXT): $(SRCS_TXT:%.cpp=$(OBJ_DIR)/%.o)
 	$(LD) $+ -o $@ $(LDFLAGS)
 
 # $(BIN_DIR)/$(FINAL_TARGET_SDL): $(SRCS_SDL:%.cpp=$(OBJ_DIR)/%.o)
 # 	$(LD) $+ -o $@ $(LDFLAGS) $(LIBS_SDL)
+
+$(OBJ_DIR)/mainRegression.o: src/mainRegression.cpp src/core/Fantome.cpp src/core/Personnage.cpp src/core/Arme.cpp src/core/Pacman.cpp src/core/Terrain.cpp
+	$(CC) -c $(CPPFLAGS) $(INCLUDE_DIR) $< -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) -c $(CPPFLAGS) $(INCLUDE_DIR) $< -o $@
