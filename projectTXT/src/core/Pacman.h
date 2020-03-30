@@ -40,6 +40,8 @@ public:
     void canonG();
     void canonH();
     void canonD();
+
+    void testRegression();
 };
 
 #endif
