@@ -25,21 +25,26 @@ private :
 
 	Terrain ter;
 	Pacman pac;
-	Fantome fan;
-    Fantome fan2;
+    Fantome* fan;
+    int nbF;
+	// Fantome fan;
+    // Fantome fan2;
     Soin s ;
 
 public :
 
     Jeu ();
+    ~Jeu ();
 
     Terrain& getTerrain ();
     Pacman& getPacman ();
 
     const Terrain& getConstTerrain () const;
     const Pacman& getConstPacman () const;
-    const Fantome& getConstFantome () const;
-    const Fantome& getConstFantome2 () const;
+    
+    const Fantome& getConstFantome (int i) const;
+    // const Fantome& getConstFantome () const;
+    // const Fantome& getConstFantome2 () const;
     const Soin& getConstSoin() const;
 
     int getNombreDeFantome() const;
