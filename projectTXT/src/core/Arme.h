@@ -27,6 +27,9 @@ public:
     void setPop(bool b);
     bool getPop()const;
 
+    int getSavX()const;
+    int getSavY()const;
+
     void bougeBalle(const Terrain & t,int fanx,int fany,bool& fanb,int fan2x,int fan2y,bool& fan2b,const int & pacx,const int & pacy);
 
 };
