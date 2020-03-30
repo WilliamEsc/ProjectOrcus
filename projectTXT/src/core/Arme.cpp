@@ -1,4 +1,6 @@
 #include "Arme.h"
+#include "Fantome.h"
+#include "Pacman.h"
 
 Arme::Arme(){
     pop=false;
@@ -53,29 +55,24 @@ bool Arme::getPop()const{
     return pop;
 }
 
-void Arme::bougeBalle(const Terrain & t,int fanx,int fany,bool & fanb, int fan2x,int fan2y,bool & fan2b,const int & pacx,const int & pacy){
+void Arme::bougeBalle(const Terrain & t,Fantome fan[],int size,const int & pacx,const int & pacy){
     if(t.estPositionPersoValide(tx+Incx,ty+Incy) && pop){
     tx+=Incx;
     ty+=Incy;}
-    else{
+     else{
         pop=false;
         tx=pacx;
         ty=pacy;
         Incx=Savx;
         Incy=Savy;
     }
-    if(tx==fanx && ty==fany && fanb){
+    for(int i=0;i<size;i++){
+    if(tx==fan[i].getX() && ty==fan[i].getY() && fan[i].getPop()){
         pop=false;
-        fanb=false;
+        fan[i].setPop(false);
         tx=pacx;
         ty=pacy;
         Incx=Savx;
         Incy=Savy;}
-    if(tx==fan2x && ty==fan2y && fan2b){
-        pop=false;
-        fan2b=false;
-        tx=pacx;
-        ty=pacy;
-        Incx=Savx;
-        Incy=Savy;}
+    }
 }
