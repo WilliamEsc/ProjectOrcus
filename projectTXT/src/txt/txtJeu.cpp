@@ -6,7 +6,7 @@
 #endif // WIN32
 
 #include "winTxt.h"
-#include "Jeu.h"
+#include "txtJeu.h"
 
 using namespace std;
 
