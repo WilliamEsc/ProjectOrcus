@@ -1,4 +1,5 @@
 #include "Fantome.h"
+#include "Pacman.h"
 
 Fantome::Fantome () {
 	x = y = 10;
@@ -12,6 +13,10 @@ Fantome::Fantome(int PosX, int PosY)
     y = PosY ;
     dir = 0 ;
     pop=true;
+}
+
+Fantome::~Fantome(){
+    std::cout<<"fille detruite"<<std::endl;
 }
 
 void Fantome::versPacman (const Terrain & t, const Pacman & p) {
