@@ -12,8 +12,8 @@ void Arme::setPos(int x,int y){
 }
 
 void Arme::setInc(int x,int y){
-    Incx=tx-x;
-    Incy=ty-y;
+    Incx=x;
+    Incy=y;
 }
 
 void Arme::setSav(int x,int y){
@@ -41,6 +41,14 @@ int Arme::getIncY()const{
     return Incy;
 }
 
+int Arme::getSavX()const{
+    return Savx;
+}
+
+int Arme::getSavY()const{
+    return Savy;
+}
+
 bool Arme::getPop()const{
     return pop;
 }
@@ -53,18 +61,21 @@ void Arme::bougeBalle(const Terrain & t,int fanx,int fany,bool & fanb, int fan2x
         pop=false;
         tx=pacx;
         ty=pacy;
-        setInc(Savx,Savy);
+        Incx=Savx;
+        Incy=Savy;
     }
     if(tx==fanx && ty==fany && fanb){
         pop=false;
         fanb=false;
         tx=pacx;
         ty=pacy;
-        setInc(Savx,Savy);}
+        Incx=Savx;
+        Incy=Savy;}
     if(tx==fan2x && ty==fan2y && fan2b){
         pop=false;
         fan2b=false;
         tx=pacx;
         ty=pacy;
-        setInc(Savx,Savy);}
+        Incx=Savx;
+        Incy=Savy;}
 }
