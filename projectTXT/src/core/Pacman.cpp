@@ -24,18 +24,15 @@ Arme Pacman::getArme() const{
 
 void Pacman::tir(const Terrain & t) 
 {
-	if(!a.getPop()){
+	if(t.estPositionPersoValide(a.getPosX(),a.getPosY()) && !a.getPop())
 		a.setPop(true);
-	}
 }
 
 void Pacman::updateBalle(const Terrain & t,Fantome& fan,Fantome& fan2){
 	bool fanb=fan.getPop();
 	bool fan2b=fan2.getPop();
 	if(a.getPop()){
-		a.bougeBalle(t,fan.getX(),fan.getY(),fanb,fan2.getX(),fan2.getY(),fan2b);
-		if(!a.getPop())
-			a.setPos(x+a.getIncX(),y+a.getIncY());
+		a.bougeBalle(t,fan.getX(),fan.getY(),fanb,fan2.getX(),fan2.getY(),fan2b,x,y);
 	}
 	fan.setPop(fanb);
 	fan2.setPop(fan2b);
@@ -45,27 +42,39 @@ void Pacman::canonG(){
 	if(!a.getPop()){
 		a.setPos(x-1,y);
 		a.setInc(x,y);}
+	else{
+		a.setSav(x+1,y);
+	}
 }
 
 void Pacman::canonD(){
 	if(!a.getPop()){
 	a.setPos(x+1,y);
 	a.setInc(x,y);}
+	else{
+		a.setSav(x-1,y);
+	}
 }
 
 void Pacman::canonH(){
 	if(!a.getPop()){
 	a.setPos(x,y-1);
 	a.setInc(x,y);}
+	else{
+		a.setSav(x,y+1);
+	}
 }
 
 void Pacman::canonB(){
 	if(!a.getPop()){
 	a.setPos(x,y+1);
 	a.setInc(x,y);}
+	else{
+		a.setSav(x,y-1);
+	}
 }
 
-char *Pacman::affichePdv(char *str)const
+char* Pacman::affichePdv(char *str)const
 {
 	int temp = pdv;
 	sprintf(str, "%d", temp);
