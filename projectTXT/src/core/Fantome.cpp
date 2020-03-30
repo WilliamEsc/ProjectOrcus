@@ -56,35 +56,46 @@ void Fantome :: testRegression()
     Terrain t;
     Pacman p ;
 
+    int i = 1 ;
+
     assert(fan.dir == 0);
-    std::cout << "test reussi" << std::endl ;
+    std::cout << "test " << i << " reussi" << std::endl ;
+    i++ ;
     assert(fan.pop == true);
-    std::cout << "test reussi" << std::endl ;
+    std::cout << "test " << i << " reussi" << std::endl ;
+    i++ ;
     assert(fan.x == 10);
-    std::cout << "test reussi" << std::endl ;
+    std::cout << "test " << i << " reussi" << std::endl ;
+    i++ ;
     assert(fan.x == 10); 
-    std::cout << "test reussi" << std::endl ;
+    std::cout << "test " << i << " reussi" << std::endl ;
+    i++ ;
 
     assert(fan.getPop() == pop) ;
-    std::cout << "test reussi" << std::endl ;
+    std::cout << "test " << i << " reussi" << std::endl ;
+    i++ ;
      
     int tx = fan.getX() ;
     int ty = fan.getY();
     fan.bougeAuto(t);
     assert(fan.getX() == tx+1 && fan.getY() == ty);
-    std::cout << "test reussi" << std::endl ;
+    std::cout << "test " << i << " reussi" << std::endl ;
+    i++ ;
 
     tx = fan.getX() ;
     ty = fan.getY();
     fan.versPacman(t,p) ;
     assert(fan.getX() == tx-1 && fan.getY() == ty-1);
-    std::cout << "test reussi" << std::endl ;
+    std::cout << "test " << i << " reussi" << std::endl ;
+    i++ ;
     
     fan.setPop(false) ;
-    std::cout << "test reussi" << std::endl ;
+    std::cout << "test " << i << " reussi" << std::endl ;
+    i++ ;
     
     assert(fan.getPop() == false) ;
-    std::cout << "test reussi" << std::endl ;
+    std::cout << "test " << i << " reussi" << std::endl ;
+    i++ ;
 
 
 }
