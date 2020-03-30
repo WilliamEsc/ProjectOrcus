@@ -90,7 +90,7 @@ char* Pacman::affichePdv(char *str)const
 	
 	int i=1;
 	
-	assert(x==1 && y==2 && pdv==50 && a.getPosX()==x && a.getPosY()==y+1 && a.getIncX()==0 && a.getIncY()==1 && !a.getPop());
+	assert(x==1 && y==2 && pdv==50 && a.getPosX()==x && a.getPosY()==y && a.getIncX()==0 && a.getIncY()==1 && !a.getPop());
 	std::cout << "test " << i << " reussi" << std::endl ;
     i++ ;
 
