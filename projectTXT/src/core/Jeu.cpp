@@ -1,7 +1,14 @@
 #include "Jeu.h"
 
-Jeu::Jeu () : ter(), pac(), fan(), fan2(9,7) {
-	// ter.mangePastille(pac.getX(),pac.getY());
+Jeu::Jeu () : ter(), pac() {
+	nbF=2;
+	fan=new Fantome [nbF];
+	fan[1].setX(8);
+	fan[1].setY(14);
+}
+
+Jeu::~Jeu(){
+	delete[] fan;
 }
 
 Terrain& Jeu::getTerrain () { return ter; }
@@ -12,13 +19,11 @@ const Terrain& Jeu::getConstTerrain () const { return ter; }
 
 const Pacman& Jeu::getConstPacman () const { return pac; }
 
-const Fantome& Jeu::getConstFantome () const { return fan; }
-
-const Fantome& Jeu::getConstFantome2 () const { return fan2; }
+const Fantome& Jeu::getConstFantome (int i) const { return fan[i]; }
 
 const Soin& Jeu::getConstSoin() const { return s ;}
 
-int Jeu::getNombreDeFantome() const { return 2; }
+int Jeu::getNombreDeFantome() const { return nbF; }
 
 
 void Jeu::actionClavier (const char touche) {
@@ -50,11 +55,11 @@ void Jeu::actionClavier (const char touche) {
 }
 
 void Jeu::actionsAutomatiques () {
-    //fan.versPacman(ter,pac);
-	pac.updateBalle(ter,fan,fan2);
-    fan.bougeAuto(ter);
-	fan2.bougeAuto(ter);
-	if ( (pac.getX() == fan.getX() && pac.getY() == fan.getY() && fan.getPop()) || (pac.getX() == fan2.getX() && pac.getY() == fan2.getY() && fan2.getPop()) ) {
+	pac.updateBalle(ter,fan,nbF);
+	for(int i=0;i<2;i++){
+    fan[i].bougeAuto(ter);
+	if (pac.getX() == fan[i].getX() && pac.getY() == fan[i].getY() && fan[i].getPop()) {
 		s.hitPac(pac);
+	}
 	}
 }
