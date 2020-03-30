@@ -5,6 +5,8 @@
 #include "Terrain.h"
 #include "iostream"
 
+class Fantome;
+class Pacman;
 class Arme{
 
 protected:
@@ -24,10 +26,12 @@ public:
     int getPosY()const;
     int getIncX()const;
     int getIncY()const;
+    int getSavX()const;
+    int getSavY()const;
     void setPop(bool b);
     bool getPop()const;
 
-    void bougeBalle(const Terrain & t,int fanx,int fany,bool& fanb,int fan2x,int fan2y,bool& fan2b,const int & pacx,const int & pacy);
+    void bougeBalle(const Terrain & t,Fantome fan[],int size,const int & pacx,const int & pacy);
 
 };
 
