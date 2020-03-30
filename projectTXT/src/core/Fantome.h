@@ -10,7 +10,6 @@
 #include <stdlib.h>
 #include <cassert>
 
-#include "Pacman.h"
 #include "Terrain.h"
 #include "Personnage.h"
 
@@ -20,7 +19,7 @@
 @brief Un fantome = sa position 2D
 */
 class Pacman;
-class Fantome : public Personnage {
+class Fantome : virtual public Personnage {
 
 protected :
 
@@ -32,6 +31,7 @@ public:
 
     Fantome();
     Fantome(int x, int y);
+    virtual ~Fantome();
 
     void setPop(bool b);
     bool getPop()const;
