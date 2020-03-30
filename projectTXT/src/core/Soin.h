@@ -15,6 +15,7 @@ class Soin : public Object
     Soin();
     void soignerPac(Pacman &p) ;
     void hitPac(Pacman &p) ;
+    void testRegression();
 
 };
 
