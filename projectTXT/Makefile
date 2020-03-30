@@ -5,7 +5,7 @@
 # $? : La liste des dṕendances plus récente que la cible 
 # $* : Le nom du fichier sans suffixe 
 
-CORE = core/Terrain.cpp core/Personnage.cpp core/Pacman.cpp core/Jeu.cpp core/Fantome.cpp core/object.cpp core/Soin.cpp
+CORE = core/Terrain.cpp core/Personnage.cpp core/Pacman.cpp core/Jeu.cpp core/Fantome.cpp core/object.cpp core/Soin.cpp core/Arme.cpp
 
 SRCS_TXT = $(CORE) txt/txtJeu.cpp txt/winTxt.cpp txt/main_txt.cpp
 FINAL_TARGET_TXT = pacman_txt
