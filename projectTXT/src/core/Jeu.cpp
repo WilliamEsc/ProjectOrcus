@@ -1,6 +1,6 @@
 #include "Jeu.h"
 
-Jeu::Jeu () : ter(), pac(), fan() {
+Jeu::Jeu () : ter(), pac(), fan(), fan2(9,7) {
 	// ter.mangePastille(pac.getX(),pac.getY());
 }
 
@@ -25,15 +25,22 @@ void Jeu::actionClavier (const char touche) {
 	switch(touche) {
 		case 'g' :
 				pac.gauche(ter);
+				pac.canonG();
 				break;
 		case 'd' :
 				pac.droite(ter);
+				pac.canonD();
 				break;
 		case 'h' :
 				pac.haut(ter);
+				pac.canonH();
 				break;
 		case 'b' :
 				pac.bas(ter);
+				pac.canonB();
+				break;
+		case 't' :
+				pac.tir(ter);
 				break;
 	}
 	if (ter.getXY(pac.getX(),pac.getY())=='+') {
@@ -44,6 +51,7 @@ void Jeu::actionClavier (const char touche) {
 
 void Jeu::actionsAutomatiques () {
     //fan.versPacman(ter,pac);
+	pac.updateBalle(ter,fan,fan2);
     fan.bougeAuto(ter);
 	fan2.bougeAuto(ter);
 	if ( (pac.getX() == fan.getX() && pac.getY() == fan.getY()) || (pac.getX() == fan2.getX() && pac.getY() == fan2.getY()) ) {
