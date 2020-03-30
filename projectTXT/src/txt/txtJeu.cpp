@@ -15,8 +15,8 @@ char str[2];
 void txtAff(WinTXT & win, const Jeu & jeu) {
 	const Terrain& ter = jeu.getConstTerrain();
 	const Pacman& pac = jeu.getConstPacman();
-	const Fantome& fan = jeu.getConstFantome();
-	const Fantome& fan2 = jeu.getConstFantome2();
+	const Fantome& fan = jeu.getConstFantome(0);
+	const Fantome& fan2 = jeu.getConstFantome(1);
 	
 	win.clear();
 
