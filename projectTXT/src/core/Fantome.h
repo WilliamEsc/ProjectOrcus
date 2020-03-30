@@ -8,6 +8,7 @@
 #define _FANTOME_H
 
 #include <stdlib.h>
+#include <cassert>
 
 #include "Pacman.h"
 #include "Terrain.h"
@@ -36,6 +37,7 @@ public:
     bool getPop()const;
     void versPacman (const Terrain & t, const Pacman & p);
     void bougeAuto (const Terrain & t);
+    void testRegression() ;
 
 };
 
