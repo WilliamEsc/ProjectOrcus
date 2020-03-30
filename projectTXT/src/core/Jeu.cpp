@@ -54,7 +54,7 @@ void Jeu::actionsAutomatiques () {
 	pac.updateBalle(ter,fan,fan2);
     fan.bougeAuto(ter);
 	fan2.bougeAuto(ter);
-	if ( (pac.getX() == fan.getX() && pac.getY() == fan.getY()) || (pac.getX() == fan2.getX() && pac.getY() == fan2.getY()) ) {
+	if ( (pac.getX() == fan.getX() && pac.getY() == fan.getY() && fan.getPop()) || (pac.getX() == fan2.getX() && pac.getY() == fan2.getY() && fan2.getPop()) ) {
 		s.hitPac(pac);
 	}
 }
