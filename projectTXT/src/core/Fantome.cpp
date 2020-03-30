@@ -49,3 +49,42 @@ void Fantome::setPop(bool b){
 bool Fantome::getPop()const{
     return pop;
 }
+
+void Fantome :: testRegression()
+{
+    Fantome fan;
+    Terrain t;
+    Pacman p ;
+
+    assert(fan.dir == 0);
+    std::cout << "test reussi" << std::endl ;
+    assert(fan.pop == true);
+    std::cout << "test reussi" << std::endl ;
+    assert(fan.x == 10);
+    std::cout << "test reussi" << std::endl ;
+    assert(fan.x == 10); 
+    std::cout << "test reussi" << std::endl ;
+
+    assert(fan.getPop() == pop) ;
+    std::cout << "test reussi" << std::endl ;
+     
+    int tx = fan.getX() ;
+    int ty = fan.getY();
+    fan.bougeAuto(t);
+    assert(fan.getX() == tx+1 && fan.getY() == ty);
+    std::cout << "test reussi" << std::endl ;
+
+    tx = fan.getX() ;
+    ty = fan.getY();
+    fan.versPacman(t,p) ;
+    assert(fan.getX() == tx-1 && fan.getY() == ty-1);
+    std::cout << "test reussi" << std::endl ;
+    
+    fan.setPop(false) ;
+    std::cout << "test reussi" << std::endl ;
+    
+    assert(fan.getPop() == false) ;
+    std::cout << "test reussi" << std::endl ;
+
+
+}
