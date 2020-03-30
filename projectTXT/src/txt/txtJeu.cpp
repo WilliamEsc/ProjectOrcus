@@ -27,9 +27,13 @@ void txtAff(WinTXT & win, const Jeu & jeu) {
 
     // Affichage de Pacman
 	win.print(pac.getX(),pac.getY(),'P');
+	if(pac.getArme().getPop())
+	win.print(pac.getArme().getPosX(),pac.getArme().getPosY(),'@');
 	// Affichage du Fantome
 	
+	if(fan.getPop())
 	win.print(fan.getX(),fan.getY(),'F');
+	if(fan2.getPop())
 	win.print(fan2.getX(),fan2.getY(),'F');
 
 	win.print(15,0,pac.affichePdv(str));
@@ -61,19 +65,22 @@ void txtBoucle (Jeu & jeu) {
 
 		c = win.getCh();
 		switch (c) {
-			case 'a':
+			case 'q':
 				jeu.actionClavier('g');
 				break;
 			case 'd':
 				jeu.actionClavier('d');
 				break;
-			case 'w':
+			case 'z':
 				jeu.actionClavier('h');
 				break;
 			case 's':
 				jeu.actionClavier('b');
 				break;
-			case 'q':
+			case 'e':
+				jeu.actionClavier('t');
+				break;
+			case 'a':
 				ok = false;
 				break;
 		}
