@@ -6,8 +6,12 @@ using namespace std ;
 
 int main () 
 {
+    Pacman pakito;
     Fantome fan ;
     Soin s;
+
+    cout<< "Test Regression Joueur :" <<endl;
+    pakito.testRegression();
 
     cout << "Test Regression Fantome :" << endl ;
     fan.testRegression();
