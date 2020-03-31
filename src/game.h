@@ -13,11 +13,13 @@ class game
 private:
     /* data */
     bool isRunning;
-    personnage* joueur;
+    personnage joueur;
     SDL_Window * window;
     SDL_Renderer *renderer;
-    soin* s;
-    text* t;
+    soin s;
+    text t;
+
+ 
     
 
 public:
