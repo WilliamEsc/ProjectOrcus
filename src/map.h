@@ -8,28 +8,26 @@
 class map 
 {
     public:
+        int map1[100][100];
 
         map();
         map(SDL_Renderer* rend);
         ~map();
 
-        void loadMap(int arr[36][64]);
-        void drawMap(SDL_Renderer* rend);
+        void loadCalque(const char* str);
+        void drawMap(SDL_Renderer* rend,const Complex &posJ);
+        void operator>>(std::istream& is);
 
 
     private:
 
         SDL_Rect src, dest;
-        
-        // SDL_Texture* dirt;
-        // SDL_Texture* water;
-        // SDL_Texture* stone;
 
         texture *dirt = new texture() ;
         texture *water = new texture() ;
         texture *stone = new texture() ;
 
-        int carte[36][64];
+        int carte[100][100];
 
 };
 
