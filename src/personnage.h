@@ -15,6 +15,7 @@ private:
 public:
 
     personnage();
+    ~personnage();
     SDL_Texture* getTexture()const;
     SDL_Rect* getRect();
     Complex* getPos()const;
