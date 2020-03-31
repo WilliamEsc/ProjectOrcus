@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <fstream>
 #include <iostream>
 #include <math.h>
 #include <SDL2/SDL.h>
