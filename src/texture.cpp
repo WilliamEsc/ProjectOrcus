@@ -44,7 +44,7 @@
         }
         else 
         {
-             std::cout << " Image load " << std::endl;
+             std::cout << " Font load " << std::endl;
         }
         return texture ;
     }
