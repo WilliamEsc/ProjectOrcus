@@ -23,9 +23,12 @@ class map
 
         SDL_Rect src, dest;
 
-        texture *dirt = new texture() ;
-        texture *water = new texture() ;
-        texture *stone = new texture() ;
+        // texture * dirt;
+        // texture * water;
+        // texture * stone;
+
+        texture * tileset= new texture();
+        texture * error= new texture();
 
         int carte[100][100];
 
