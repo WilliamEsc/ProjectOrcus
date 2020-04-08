@@ -14,7 +14,7 @@ class map
         map(SDL_Renderer* rend);
         ~map();
 
-        void loadCalque(const char* str);
+        void loadCalque(const char* str,int calque[100][100]);
         void drawMap(SDL_Renderer* rend,const Complex &posJ);
         void operator>>(std::istream& is);
 
@@ -24,13 +24,15 @@ class map
         SDL_Rect src, dest;
 
         // texture * dirt;
-        // texture * water;
+        texture * water=new texture();
         // texture * stone;
 
         texture * tileset= new texture();
         texture * error= new texture();
 
-        int carte[100][100];
+        int calque1[100][100];
+    	int calque2[100][100];
+	    int calque3[100][100];
 
 };
 
