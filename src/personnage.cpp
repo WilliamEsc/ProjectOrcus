@@ -1,14 +1,14 @@
 #include "personnage.h"
 
 personnage::personnage(){
-    pos=new Complex(20,20);
-    vit=new Complex(20,21);
+    pos=new Complex(18,21);
+    vit=new Complex(18,22);
     angle=0;
     pdv=100;
     destRect.h=32;
     destRect.w=32;
-    destRect.x=400;
-    destRect.y=300;
+    destRect.x=416;
+    destRect.y=320;
 }
 
 personnage::~personnage(){
@@ -66,14 +66,14 @@ void personnage::deplace(float f,double ang){
     Complex postmp= *pos;
     Complex tr=*vit-postmp;
     postmp=postmp-tr*f;
-    if(postmp.getComplexX()>0 && postmp.getComplexX()<=100){
+    if(postmp.getComplexX()>=0.0 && postmp.getComplexX()<=101){
     pos->setComplexX(postmp.getComplexX());
     vit->setComplexX(postmp.getComplexX()+tr.getComplexX());
     }
     else{
         vit->setComplexX(pos->getComplexX()+tr.getComplexX());
     }
-    if(postmp.getComplexY()>=0 && postmp.getComplexY()<=100){
+    if(postmp.getComplexY()>=0.0 && postmp.getComplexY()<=101){
     pos->setComplexY(postmp.getComplexY());
     vit->setComplexY(postmp.getComplexY()+tr.getComplexY());
     }
@@ -81,8 +81,8 @@ void personnage::deplace(float f,double ang){
         vit->setComplexY(pos->getComplexY()+tr.getComplexY());
     }
     printf("Position: ");
-    printf("%f \n", pos->getComplexX());
-    printf("%f \n", pos->getComplexY());
+    printf("x %f \n", pos->getComplexX());
+    printf("y %f \n", pos->getComplexY());
     printf("Vitesse: ");
     printf("%f \n", vit->getComplexX());
     printf("%f \n", vit->getComplexY());
