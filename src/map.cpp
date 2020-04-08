@@ -8,11 +8,11 @@ map::map()
 map::map(SDL_Renderer* renderer)
 {
     // dirt->setFileName("Data/dirt.png");
-    // water->setFileName("Data/water.png");
+    water->setFileName("Data/water.png");
     // stone->setFileName("Data/stone.png");
 
     // dirt->setTexture(dirt->loadTexture(dirt->getFileName(),renderer));
-    // water->setTexture(water->loadTexture(water->getFileName(),renderer));
+    water->setTexture(water->loadTexture(water->getFileName(),renderer));
     // stone->setTexture(stone->loadTexture(stone->getFileName(),renderer));
 
     tileset->setFileName("Data/tilesheetcomplete.png");
@@ -20,7 +20,9 @@ map::map(SDL_Renderer* renderer)
     tileset->setTexture(tileset->loadTexture(tileset->getFileName(),renderer));
     error->setTexture(error->loadTexture(error->getFileName(),renderer));
 
-    loadCalque("Data/calque1.txt");
+    loadCalque("Data/calque1.txt",calque1);
+    loadCalque("Data/calque2.txt",calque2);
+    loadCalque("Data/calque3.txt",calque3);
     dest.w = 32;
     dest.h = 32;
     src.w = 64;
@@ -32,7 +34,7 @@ map::~map()
 
 }
 
-void map::loadCalque(const char* str)
+void map::loadCalque(const char* str,int calque[100][100])
 {
     	// for (int i=0;i<100;i++){
         //     for (int j=0;j<100;j++){
@@ -47,8 +49,8 @@ void map::loadCalque(const char* str)
     else{
     	for (int i=0;i<100;i++){
             for (int j=0;j<100;j++){
-                MonFichier >> carte[i][j];
-                printf("%i ",carte[i][j]);
+                MonFichier >> calque[i][j];
+                printf("%i ",calque[i][j]);
             }
         }
     }
@@ -57,52 +59,53 @@ void map::loadCalque(const char* str)
 
 void map::drawMap(SDL_Renderer* rend,const Complex &posJ)
 {
-        int type;
+        int type1;
+        int type2;
+        int type3;
         int i=0;
-        for (int row = posJ.getComplexY()-12 ; row < posJ.getComplexY()+12 ; row++)
+        for (int row = posJ.getComplexY()-11 ; row < posJ.getComplexY()+12 ; row++)
         {
             int j=0;
-            for ( int column = posJ.getComplexX()-12 ; column < posJ.getComplexX()+12 ; column++ )
+            for ( int column = posJ.getComplexX()-14 ; column < posJ.getComplexX()+12 ; column++ )
             {
-                type=0;
-                if(row>=0 && column>=0 && row<100 && column<100){
-                type =(int) carte[row][column];
-                // printf("%i \n", type);
-                }
+                type1=0;
+                type2=0;
+                type3=0;
 
                 dest.x = j * 32;
                 dest.y = i * 32;
-                j++;
-                
-                if(type==-1 || type>540){
-                error->renderTexture(error->getTexture(),rend,dest,dest.x,dest.y);
+
+                if(row>=0 && column>=0 && row<100 && column<100){
+
+                    type1 =(int) calque1[row][column];
+                    type2 =(int) calque2[row][column];
+                    type3 =(int) calque3[row][column];
+                    
+
+                    if(type1==-1 || type1>540){
+                        error->renderTexture(error->getTexture(),rend,dest);
+                    }
+
+                    src.x=type1%27*64;
+                    src.y=type1/27*64;
+                    tileset->renderTexture(tileset->getTexture(),rend,src,dest);
+
+                    if(type2!=-1 || type2<540){
+                        src.x=type2%27*64;
+                        src.y=type2/27*64;
+                        tileset->renderTexture(tileset->getTexture(),rend,src,dest);
+                    }
+
+                    if(type3!=-1 || type1<540){
+                        src.x=type3%27*64;
+                        src.y=type3/27*64;
+                        tileset->renderTexture(tileset->getTexture(),rend,src,dest);
+                    }
                 }
-
-
-                src.x=type%27*64;
-                src.y=type/27*64;
-                //error->renderTexture(error->getTexture(),rend,error->getRect2(),dest.x,dest.y);
-                tileset->renderTexture(tileset->getTexture(),rend,src,dest);
-
-
-                // switch (type)
-                // {
-                //     case 0:
-                //         water->renderTexture(water->getTexture(),rend,water->getRect2(),dest.x,dest.y);
-                //         break;
-                    
-                //     case 1: 
-                //         stone->renderTexture(stone->getTexture(),rend,stone->getRect2(),dest.x,dest.y);
-                //         break;
-                    
-                //     case 66: 
-                //         dirt->renderTexture(dirt->getTexture(),rend,dirt->getRect2(),dest.x,dest.y);
-                //         break;
-
-                //     default:
-                //         water->renderTexture(water->getTexture(),rend,water->getRect2(),dest.x,dest.y);
-                //         break;
-                // }
+                else{
+                    water->renderTexture(water->getTexture(),rend,dest);
+                }
+                 j++;
             }
             i++;
         }    
