@@ -29,7 +29,7 @@ public:
     void init(const char* title, int posX, int posY, int width, int height, bool fullscreen);
     
     void handleEvents();
-    void heal();
+    // void heal();
     void update();
     void render();
     void clean();

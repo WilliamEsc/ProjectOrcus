@@ -47,8 +47,52 @@ void game::init(const char* title, int posX, int posY, int width, int height, bo
     map m2(renderer);
     m=m2;
     s.setPos(25,25);
+    s.setFile("data/KitDeSoin.png");
     // t = new text() ;
 }
+
+// void game::handleEvents()
+// {
+//     SDL_Event events;
+//     float f=0;
+//     double ang=0; 
+//     while(SDL_PollEvent(&events))
+//     {
+//         if (events.type == SDL_QUIT) isRunning=false;// Si l'utilisateur a clique sur la croix de fermeture
+//         if (events.type == SDL_KEYDOWN)
+//         {
+//             if (events.key.keysym.sym == SDLK_w) {
+//                 f=0.01;
+//                 joueur.deplace(f,ang);
+//             }
+//             if (events.key.keysym.sym == SDLK_s) {
+//                 f=-0.01;
+//                 joueur.deplace(f,ang);
+//             }
+//             if (events.key.keysym.sym == SDLK_a) {
+//                 ang=0.6;
+//                 joueur.deplace(f,ang);
+//             }
+//             if (events.key.keysym.sym == SDLK_d) {
+//                 ang=-0.6;
+//                 joueur.deplace(f,ang);
+//             }
+//             if (events.key.keysym.sym == SDLK_ESCAPE){
+//                 isRunning=false;
+//             }
+//             if (events.type == SDLK_x)
+//             {
+//                 //s.setPointDeVie(s.getPointDeVie()-10);
+//                 //std::cout << "Point de vie : " << s.getPointDeVie() << std::endl ;
+//                 std::cout << "pdv : " << joueur.getPdv() << std::endl ;
+
+//                 std::cout << "position perso : " << joueur.getPos()->getComplexX() <<" "<< joueur.getPos()->getComplexY() << std::endl ;
+//                 std::cout << "position kit x: " << s.getPosX() << "y :"<< s.getPosY() << std::endl ;
+//             }
+//         }
+//         //joueur.deplace(f,ang);
+//     }
+// }
 
 void game::handleEvents()
 {
@@ -88,10 +132,10 @@ void game::handleEvents()
     }
 }
 
-void game::heal()
-{
-     //SDL_bool col = SDL_HasIntersection(joueur.getRect(), s.getRect());
-}
+// void game::heal()
+// {
+//      //SDL_bool col = SDL_HasIntersection(joueur.getRect(), s.getRect());
+// }
 
 void game::update()
 {
@@ -112,7 +156,7 @@ void game::render()
     //this is where we would add stuff to render
     m.drawMap(renderer,*joueur.getPos());
     if(s.getPop())
-    s.setTexture(renderer, s.getPosX(), s.getPosY());
+    s.setTexture(renderer, s.getFileName(), s.getPosX(), s.getPosY());
     // t.setTexte("Point de vie",renderer,0,0);
     // std::string txtPdv=std::to_string(joueur.getPdv());
     // t.setTexte(txtPdv.c_str(),renderer,0,20);
