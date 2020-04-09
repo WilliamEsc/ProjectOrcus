@@ -5,6 +5,7 @@
 game::game(){};
 game::~game(){};
  map m;
+ 
 
  
 
@@ -47,7 +48,7 @@ void game::init(const char* title, int posX, int posY, int width, int height, bo
     map m2(renderer);
     m=m2;
     s.setPos(25,25);
-    s.setFile("data/KitDeSoin.png");
+    s.setFile("Data/kitDeSoin.png");
     // t = new text() ;
 }
 
@@ -130,6 +131,13 @@ void game::handleEvents()
         std::cout << "position perso : " << joueur.getPos()->getComplexX() <<" "<< joueur.getPos()->getComplexY() << std::endl ;
         std::cout << "position kit x: " << s.getPosX() << "y :"<< s.getPosY() << std::endl ;
     }
+    if(events.type == SDL_MOUSEBUTTONDOWN)
+    {
+        int x, y;
+        SDL_GetMouseState(&x, &y);
+        std::cout << "position souris : " << x << ", "<< y <<std::endl ;
+        b.setPos(x,y);
+    }
 }
 
 // void game::heal()
@@ -155,8 +163,8 @@ void game::render()
     SDL_RenderClear(renderer);
     //this is where we would add stuff to render
     m.drawMap(renderer,*joueur.getPos());
-    if(s.getPop())
     s.setTexture(renderer, s.getFileName(), s.getPosX(), s.getPosY());
+    b.setTexture(renderer,"Data/balle.png",b.getPosX(),b.getPosY());
     // t.setTexte("Point de vie",renderer,0,0);
     // std::string txtPdv=std::to_string(joueur.getPdv());
     // t.setTexte(txtPdv.c_str(),renderer,0,20);
