@@ -8,7 +8,7 @@ class objet
 {
 protected:
     bool pop;
-    texture *s = new texture();
+    texture *o = new texture();
     float posX;
     float posY;
     const char* name;
