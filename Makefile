@@ -1,12 +1,12 @@
 all : bin/affichage
 
-bin/affichage: obj/main.o obj/game.o obj/complex.o obj/personnage.o obj/texture.o obj/map.o obj/objet.o obj/soin.o obj/text.o
-	g++ obj/main.o obj/game.o obj/personnage.o obj/complex.o obj/texture.o obj/map.o obj/objet.o obj/soin.o obj/text.o -o bin/affichage -lSDL2 -lSDL2_image -lSDL2_ttf
+bin/affichage: obj/main.o obj/game.o obj/complex.o obj/personnage.o obj/texture.o obj/map.o obj/objet.o obj/soin.o obj/balle.o obj/text.o
+	g++ obj/main.o obj/game.o obj/personnage.o obj/complex.o obj/texture.o obj/map.o obj/objet.o obj/soin.o obj/balle.o obj/text.o -o bin/affichage -lSDL2 -lSDL2_image -lSDL2_ttf
 
 obj/main.o: src/main.cpp src/terrain.h src/obstacle.h src/game.h src/complex.h src/personnage.h src/map.h src/texture.h src/objet.h src/soin.h src/text.h
 	g++ -Wall -c src/main.cpp -o obj/main.o
 
-obj/game.o : src/game.cpp src/game.h src/complex.h src/personnage.h src/map.h src/objet.h src/soin.h
+obj/game.o : src/game.cpp src/game.h src/complex.h src/personnage.h src/map.h src/objet.h src/soin.h src/balle.h
 	g++ -Wall -c src/game.cpp -o obj/game.o -lSDL2 -lSDL2_image
 
 obj/terrain.o: src/terrain.cpp src/terrain.h src/obstacle.h
@@ -32,6 +32,9 @@ obj/objet.o: src/objet.cpp src/objet.h
 
 obj/soin.o: src/soin.cpp src/soin.h 
 	g++ -Wall -c src/soin.cpp -o obj/soin.o 
+
+obj/balle.o: src/balle.cpp src/balle.h 
+	g++ -Wall -c src/balle.cpp -o obj/balle.o 
 
 obj/map.o: src/map.cpp src/map.h src/texture.h
 	g++ -Wall -c src/map.cpp -o obj/map.o -lSDL2 -lSDL2_image
