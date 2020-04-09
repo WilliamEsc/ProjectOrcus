@@ -80,12 +80,12 @@ void personnage::deplace(float f,double ang){
     else{
         vit->setComplexY(pos->getComplexY()+tr.getComplexY());
     }
-    printf("Position: ");
-    printf("%f \n", pos->getComplexX());
-    printf("%f \n", pos->getComplexY());
-    printf("Vitesse: ");
-    printf("%f \n", vit->getComplexX());
-    printf("%f \n", vit->getComplexY());
+    // printf("Position: ");
+    // printf("%f \n", pos->getComplexX());
+    // printf("%f \n", pos->getComplexY());
+    // printf("Vitesse: ");
+    // printf("%f \n", vit->getComplexX());
+    // printf("%f \n", vit->getComplexY());
 }
 
 void personnage::update(){
