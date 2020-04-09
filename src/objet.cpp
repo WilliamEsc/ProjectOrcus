@@ -33,13 +33,13 @@ void objet::setPos(float x, float y)
 
 void objet::setTexture(SDL_Renderer *ren, const char* file, float x, float y)
 {
-    s->setTexture(s->loadTexture(file,ren));
-    s->renderTexture(s->getTexture(),ren,s->getRect2(),x,y);
+    o->setTexture(o->loadTexture(file,ren));
+    o->renderTexture(o->getTexture(),ren,o->getRect2(),x,y);
 }
 
 SDL_Rect* objet::getRect()
 {
-    return s->getRect();
+    return o->getRect();
 }
 
 void objet :: setFile(const char* file)
