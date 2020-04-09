@@ -54,5 +54,5 @@ void text::setTexte(const char *t1, SDL_Renderer *ren, float x, float y)
 {
     texte = t1;
     t->setTexture(t->loadTextureText(texte,font,color,ren));
-    t->renderTexture(t->getTexture(),ren,t->getRect2(), x, y);
+    t->renderTexture(t->getTexture(),ren,t->getRect2());
 }

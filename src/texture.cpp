@@ -49,11 +49,14 @@
         return texture ;
     }
 
-    void texture::renderTexture(SDL_Texture*tex, SDL_Renderer *ren, SDL_Rect dst, float x, float y){
-        dst.x = x;
-        dst.y = y;
-        SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
-        SDL_RenderCopy(ren, tex, NULL, &dst);
+    void texture::renderTexture(SDL_Texture*tex, SDL_Renderer *ren, SDL_Rect dst){
+        dest=dst;
+        SDL_RenderCopy(ren, tex, NULL, &dest);
+    }
+
+    void texture::renderTexture(SDL_Texture*tex, SDL_Renderer *ren,SDL_Rect src, SDL_Rect dst){
+        dest=dst;
+        SDL_RenderCopy(ren, tex, &src, &dest);
     }
 
     const char *texture::getFileName()

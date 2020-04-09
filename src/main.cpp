@@ -4,7 +4,7 @@ int main(int argc, const char* argv[]) {
     
     game g ;
 
-    g.init("écran", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+    g.init("écran", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 832, 704, false);
 
     while (g.running()) //game is running 
     {
