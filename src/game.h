@@ -5,6 +5,7 @@
 #include "def.h"
 #include "map.h"
 #include "soin.h"
+#include "balle.h"
 #include "text.h"
 #include <iostream>
 
@@ -17,6 +18,7 @@ private:
     SDL_Window * window;
     SDL_Renderer *renderer;
     soin s;
+    balle b;
     text t;
 
  
