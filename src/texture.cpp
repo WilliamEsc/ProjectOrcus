@@ -88,3 +88,32 @@
     {
         return dest;
     }
+
+    int texture::getRectX()
+    {
+        return dest.x ;
+    }
+
+    int texture::getRectY()
+    {
+        return dest.y ;
+    }
+
+    void texture :: setDest(float x,float y, float w, float h)
+    {
+        dest.x = x;
+        dest.y = y;
+        dest.w = w;
+        dest.h = h;
+    }
+
+    void texture :: setDest(float x, float y)
+    {
+        dest.x = x;
+        dest.y = y;
+    }
+
+    void texture :: setDest(const SDL_Rect rect)
+    {
+        dest = rect ;
+    }
