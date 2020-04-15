@@ -22,9 +22,14 @@ SDL_Texture* personnage::getTexture()const {
     return Pion;
 }
 
-SDL_Rect* personnage::getRect(){
+SDL_Rect personnage::getRect(){
+    return destRect;
+}
+
+SDL_Rect* personnage::getRectBis(){
     return &destRect;
 }
+
 
 Complex* personnage::getPos()const {
     return pos;
@@ -80,7 +85,6 @@ void personnage::deplace(float f,double ang){
     else{
         vit->setComplexY(pos->getComplexY()+tr.getComplexY());
     }
-<<<<<<< HEAD
     // printf("Position: ");
     // printf("%f \n", pos->getComplexX());
     // printf("%f \n", pos->getComplexY());
