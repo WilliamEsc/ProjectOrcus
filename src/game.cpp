@@ -1,14 +1,9 @@
 #include "game.h"
 
-
-
 game::game(){};
 game::~game(){};
  map m;
  
-
- 
-
 void game::init(const char* title, int posX, int posY, int width, int height, bool fullscreen)
 {
     int flags = 0;
@@ -42,14 +37,25 @@ void game::init(const char* title, int posX, int posY, int width, int height, bo
     {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "[DEBUG] > %s", TTF_GetError());
     }
+    
+    // Initialisation joueur 
     SDL_Surface* tmpsurface=IMG_Load("Data/persos1.png");
     joueur.setTexture(renderer,tmpsurface);
     SDL_FreeSurface(tmpsurface);
+    
+    //initialisation de la map 
     map m2(renderer);
     m=m2;
+
+    //Initialisation du kit de soin
     s.setPos(25,25);
-    s.setFile("Data/kitDeSoin.png");
+    // s.setFile("Data/kitDeSoin.png");
+    s.setTexture(renderer,"Data/kitDeSoin.png");
     // t = new text() ;
+
+    //Initialisation de la balle
+    // b.setFile("Data/balle.png");
+    b.setTexture(renderer,"Data/balle.png");
 }
 
 // void game::handleEvents()
@@ -135,8 +141,8 @@ void game::handleEvents()
     {
         int x, y;
         SDL_GetMouseState(&x, &y);
-        std::cout << "position souris : " << x << ", "<< y <<std::endl ;
-        b.setPos(x,y);
+        // std::cout << "position souris : " << x << ", "<< y <<std::endl ;
+        // b.setTexture(renderer,"Data/balle.png");
     }
 }
 
@@ -156,26 +162,34 @@ void game::update()
         joueur.setPdv(joueur.getPdv()+10);
         s.setPop(false);
     }
+     b.tireBalle();
+    
 }
 
 void game::render()
 {
     SDL_RenderClear(renderer);
     //this is where we would add stuff to render
-    m.drawMap(renderer,*joueur.getPos());
-    s.setTexture(renderer, s.getFileName(), s.getPosX(), s.getPosY());
-    b.setTexture(renderer,"Data/balle.png",b.getPosX(),b.getPosY());
+    //m.drawMap(renderer,*joueur.getPos());
+
+    s.renderTexture(renderer);
+    b.renderTexture(renderer);
+
     // t.setTexte("Point de vie",renderer,0,0);
     // std::string txtPdv=std::to_string(joueur.getPdv());
     // t.setTexte(txtPdv.c_str(),renderer,0,20);
     //SDL_RenderCopy(renderer,joueur.getTexture(),NULL,joueur.getRect());
-    SDL_RenderCopyEx(renderer,joueur.getTexture(),NULL,joueur.getRect(),-joueur.getAngle(),NULL,SDL_FLIP_NONE);
+
+    SDL_RenderCopyEx(renderer,joueur.getTexture(),NULL,joueur.getRectBis(),-joueur.getAngle(),NULL,SDL_FLIP_NONE);
     // TTF_CloseFont(t.getFont());
     SDL_RenderPresent(renderer);
 }
 
 void game::clean()
 {
+    s.~soin();
+    b.~balle();
+    joueur.~personnage();
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     TTF_Quit();
