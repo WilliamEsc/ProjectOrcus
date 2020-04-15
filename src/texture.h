@@ -26,6 +26,12 @@ public:
 
     SDL_Rect* getRect();
     SDL_Rect getRect2();
+    int getRectX();
+    int getRectY();
+
+    void setDest(float x,float y, float w, float h);
+    void setDest(float x, float y);
+    void setDest(const SDL_Rect rect);
 
 };
 
