@@ -17,7 +17,8 @@ public:
     personnage();
     ~personnage();
     SDL_Texture* getTexture()const;
-    SDL_Rect* getRect();
+    SDL_Rect getRect();
+    SDL_Rect* getRectBis();
     Complex* getPos()const;
     Complex* getVit()const;
     double getAngle()const;
