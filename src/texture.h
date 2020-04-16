@@ -17,6 +17,8 @@ public:
     SDL_Texture* loadTextureText(const char * texte, TTF_Font *font, SDL_Color color, SDL_Renderer *ren);
     void renderTexture(SDL_Texture*tex, SDL_Renderer *ren,SDL_Rect src, SDL_Rect dst);
     void renderTexture(SDL_Texture*tex, SDL_Renderer *ren, SDL_Rect dst);
+        void renderTextureSrc(SDL_Texture*tex, SDL_Renderer *ren, SDL_Rect src);
+    void renderTextureCplx(SDL_Texture*tex, SDL_Renderer *ren, float posx,float posy);
     
     const char *getFileName();
     void setFileName(char * file);
