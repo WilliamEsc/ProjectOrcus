@@ -59,6 +59,18 @@
         SDL_RenderCopy(ren, tex, &src, &dest);
     }
 
+    void texture::renderTextureSrc(SDL_Texture*tex, SDL_Renderer *ren, SDL_Rect src){
+        SDL_RenderCopy(ren, tex, &src, NULL);
+    }
+
+    void texture::renderTextureCplx(SDL_Texture*tex, SDL_Renderer *ren, float posx, float posy)
+    {
+        dest.x=posx;
+        dest.y=posy;
+        dest.h=dest.w=64;
+        SDL_RenderCopy(ren, tex,NULL,&dest);
+    }
+
     const char *texture::getFileName()
     {
         return fileName;
