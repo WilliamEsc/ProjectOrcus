@@ -5,7 +5,7 @@
 #include "complex.h"
 #include "personnage.h"
 
-class balle : public objet
+class balle
 {
 private:
     Complex* pos;
