@@ -3,18 +3,14 @@
 
 #include "def.h"
 #include "texture.h"
+#include "complex.h"
 
 class objet
 {
 protected:
-    
-    texture *o = new texture();
-    SDL_Rect src ;
-
-    float posX;
-    float posY;
-    const char* name;
     bool pop;
+    texture *s = new texture();
+    Complex posObj;
 
 public:
 
@@ -23,17 +19,17 @@ public:
     bool getPop()const;
     void setPop(bool b);
 
-    float getPosX();
-    float getPosY();
-    void setPos(float x, float y);
+    void setPos(float x,float y);
+    float getPosX() const;
+    float getPosY() const;
 
     // SDL_Texture *getTexture();
     void setTexture(SDL_Renderer *ren, const char* file);
-    void renderTexture(SDL_Renderer *ren);
+    void drawObjet(SDL_Renderer *ren, float x, float y) const;
 
-    SDL_Rect* getRect() ;
+    SDL_Rect* getRect();
 
-    void setFile(const char* file);
+    void setFile(char* file);
     const char* getFileName();
 
     ~objet();
