@@ -18,8 +18,9 @@ private:
     SDL_Window * window;
     SDL_Renderer *renderer;
     soin s;
-    balle b;
+    //balle b;
     text t;
+    map m;
 
  
     
