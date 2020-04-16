@@ -2,7 +2,6 @@
 
 game::game(){};
 game::~game(){};
- map m;
  
 void game::init(const char* title, int posX, int posY, int width, int height, bool fullscreen)
 {
@@ -49,13 +48,13 @@ void game::init(const char* title, int posX, int posY, int width, int height, bo
 
     //Initialisation du kit de soin
     s.setPos(25,25);
-    // s.setFile("Data/kitDeSoin.png");
+    s.setFile("Data/kitDeSoin.png");
     s.setTexture(renderer,"Data/kitDeSoin.png");
     // t = new text() ;
 
     //Initialisation de la balle
-    // b.setFile("Data/balle.png");
-    b.setTexture(renderer,"Data/balle.png");
+    //b.setFile("Data/balle.png");
+    //b.setTexture(renderer,"Data/balle.png");
 }
 
 // void game::handleEvents()
@@ -111,10 +110,10 @@ void game::handleEvents()
     keystates = SDL_GetKeyboardState(NULL);
     
     if (keystates[SDL_SCANCODE_W]) {
-        f=0.01;
+        f=-0.01;
     }
     if (keystates[SDL_SCANCODE_S]) {
-        f=-0.01;
+        f=0.01;
     }
     if (keystates[SDL_SCANCODE_A]) {
         ang=0.6;
@@ -125,7 +124,7 @@ void game::handleEvents()
     if (keystates[SDL_SCANCODE_ESCAPE]){
         isRunning=false;
     }
-    joueur.deplace(f,ang);
+    joueur.deplace(f,ang,m.collision,renderer);
 
     if (events.type == SDL_QUIT) isRunning=false;// Si l'utilisateur a clique sur la croix de fermeture
     if (keystates[SDL_SCANCODE_X])
@@ -153,16 +152,15 @@ void game::handleEvents()
 
 void game::update()
 {
-    joueur.update();
     Complex pos= *joueur.getPos();
     Complex posS(s.getPosX(),s.getPosY());
     pos.Soustrait(&posS);
-    if(pos.norme()<50 && s.getPop())
+    if(pos.norme()<1 && s.getPop())
     {
         joueur.setPdv(joueur.getPdv()+10);
         s.setPop(false);
     }
-     b.tireBalle();
+    //b.tireBalle();
     
 }
 
@@ -170,17 +168,27 @@ void game::render()
 {
     SDL_RenderClear(renderer);
     //this is where we would add stuff to render
-    //m.drawMap(renderer,*joueur.getPos());
+    m.drawMap(renderer,*joueur.getPos());
 
-    s.renderTexture(renderer);
-    b.renderTexture(renderer);
+    if(s.getPop()){
+        SDL_Rect testRct;
+        testRct.x=(s.getPosX()-joueur.getPos()->getComplexX()+6)*64;
+        testRct.y=(s.getPosY()-joueur.getPos()->getComplexY()+5)*64;
+        testRct.h=testRct.w=64;
+        float x=(s.getPosX()-joueur.getPos()->getComplexX()+6)*64;
+        float y=(s.getPosY()-joueur.getPos()->getComplexY()+5)*64;
+        s.drawObjet(renderer,x,y);
+        SDL_RenderDrawRect(renderer,&testRct);
+    }
+    //b.renderTexture(renderer);
 
     // t.setTexte("Point de vie",renderer,0,0);
     // std::string txtPdv=std::to_string(joueur.getPdv());
     // t.setTexte(txtPdv.c_str(),renderer,0,20);
     //SDL_RenderCopy(renderer,joueur.getTexture(),NULL,joueur.getRect());
 
-    SDL_RenderCopyEx(renderer,joueur.getTexture(),NULL,joueur.getRectBis(),-joueur.getAngle(),NULL,SDL_FLIP_NONE);
+    SDL_RenderCopyEx(renderer,joueur.getTexture(),NULL,joueur.getRect(),-joueur.getAngle(),NULL,SDL_FLIP_NONE);
+
     // TTF_CloseFont(t.getFont());
     SDL_RenderPresent(renderer);
 }
@@ -188,7 +196,7 @@ void game::render()
 void game::clean()
 {
     s.~soin();
-    b.~balle();
+    //b.~balle();
     joueur.~personnage();
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
