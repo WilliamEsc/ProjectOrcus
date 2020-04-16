@@ -1,11 +1,11 @@
 #include "balle.h"
 
-balle ::balle()
+balle ::balle() 
 {
     // setPos(400, 300);
     pos = j.getPos();
     vit = j.getVit();
-    o->setDest(j.getRect());
+    //o->setDest(j.getRect());
     angle = 0;
     tr = new Complex(0, 0);
     f = 1;
@@ -81,10 +81,10 @@ void balle ::tireBalle()
 
     //déplacement par rapport position carte
 
-    x = o->getRectX() + tr->getComplexX() * f;
-    y = o->getRectY() + tr->getComplexY() * f;
+    // x = o->getRectX() + tr->getComplexX() * f;
+    // y = o->getRectY() + tr->getComplexY() * f;
 
-    o->setDest(x, y);
+    // o->setDest(x, y);
 }
 
 // o->renderTexture(o->getTexture(),ren,o->getRect2());
