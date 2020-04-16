@@ -1,7 +1,9 @@
 #ifndef PERSONNAGE_H
 #define PERSONNAGE_H
+
 #include "complex.h"
 #include "def.h"
+
 
 class personnage{
 private:
@@ -12,13 +14,16 @@ private:
     SDL_Texture* Pion;
     SDL_Rect destRect;
 
+
 public:
+
+    bool bt[225];
+    SDL_Rect tab[225];
 
     personnage();
     ~personnage();
     SDL_Texture* getTexture()const;
-    SDL_Rect getRect();
-    SDL_Rect* getRectBis();
+    SDL_Rect* getRect();
     Complex* getPos()const;
     Complex* getVit()const;
     double getAngle()const;
@@ -26,8 +31,7 @@ public:
     void setPdv(int n);
     void setTexture(SDL_Renderer* renderer,SDL_Surface* surface);
     void ajoutAngle(double deg);
-    void deplace(float f,double ang);
-    void update();
+    void deplace(float f,double ang,int collision[124][124],SDL_Renderer* renderer);
 };
 
 
