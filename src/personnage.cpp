@@ -11,6 +11,17 @@ personnage::personnage(){
     destRect.y=(SCREEN_HEIGHT-64)/2;
 }
 
+personnage::personnage(float x,float y){
+    pos=new Complex(x,y);
+    vit=new Complex(x,y-1);
+    angle=0;
+    pdv=100;
+    destRect.h=64;
+    destRect.w=64;
+    destRect.x=(SCREEN_WIDTH-64)/2;
+    destRect.y=(SCREEN_HEIGHT-64)/2;
+}
+
 personnage::~personnage(){
     delete pos;
     delete vit;
@@ -67,8 +78,6 @@ void personnage::deplace(float f,double ang,int collision[124][124],SDL_Renderer
     Complex tr=*vit-postmp;
     postmp=postmp-tr*f;
     bool collide=false;
-    for(int i=0;i<200;i++){
-    bt[i]=false;}
 
     for(int i=postmp.getComplexY()-1;i<postmp.getComplexY()+1;i++){
         for(int j=postmp.getComplexX()-1;j<postmp.getComplexX()+1;j++){
