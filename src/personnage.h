@@ -6,7 +6,7 @@
 
 
 class personnage{
-private:
+protected:
     Complex* pos;
     Complex* vit;
     double angle;
@@ -16,9 +16,6 @@ private:
 
 
 public:
-
-    bool bt[225];
-    SDL_Rect tab[225];
 
     personnage();
     ~personnage();
