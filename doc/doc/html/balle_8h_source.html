@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/antoine/Documents/L2/LIFAP4/Project ORUCS/project-orcus/src/balle.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">balle.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="balle_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef BALLE_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define BALLE_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="objet_8h.html">objet.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="complex_8h.html">complex.h</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="personnage_8h.html">personnage.h</a>&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classballe.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classballe.html">balle</a></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classComplex.html">Complex</a>* pos;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classComplex.html">Complex</a>* vit;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="classComplex.html">Complex</a>* tr ;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">double</span> angle;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classpersonnage.html">personnage</a> j ;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">float</span> f ;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> b1;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">bool</span> b2; </div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">float</span> distanceX ;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">float</span> distanceY ;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classballe.html#a920553f18fd7e691bb8fb3fed24d7f40">balle</a>();</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classballe.html#a25f4ff369af6e6dcfb19c5f1464309fc">~balle</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classComplex.html">Complex</a>* <a class="code" href="classballe.html#aa06115d8837256988e7ab9993f47ac6f">getPos</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classComplex.html">Complex</a>* <a class="code" href="classballe.html#a9ca7c6c93dcc2334718e21a1c9ee2b86">getVit</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classballe.html#a936eca3095fe64cc005421f3ad9fd3f3">getAngle</a>()<span class="keyword">const</span>;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classballe.html#a3bc8bc6662c95bd052f02dfb18892209">getDistanceX</a>();</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classballe.html#a086e3e6d1814e885c849e8ea4813a0a2">getDistanceY</a>();</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classballe.html#a4a4b1a63e53cd0d766fce1e49cc07b17">getB1</a>();</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classballe.html#a87d391536126876825f2e6b57453b973">getB2</a>();</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classballe.html#a1e62142738138ef4b0fc6fe97c18ea70">getPosX</a>()<span class="keyword">const</span>;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classballe.html#a44f9ef55a50756bf8414e407b2670132">getPosY</a>()<span class="keyword">const</span>;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classballe.html#ac2beb3bc9905e417d165aa0c454c152f">ajoutAngle</a>(<span class="keywordtype">double</span> deg);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classballe.html#a4bbd5e8cc842b10009b279d77d7272ef">updateBalle</a>();</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classballe.html#a05c341df96e2a49b08e8a77c9a6806db">tireBalle</a>();</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="classballe_html_a920553f18fd7e691bb8fb3fed24d7f40"><div class="ttname"><a href="classballe.html#a920553f18fd7e691bb8fb3fed24d7f40">balle::balle</a></div><div class="ttdeci">balle()</div><div class="ttdef"><b>Definition:</b> balle.cpp:3</div></div>
+<div class="ttc" id="complex_8h_html"><div class="ttname"><a href="complex_8h.html">complex.h</a></div></div>
+<div class="ttc" id="classballe_html_a936eca3095fe64cc005421f3ad9fd3f3"><div class="ttname"><a href="classballe.html#a936eca3095fe64cc005421f3ad9fd3f3">balle::getAngle</a></div><div class="ttdeci">double getAngle() const</div><div class="ttdef"><b>Definition:</b> balle.cpp:38</div></div>
+<div class="ttc" id="classpersonnage_html"><div class="ttname"><a href="classpersonnage.html">personnage</a></div><div class="ttdef"><b>Definition:</b> personnage.h:8</div></div>
+<div class="ttc" id="classballe_html_a1e62142738138ef4b0fc6fe97c18ea70"><div class="ttname"><a href="classballe.html#a1e62142738138ef4b0fc6fe97c18ea70">balle::getPosX</a></div><div class="ttdeci">float getPosX() const</div></div>
+<div class="ttc" id="classballe_html_ac2beb3bc9905e417d165aa0c454c152f"><div class="ttname"><a href="classballe.html#ac2beb3bc9905e417d165aa0c454c152f">balle::ajoutAngle</a></div><div class="ttdeci">void ajoutAngle(double deg)</div><div class="ttdef"><b>Definition:</b> balle.cpp:63</div></div>
+<div class="ttc" id="classballe_html_a9ca7c6c93dcc2334718e21a1c9ee2b86"><div class="ttname"><a href="classballe.html#a9ca7c6c93dcc2334718e21a1c9ee2b86">balle::getVit</a></div><div class="ttdeci">Complex * getVit() const</div><div class="ttdef"><b>Definition:</b> balle.cpp:33</div></div>
+<div class="ttc" id="classballe_html"><div class="ttname"><a href="classballe.html">balle</a></div><div class="ttdef"><b>Definition:</b> balle.h:8</div></div>
+<div class="ttc" id="classballe_html_a086e3e6d1814e885c849e8ea4813a0a2"><div class="ttname"><a href="classballe.html#a086e3e6d1814e885c849e8ea4813a0a2">balle::getDistanceY</a></div><div class="ttdeci">float getDistanceY()</div><div class="ttdef"><b>Definition:</b> balle.cpp:48</div></div>
+<div class="ttc" id="classballe_html_a3bc8bc6662c95bd052f02dfb18892209"><div class="ttname"><a href="classballe.html#a3bc8bc6662c95bd052f02dfb18892209">balle::getDistanceX</a></div><div class="ttdeci">float getDistanceX()</div><div class="ttdef"><b>Definition:</b> balle.cpp:43</div></div>
+<div class="ttc" id="personnage_8h_html"><div class="ttname"><a href="personnage_8h.html">personnage.h</a></div></div>
+<div class="ttc" id="classballe_html_a44f9ef55a50756bf8414e407b2670132"><div class="ttname"><a href="classballe.html#a44f9ef55a50756bf8414e407b2670132">balle::getPosY</a></div><div class="ttdeci">float getPosY() const</div></div>
+<div class="ttc" id="classballe_html_a4bbd5e8cc842b10009b279d77d7272ef"><div class="ttname"><a href="classballe.html#a4bbd5e8cc842b10009b279d77d7272ef">balle::updateBalle</a></div><div class="ttdeci">void updateBalle()</div><div class="ttdef"><b>Definition:</b> balle.cpp:92</div></div>
+<div class="ttc" id="classballe_html_a87d391536126876825f2e6b57453b973"><div class="ttname"><a href="classballe.html#a87d391536126876825f2e6b57453b973">balle::getB2</a></div><div class="ttdeci">bool getB2()</div><div class="ttdef"><b>Definition:</b> balle.cpp:58</div></div>
+<div class="ttc" id="classballe_html_a05c341df96e2a49b08e8a77c9a6806db"><div class="ttname"><a href="classballe.html#a05c341df96e2a49b08e8a77c9a6806db">balle::tireBalle</a></div><div class="ttdeci">void tireBalle()</div><div class="ttdef"><b>Definition:</b> balle.cpp:70</div></div>
+<div class="ttc" id="classballe_html_aa06115d8837256988e7ab9993f47ac6f"><div class="ttname"><a href="classballe.html#aa06115d8837256988e7ab9993f47ac6f">balle::getPos</a></div><div class="ttdeci">Complex * getPos() const</div><div class="ttdef"><b>Definition:</b> balle.cpp:18</div></div>
+<div class="ttc" id="classballe_html_a25f4ff369af6e6dcfb19c5f1464309fc"><div class="ttname"><a href="classballe.html#a25f4ff369af6e6dcfb19c5f1464309fc">balle::~balle</a></div><div class="ttdeci">~balle()</div><div class="ttdef"><b>Definition:</b> balle.cpp:16</div></div>
+<div class="ttc" id="classballe_html_a4a4b1a63e53cd0d766fce1e49cc07b17"><div class="ttname"><a href="classballe.html#a4a4b1a63e53cd0d766fce1e49cc07b17">balle::getB1</a></div><div class="ttdeci">bool getB1()</div><div class="ttdef"><b>Definition:</b> balle.cpp:53</div></div>
+<div class="ttc" id="objet_8h_html"><div class="ttname"><a href="objet_8h.html">objet.h</a></div></div>
+<div class="ttc" id="classComplex_html"><div class="ttname"><a href="classComplex.html">Complex</a></div><div class="ttdef"><b>Definition:</b> complex.h:8</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

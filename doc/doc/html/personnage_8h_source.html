@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/antoine/Documents/L2/LIFAP4/Project ORUCS/project-orcus/src/personnage.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">personnage.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="personnage_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef PERSONNAGE_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define PERSONNAGE_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="complex_8h.html">complex.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="def_8h.html">def.h</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classpersonnage.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classpersonnage.html">personnage</a>{</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="classComplex.html">Complex</a>* pos;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="classComplex.html">Complex</a>* vit;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">double</span> angle;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">int</span> pdv;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    SDL_Texture* Pion;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    SDL_Rect destRect;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classpersonnage.html#a3ee9e6a0b7a3fe87eae44f7e5be4dbbf">   20</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classpersonnage.html#a3ee9e6a0b7a3fe87eae44f7e5be4dbbf">bt</a>[225];</div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classpersonnage.html#a1171004d3549c3fae8e4c64c959a74bf">   21</a></span>&#160;    SDL_Rect <a class="code" href="classpersonnage.html#a1171004d3549c3fae8e4c64c959a74bf">tab</a>[225];</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classpersonnage.html#acd9ca516f8c5c110687e5167dab8db59">personnage</a>();</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="classpersonnage.html#a3258008aea95a40b54591ee6bc7129be">~personnage</a>();</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    SDL_Texture* <a class="code" href="classpersonnage.html#a4945e1194417822b5c50f71418522dc2">getTexture</a>()<span class="keyword">const</span>;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    SDL_Rect* <a class="code" href="classpersonnage.html#acc097b6266a023b5c7eb4eef1111378b">getRect</a>();</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classComplex.html">Complex</a>* <a class="code" href="classpersonnage.html#a26182b2cf14bbf5abf25c6fae0ba3e47">getPos</a>()<span class="keyword">const</span>;</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="classComplex.html">Complex</a>* <a class="code" href="classpersonnage.html#a3c98da8dfc7f5c1dae8cb8fb85726c9f">getVit</a>()<span class="keyword">const</span>;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classpersonnage.html#a7cb609dc21ef3bc8623cb9b670438970">getAngle</a>()<span class="keyword">const</span>;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classpersonnage.html#a844ee07a1421658afa75ef307a5646dc">getPdv</a>()<span class="keyword">const</span>;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classpersonnage.html#a8c752b8ff67fc920a3dede6f230bac15">setPdv</a>(<span class="keywordtype">int</span> n);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classpersonnage.html#a174d6e33503a0d1566b6be675be5efc1">setTexture</a>(SDL_Renderer* renderer,SDL_Surface* surface);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classpersonnage.html#a13eb75d232d184e031ac3407e1313f3d">ajoutAngle</a>(<span class="keywordtype">double</span> deg);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classpersonnage.html#a932b426b05f6a09941eb7a2779ca077b">deplace</a>(<span class="keywordtype">float</span> f,<span class="keywordtype">double</span> ang,<span class="keywordtype">int</span> collision[124][124],SDL_Renderer* renderer);</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="complex_8h_html"><div class="ttname"><a href="complex_8h.html">complex.h</a></div></div>
+<div class="ttc" id="classpersonnage_html_a4945e1194417822b5c50f71418522dc2"><div class="ttname"><a href="classpersonnage.html#a4945e1194417822b5c50f71418522dc2">personnage::getTexture</a></div><div class="ttdeci">SDL_Texture * getTexture() const</div><div class="ttdef"><b>Definition:</b> personnage.cpp:28</div></div>
+<div class="ttc" id="def_8h_html"><div class="ttname"><a href="def_8h.html">def.h</a></div></div>
+<div class="ttc" id="classpersonnage_html_a3258008aea95a40b54591ee6bc7129be"><div class="ttname"><a href="classpersonnage.html#a3258008aea95a40b54591ee6bc7129be">personnage::~personnage</a></div><div class="ttdeci">~personnage()</div><div class="ttdef"><b>Definition:</b> personnage.cpp:21</div></div>
+<div class="ttc" id="classpersonnage_html_a844ee07a1421658afa75ef307a5646dc"><div class="ttname"><a href="classpersonnage.html#a844ee07a1421658afa75ef307a5646dc">personnage::getPdv</a></div><div class="ttdeci">int getPdv() const</div><div class="ttdef"><b>Definition:</b> personnage.cpp:48</div></div>
+<div class="ttc" id="classpersonnage_html"><div class="ttname"><a href="classpersonnage.html">personnage</a></div><div class="ttdef"><b>Definition:</b> personnage.h:8</div></div>
+<div class="ttc" id="classpersonnage_html_a26182b2cf14bbf5abf25c6fae0ba3e47"><div class="ttname"><a href="classpersonnage.html#a26182b2cf14bbf5abf25c6fae0ba3e47">personnage::getPos</a></div><div class="ttdeci">Complex * getPos() const</div><div class="ttdef"><b>Definition:</b> personnage.cpp:36</div></div>
+<div class="ttc" id="classpersonnage_html_a174d6e33503a0d1566b6be675be5efc1"><div class="ttname"><a href="classpersonnage.html#a174d6e33503a0d1566b6be675be5efc1">personnage::setTexture</a></div><div class="ttdeci">void setTexture(SDL_Renderer *renderer, SDL_Surface *surface)</div><div class="ttdef"><b>Definition:</b> personnage.cpp:56</div></div>
+<div class="ttc" id="classpersonnage_html_a13eb75d232d184e031ac3407e1313f3d"><div class="ttname"><a href="classpersonnage.html#a13eb75d232d184e031ac3407e1313f3d">personnage::ajoutAngle</a></div><div class="ttdeci">void ajoutAngle(double deg)</div><div class="ttdef"><b>Definition:</b> personnage.cpp:65</div></div>
+<div class="ttc" id="classpersonnage_html_a932b426b05f6a09941eb7a2779ca077b"><div class="ttname"><a href="classpersonnage.html#a932b426b05f6a09941eb7a2779ca077b">personnage::deplace</a></div><div class="ttdeci">void deplace(float f, double ang, int collision[124][124], SDL_Renderer *renderer)</div><div class="ttdef"><b>Definition:</b> personnage.cpp:71</div></div>
+<div class="ttc" id="classpersonnage_html_a3ee9e6a0b7a3fe87eae44f7e5be4dbbf"><div class="ttname"><a href="classpersonnage.html#a3ee9e6a0b7a3fe87eae44f7e5be4dbbf">personnage::bt</a></div><div class="ttdeci">bool bt[225]</div><div class="ttdef"><b>Definition:</b> personnage.h:20</div></div>
+<div class="ttc" id="classpersonnage_html_a3c98da8dfc7f5c1dae8cb8fb85726c9f"><div class="ttname"><a href="classpersonnage.html#a3c98da8dfc7f5c1dae8cb8fb85726c9f">personnage::getVit</a></div><div class="ttdeci">Complex * getVit() const</div><div class="ttdef"><b>Definition:</b> personnage.cpp:40</div></div>
+<div class="ttc" id="classpersonnage_html_acd9ca516f8c5c110687e5167dab8db59"><div class="ttname"><a href="classpersonnage.html#acd9ca516f8c5c110687e5167dab8db59">personnage::personnage</a></div><div class="ttdeci">personnage()</div><div class="ttdef"><b>Definition:</b> personnage.cpp:3</div></div>
+<div class="ttc" id="classpersonnage_html_a8c752b8ff67fc920a3dede6f230bac15"><div class="ttname"><a href="classpersonnage.html#a8c752b8ff67fc920a3dede6f230bac15">personnage::setPdv</a></div><div class="ttdeci">void setPdv(int n)</div><div class="ttdef"><b>Definition:</b> personnage.cpp:52</div></div>
+<div class="ttc" id="classpersonnage_html_acc097b6266a023b5c7eb4eef1111378b"><div class="ttname"><a href="classpersonnage.html#acc097b6266a023b5c7eb4eef1111378b">personnage::getRect</a></div><div class="ttdeci">SDL_Rect * getRect()</div><div class="ttdef"><b>Definition:</b> personnage.cpp:32</div></div>
+<div class="ttc" id="classpersonnage_html_a7cb609dc21ef3bc8623cb9b670438970"><div class="ttname"><a href="classpersonnage.html#a7cb609dc21ef3bc8623cb9b670438970">personnage::getAngle</a></div><div class="ttdeci">double getAngle() const</div><div class="ttdef"><b>Definition:</b> personnage.cpp:44</div></div>
+<div class="ttc" id="classpersonnage_html_a1171004d3549c3fae8e4c64c959a74bf"><div class="ttname"><a href="classpersonnage.html#a1171004d3549c3fae8e4c64c959a74bf">personnage::tab</a></div><div class="ttdeci">SDL_Rect tab[225]</div><div class="ttdef"><b>Definition:</b> personnage.h:21</div></div>
+<div class="ttc" id="classComplex_html"><div class="ttname"><a href="classComplex.html">Complex</a></div><div class="ttdef"><b>Definition:</b> complex.h:8</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

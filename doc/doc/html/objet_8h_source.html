@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/antoine/Documents/L2/LIFAP4/Project ORUCS/project-orcus/src/objet.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">objet.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="objet_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef OBJET_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define OBJET_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="def_8h.html">def.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="texture_8h.html">texture.h</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="complex_8h.html">complex.h</a>&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classobjet.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classobjet.html">objet</a></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">protected</span>:</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classobjet.html#a0e1c8a51f415667f4b612b951bb401b8">   11</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classobjet.html#a0e1c8a51f415667f4b612b951bb401b8">pop</a>;</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classobjet.html#aeeaf84712cb013837845cac02ebe2b1e">   12</a></span>&#160;    <a class="code" href="classtexture.html">texture</a> *<a class="code" href="classobjet.html#aeeaf84712cb013837845cac02ebe2b1e">s</a> = <span class="keyword">new</span> <a class="code" href="classtexture.html">texture</a>();</div><div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classobjet.html#a439fb5a8f7648ce62e31b9027c707742">   13</a></span>&#160;    <a class="code" href="classComplex.html">Complex</a> <a class="code" href="classobjet.html#a439fb5a8f7648ce62e31b9027c707742">posObj</a>;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="classobjet.html#aeda20f498bea2b385904bee3a4151599">objet</a>();</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classobjet.html#a35cc4308dbe35d4897b2cdf93e5eeb58">getPop</a>()<span class="keyword">const</span>;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classobjet.html#aedb6bb9d4a7fb03ff4b60a47afa22793">setPop</a>(<span class="keywordtype">bool</span> b);</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classobjet.html#a62fef9f460ed7236684f6ddaaae4ce2c">setPos</a>(<span class="keywordtype">float</span> x,<span class="keywordtype">float</span> y);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classobjet.html#a14d6cb0ecc385f5a374aef05221169fc">getPosX</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classobjet.html#a7a485e9e878a0ed1cd5b1b90f2cd89df">getPosY</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="comment">// SDL_Texture *getTexture();</span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classobjet.html#ac741f7e1b5d8bcb2174e698b801cdd24">setTexture</a>(SDL_Renderer *ren, <span class="keyword">const</span> <span class="keywordtype">char</span>* file);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classobjet.html#af98e6d209ad98f1f2e3620178e1cb616">drawObjet</a>(SDL_Renderer *ren, <span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y) <span class="keyword">const</span>;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    SDL_Rect* <a class="code" href="classobjet.html#a0ea9eddbe8de1422f9d5100f1905f1b3">getRect</a>();</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classobjet.html#a570029d148bc7cff4293561ae91c2c11">setFile</a>(<span class="keywordtype">char</span>* file);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="classobjet.html#aec4890842e14442a09a46a127cda95e3">getFileName</a>();</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classobjet.html#a33331c9b9a961c30266616f6080719e1">~objet</a>();</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span></div><div class="ttc" id="classobjet_html_a35cc4308dbe35d4897b2cdf93e5eeb58"><div class="ttname"><a href="classobjet.html#a35cc4308dbe35d4897b2cdf93e5eeb58">objet::getPop</a></div><div class="ttdeci">bool getPop() const</div><div class="ttdef"><b>Definition:</b> objet.cpp:9</div></div>
+<div class="ttc" id="classobjet_html_a14d6cb0ecc385f5a374aef05221169fc"><div class="ttname"><a href="classobjet.html#a14d6cb0ecc385f5a374aef05221169fc">objet::getPosX</a></div><div class="ttdeci">float getPosX() const</div><div class="ttdef"><b>Definition:</b> objet.cpp:24</div></div>
+<div class="ttc" id="classobjet_html_a439fb5a8f7648ce62e31b9027c707742"><div class="ttname"><a href="classobjet.html#a439fb5a8f7648ce62e31b9027c707742">objet::posObj</a></div><div class="ttdeci">Complex posObj</div><div class="ttdef"><b>Definition:</b> objet.h:13</div></div>
+<div class="ttc" id="classobjet_html_a0e1c8a51f415667f4b612b951bb401b8"><div class="ttname"><a href="classobjet.html#a0e1c8a51f415667f4b612b951bb401b8">objet::pop</a></div><div class="ttdeci">bool pop</div><div class="ttdef"><b>Definition:</b> objet.h:11</div></div>
+<div class="ttc" id="complex_8h_html"><div class="ttname"><a href="complex_8h.html">complex.h</a></div></div>
+<div class="ttc" id="classobjet_html_ac741f7e1b5d8bcb2174e698b801cdd24"><div class="ttname"><a href="classobjet.html#ac741f7e1b5d8bcb2174e698b801cdd24">objet::setTexture</a></div><div class="ttdeci">void setTexture(SDL_Renderer *ren, const char *file)</div><div class="ttdef"><b>Definition:</b> objet.cpp:34</div></div>
+<div class="ttc" id="def_8h_html"><div class="ttname"><a href="def_8h.html">def.h</a></div></div>
+<div class="ttc" id="classobjet_html_aec4890842e14442a09a46a127cda95e3"><div class="ttname"><a href="classobjet.html#aec4890842e14442a09a46a127cda95e3">objet::getFileName</a></div><div class="ttdeci">const char * getFileName()</div><div class="ttdef"><b>Definition:</b> objet.cpp:54</div></div>
+<div class="ttc" id="texture_8h_html"><div class="ttname"><a href="texture_8h.html">texture.h</a></div></div>
+<div class="ttc" id="classtexture_html"><div class="ttname"><a href="classtexture.html">texture</a></div><div class="ttdef"><b>Definition:</b> texture.h:5</div></div>
+<div class="ttc" id="classobjet_html_aedb6bb9d4a7fb03ff4b60a47afa22793"><div class="ttname"><a href="classobjet.html#aedb6bb9d4a7fb03ff4b60a47afa22793">objet::setPop</a></div><div class="ttdeci">void setPop(bool b)</div><div class="ttdef"><b>Definition:</b> objet.cpp:14</div></div>
+<div class="ttc" id="classobjet_html_a0ea9eddbe8de1422f9d5100f1905f1b3"><div class="ttname"><a href="classobjet.html#a0ea9eddbe8de1422f9d5100f1905f1b3">objet::getRect</a></div><div class="ttdeci">SDL_Rect * getRect()</div><div class="ttdef"><b>Definition:</b> objet.cpp:44</div></div>
+<div class="ttc" id="classobjet_html_a62fef9f460ed7236684f6ddaaae4ce2c"><div class="ttname"><a href="classobjet.html#a62fef9f460ed7236684f6ddaaae4ce2c">objet::setPos</a></div><div class="ttdeci">void setPos(float x, float y)</div><div class="ttdef"><b>Definition:</b> objet.cpp:19</div></div>
+<div class="ttc" id="classobjet_html_a33331c9b9a961c30266616f6080719e1"><div class="ttname"><a href="classobjet.html#a33331c9b9a961c30266616f6080719e1">objet::~objet</a></div><div class="ttdeci">~objet()</div><div class="ttdef"><b>Definition:</b> objet.cpp:59</div></div>
+<div class="ttc" id="classobjet_html_a570029d148bc7cff4293561ae91c2c11"><div class="ttname"><a href="classobjet.html#a570029d148bc7cff4293561ae91c2c11">objet::setFile</a></div><div class="ttdeci">void setFile(char *file)</div><div class="ttdef"><b>Definition:</b> objet.cpp:49</div></div>
+<div class="ttc" id="classobjet_html"><div class="ttname"><a href="classobjet.html">objet</a></div><div class="ttdef"><b>Definition:</b> objet.h:8</div></div>
+<div class="ttc" id="classobjet_html_af98e6d209ad98f1f2e3620178e1cb616"><div class="ttname"><a href="classobjet.html#af98e6d209ad98f1f2e3620178e1cb616">objet::drawObjet</a></div><div class="ttdeci">void drawObjet(SDL_Renderer *ren, float x, float y) const</div><div class="ttdef"><b>Definition:</b> objet.cpp:39</div></div>
+<div class="ttc" id="classobjet_html_aeda20f498bea2b385904bee3a4151599"><div class="ttname"><a href="classobjet.html#aeda20f498bea2b385904bee3a4151599">objet::objet</a></div><div class="ttdeci">objet()</div><div class="ttdef"><b>Definition:</b> objet.cpp:3</div></div>
+<div class="ttc" id="classobjet_html_aeeaf84712cb013837845cac02ebe2b1e"><div class="ttname"><a href="classobjet.html#aeeaf84712cb013837845cac02ebe2b1e">objet::s</a></div><div class="ttdeci">texture * s</div><div class="ttdef"><b>Definition:</b> objet.h:12</div></div>
+<div class="ttc" id="classobjet_html_a7a485e9e878a0ed1cd5b1b90f2cd89df"><div class="ttname"><a href="classobjet.html#a7a485e9e878a0ed1cd5b1b90f2cd89df">objet::getPosY</a></div><div class="ttdeci">float getPosY() const</div><div class="ttdef"><b>Definition:</b> objet.cpp:29</div></div>
+<div class="ttc" id="classComplex_html"><div class="ttname"><a href="classComplex.html">Complex</a></div><div class="ttdef"><b>Definition:</b> complex.h:8</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

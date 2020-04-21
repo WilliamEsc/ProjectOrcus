@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/antoine/Documents/L2/LIFAP4/Project ORUCS/project-orcus/src/text.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">text.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="text_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TEXT_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TEXT_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="def_8h.html">def.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="texture_8h.html">texture.h</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classtext.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtext.html">text</a></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *texte ;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    SDL_Color color ;</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    TTF_Font *font ;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">float</span> posX;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">float</span> posY;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classtexture.html">texture</a> *t= <span class="keyword">new</span> <a class="code" href="classtexture.html">texture</a>();</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    </div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="classtext.html#a14339f5c8f5e1fb023f0e68bf5685247">text</a>();</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="classtext.html#af8ef97c73999b22520a93bad9df8cb66">~text</a>();</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;     </div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code" href="classtext.html#a19bae9196167cac1f70b3bcde0fe0f26">getTexte</a>();</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    SDL_Color <a class="code" href="classtext.html#a95c99a1931e9fa63969c8b42f836b215">getColor</a>();</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    TTF_Font *<a class="code" href="classtext.html#ae2dd2d35f124bcb078c1d02071b1a370">getFont</a>();</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classtext.html#a8e8c502e3081ab9eb694e2e328db0bbd">getPosX</a>();</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classtext.html#a902fc45d94c7695744627c2bf69d08b2">getPosY</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtext.html#a397b0dee4c2d203b5452fd5120b50c1b">setTexte</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *t1,SDL_Renderer *ren, <span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y);</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtext.html#aa7224cdb0c4b84333f99cb8b16e203dc">setColor</a>(SDL_Color c);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtext.html#a888a5a6195a5f0ec7fbffc358e9ec9d8">setFont</a>(TTF_Font *f);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classtext.html#a41777eee397fd87e5f743fce5e2ba83b">setPosText</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">    </span></div><div class="ttc" id="classtext_html_a14339f5c8f5e1fb023f0e68bf5685247"><div class="ttname"><a href="classtext.html#a14339f5c8f5e1fb023f0e68bf5685247">text::text</a></div><div class="ttdeci">text()</div><div class="ttdef"><b>Definition:</b> text.cpp:3</div></div>
+<div class="ttc" id="def_8h_html"><div class="ttname"><a href="def_8h.html">def.h</a></div></div>
+<div class="ttc" id="classtext_html"><div class="ttname"><a href="classtext.html">text</a></div><div class="ttdef"><b>Definition:</b> text.h:7</div></div>
+<div class="ttc" id="classtext_html_a19bae9196167cac1f70b3bcde0fe0f26"><div class="ttname"><a href="classtext.html#a19bae9196167cac1f70b3bcde0fe0f26">text::getTexte</a></div><div class="ttdeci">const char * getTexte()</div><div class="ttdef"><b>Definition:</b> text.cpp:12</div></div>
+<div class="ttc" id="classtext_html_a95c99a1931e9fa63969c8b42f836b215"><div class="ttname"><a href="classtext.html#a95c99a1931e9fa63969c8b42f836b215">text::getColor</a></div><div class="ttdeci">SDL_Color getColor()</div><div class="ttdef"><b>Definition:</b> text.cpp:17</div></div>
+<div class="ttc" id="classtext_html_a888a5a6195a5f0ec7fbffc358e9ec9d8"><div class="ttname"><a href="classtext.html#a888a5a6195a5f0ec7fbffc358e9ec9d8">text::setFont</a></div><div class="ttdeci">void setFont(TTF_Font *f)</div><div class="ttdef"><b>Definition:</b> text.cpp:37</div></div>
+<div class="ttc" id="texture_8h_html"><div class="ttname"><a href="texture_8h.html">texture.h</a></div></div>
+<div class="ttc" id="classtexture_html"><div class="ttname"><a href="classtexture.html">texture</a></div><div class="ttdef"><b>Definition:</b> texture.h:5</div></div>
+<div class="ttc" id="classtext_html_a41777eee397fd87e5f743fce5e2ba83b"><div class="ttname"><a href="classtext.html#a41777eee397fd87e5f743fce5e2ba83b">text::setPosText</a></div><div class="ttdeci">void setPosText(float x, float y)</div><div class="ttdef"><b>Definition:</b> text.cpp:47</div></div>
+<div class="ttc" id="classtext_html_ae2dd2d35f124bcb078c1d02071b1a370"><div class="ttname"><a href="classtext.html#ae2dd2d35f124bcb078c1d02071b1a370">text::getFont</a></div><div class="ttdeci">TTF_Font * getFont()</div><div class="ttdef"><b>Definition:</b> text.cpp:22</div></div>
+<div class="ttc" id="classtext_html_af8ef97c73999b22520a93bad9df8cb66"><div class="ttname"><a href="classtext.html#af8ef97c73999b22520a93bad9df8cb66">text::~text</a></div><div class="ttdeci">~text()</div><div class="ttdef"><b>Definition:</b> text.cpp:10</div></div>
+<div class="ttc" id="classtext_html_a902fc45d94c7695744627c2bf69d08b2"><div class="ttname"><a href="classtext.html#a902fc45d94c7695744627c2bf69d08b2">text::getPosY</a></div><div class="ttdeci">float getPosY()</div><div class="ttdef"><b>Definition:</b> text.cpp:32</div></div>
+<div class="ttc" id="classtext_html_a8e8c502e3081ab9eb694e2e328db0bbd"><div class="ttname"><a href="classtext.html#a8e8c502e3081ab9eb694e2e328db0bbd">text::getPosX</a></div><div class="ttdeci">float getPosX()</div><div class="ttdef"><b>Definition:</b> text.cpp:27</div></div>
+<div class="ttc" id="classtext_html_aa7224cdb0c4b84333f99cb8b16e203dc"><div class="ttname"><a href="classtext.html#aa7224cdb0c4b84333f99cb8b16e203dc">text::setColor</a></div><div class="ttdeci">void setColor(SDL_Color c)</div><div class="ttdef"><b>Definition:</b> text.cpp:42</div></div>
+<div class="ttc" id="classtext_html_a397b0dee4c2d203b5452fd5120b50c1b"><div class="ttname"><a href="classtext.html#a397b0dee4c2d203b5452fd5120b50c1b">text::setTexte</a></div><div class="ttdeci">void setTexte(const char *t1, SDL_Renderer *ren, float x, float y)</div><div class="ttdef"><b>Definition:</b> text.cpp:53</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

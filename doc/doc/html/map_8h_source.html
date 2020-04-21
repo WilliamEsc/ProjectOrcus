@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project:  Fichier source de /home/antoine/Documents/L2/LIFAP4/Project ORUCS/project-orcus/src/map.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">map.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="map_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MAP_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MAP_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="def_8h.html">def.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="texture_8h.html">texture.h</a>&quot;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="complex_8h.html">complex.h</a>&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classmap.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classmap.html">map</a> </div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">public</span>:</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="classmap.html#abedfe6722ad83929739afd899c88fea4">map</a>();</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="classmap.html#abedfe6722ad83929739afd899c88fea4">map</a>(SDL_Renderer* rend);</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="classmap.html#a0cc22df7b44f7835fa10ed241848b041">~map</a>();</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classmap.html#ad2606d243008ce663393b272d01e1463">loadCalque</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str,<span class="keywordtype">int</span> calque[124][124]);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classmap.html#a5ecdf2c5927ddbe3fffb9079fbd3e915">drawMap</a>(SDL_Renderer* rend,<span class="keyword">const</span> <a class="code" href="classComplex.html">Complex</a> &amp;posJ);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classmap.html#a495874310631e8c0b0329984c05b9bd7">operator&gt;&gt;</a>(std::istream&amp; is);</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classmap.html#a4688a2204f0b6301769b4363be830184">   19</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classmap.html#a4688a2204f0b6301769b4363be830184">collision</a>[124][124];</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">private</span>:</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        SDL_Rect src, dest;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="comment">// texture * dirt;</span></div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">// texture * water=new texture();</span></div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="comment">// texture * stone;</span></div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="comment">// texture * tileset= new texture();</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <a class="code" href="classtexture.html">texture</a> * mappng= <span class="keyword">new</span> <a class="code" href="classtexture.html">texture</a>();</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="comment">// texture * error= new texture();</span></div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="comment">// int calque1[100][100];</span></div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="comment">// int calque2[100][100];</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="comment">// int calque3[100][100];</span></div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="complex_8h_html"><div class="ttname"><a href="complex_8h.html">complex.h</a></div></div>
+<div class="ttc" id="def_8h_html"><div class="ttname"><a href="def_8h.html">def.h</a></div></div>
+<div class="ttc" id="classmap_html_ad2606d243008ce663393b272d01e1463"><div class="ttname"><a href="classmap.html#ad2606d243008ce663393b272d01e1463">map::loadCalque</a></div><div class="ttdeci">void loadCalque(const char *str, int calque[124][124])</div><div class="ttdef"><b>Definition:</b> map.cpp:41</div></div>
+<div class="ttc" id="texture_8h_html"><div class="ttname"><a href="texture_8h.html">texture.h</a></div></div>
+<div class="ttc" id="classmap_html_a0cc22df7b44f7835fa10ed241848b041"><div class="ttname"><a href="classmap.html#a0cc22df7b44f7835fa10ed241848b041">map::~map</a></div><div class="ttdeci">~map()</div><div class="ttdef"><b>Definition:</b> map.cpp:36</div></div>
+<div class="ttc" id="classtexture_html"><div class="ttname"><a href="classtexture.html">texture</a></div><div class="ttdef"><b>Definition:</b> texture.h:5</div></div>
+<div class="ttc" id="classmap_html_a4688a2204f0b6301769b4363be830184"><div class="ttname"><a href="classmap.html#a4688a2204f0b6301769b4363be830184">map::collision</a></div><div class="ttdeci">int collision[124][124]</div><div class="ttdef"><b>Definition:</b> map.h:19</div></div>
+<div class="ttc" id="classmap_html_abedfe6722ad83929739afd899c88fea4"><div class="ttname"><a href="classmap.html#abedfe6722ad83929739afd899c88fea4">map::map</a></div><div class="ttdeci">map()</div><div class="ttdef"><b>Definition:</b> map.cpp:3</div></div>
+<div class="ttc" id="classmap_html"><div class="ttname"><a href="classmap.html">map</a></div><div class="ttdef"><b>Definition:</b> map.h:8</div></div>
+<div class="ttc" id="classmap_html_a495874310631e8c0b0329984c05b9bd7"><div class="ttname"><a href="classmap.html#a495874310631e8c0b0329984c05b9bd7">map::operator&gt;&gt;</a></div><div class="ttdeci">void operator&gt;&gt;(std::istream &amp;is)</div></div>
+<div class="ttc" id="classComplex_html"><div class="ttname"><a href="classComplex.html">Complex</a></div><div class="ttdef"><b>Definition:</b> complex.h:8</div></div>
+<div class="ttc" id="classmap_html_a5ecdf2c5927ddbe3fffb9079fbd3e915"><div class="ttname"><a href="classmap.html#a5ecdf2c5927ddbe3fffb9079fbd3e915">map::drawMap</a></div><div class="ttdeci">void drawMap(SDL_Renderer *rend, const Complex &amp;posJ)</div><div class="ttdef"><b>Definition:</b> map.cpp:58</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

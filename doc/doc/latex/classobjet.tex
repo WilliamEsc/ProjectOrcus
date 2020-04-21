@@ -1,0 +1,155 @@
+\hypertarget{classobjet}{}\section{Référence de la classe objet}
+\label{classobjet}\index{objet@{objet}}
+
+
+{\ttfamily \#include $<$objet.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de objet\+:
+% FIG 0
+
+
+Graphe de collaboration de objet\+:
+% FIG 1
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classobjet_aeda20f498bea2b385904bee3a4151599}{objet} ()
+\item 
+bool \hyperlink{classobjet_a35cc4308dbe35d4897b2cdf93e5eeb58}{get\+Pop} () const
+\item 
+void \hyperlink{classobjet_aedb6bb9d4a7fb03ff4b60a47afa22793}{set\+Pop} (bool b)
+\item 
+void \hyperlink{classobjet_a62fef9f460ed7236684f6ddaaae4ce2c}{set\+Pos} (float x, float y)
+\item 
+float \hyperlink{classobjet_a14d6cb0ecc385f5a374aef05221169fc}{get\+PosX} () const
+\item 
+float \hyperlink{classobjet_a7a485e9e878a0ed1cd5b1b90f2cd89df}{get\+PosY} () const
+\item 
+void \hyperlink{classobjet_ac741f7e1b5d8bcb2174e698b801cdd24}{set\+Texture} (S\+D\+L\+\_\+\+Renderer $\ast$ren, const char $\ast$file)
+\item 
+void \hyperlink{classobjet_af98e6d209ad98f1f2e3620178e1cb616}{draw\+Objet} (S\+D\+L\+\_\+\+Renderer $\ast$ren, float x, float y) const
+\item 
+S\+D\+L\+\_\+\+Rect $\ast$ \hyperlink{classobjet_a0ea9eddbe8de1422f9d5100f1905f1b3}{get\+Rect} ()
+\item 
+void \hyperlink{classobjet_a570029d148bc7cff4293561ae91c2c11}{set\+File} (char $\ast$file)
+\item 
+const char $\ast$ \hyperlink{classobjet_aec4890842e14442a09a46a127cda95e3}{get\+File\+Name} ()
+\item 
+\hyperlink{classobjet_a33331c9b9a961c30266616f6080719e1}{$\sim$objet} ()
+\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classobjet_a0e1c8a51f415667f4b612b951bb401b8}{pop}
+\item 
+\hyperlink{classtexture}{texture} $\ast$ \hyperlink{classobjet_aeeaf84712cb013837845cac02ebe2b1e}{s} = new \hyperlink{classtexture}{texture}()
+\item 
+\hyperlink{classComplex}{Complex} \hyperlink{classobjet_a439fb5a8f7648ce62e31b9027c707742}{pos\+Obj}
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\mbox{\Hypertarget{classobjet_aeda20f498bea2b385904bee3a4151599}\label{classobjet_aeda20f498bea2b385904bee3a4151599}} 
+\index{objet@{objet}!objet@{objet}}
+\index{objet@{objet}!objet@{objet}}
+\subsubsection{\texorpdfstring{objet()}{objet()}}
+{\footnotesize\ttfamily objet\+::objet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classobjet_a33331c9b9a961c30266616f6080719e1}\label{classobjet_a33331c9b9a961c30266616f6080719e1}} 
+\index{objet@{objet}!````~objet@{$\sim$objet}}
+\index{````~objet@{$\sim$objet}!objet@{objet}}
+\subsubsection{\texorpdfstring{$\sim$objet()}{~objet()}}
+{\footnotesize\ttfamily objet\+::$\sim$objet (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des fonctions membres}
+\mbox{\Hypertarget{classobjet_af98e6d209ad98f1f2e3620178e1cb616}\label{classobjet_af98e6d209ad98f1f2e3620178e1cb616}} 
+\index{objet@{objet}!draw\+Objet@{draw\+Objet}}
+\index{draw\+Objet@{draw\+Objet}!objet@{objet}}
+\subsubsection{\texorpdfstring{draw\+Objet()}{drawObjet()}}
+{\footnotesize\ttfamily void objet\+::draw\+Objet (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{ren,  }\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classobjet_aec4890842e14442a09a46a127cda95e3}\label{classobjet_aec4890842e14442a09a46a127cda95e3}} 
+\index{objet@{objet}!get\+File\+Name@{get\+File\+Name}}
+\index{get\+File\+Name@{get\+File\+Name}!objet@{objet}}
+\subsubsection{\texorpdfstring{get\+File\+Name()}{getFileName()}}
+{\footnotesize\ttfamily const char $\ast$ objet\+::get\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classobjet_a35cc4308dbe35d4897b2cdf93e5eeb58}\label{classobjet_a35cc4308dbe35d4897b2cdf93e5eeb58}} 
+\index{objet@{objet}!get\+Pop@{get\+Pop}}
+\index{get\+Pop@{get\+Pop}!objet@{objet}}
+\subsubsection{\texorpdfstring{get\+Pop()}{getPop()}}
+{\footnotesize\ttfamily bool objet\+::get\+Pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classobjet_a14d6cb0ecc385f5a374aef05221169fc}\label{classobjet_a14d6cb0ecc385f5a374aef05221169fc}} 
+\index{objet@{objet}!get\+PosX@{get\+PosX}}
+\index{get\+PosX@{get\+PosX}!objet@{objet}}
+\subsubsection{\texorpdfstring{get\+Pos\+X()}{getPosX()}}
+{\footnotesize\ttfamily float objet\+::get\+PosX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classobjet_a7a485e9e878a0ed1cd5b1b90f2cd89df}\label{classobjet_a7a485e9e878a0ed1cd5b1b90f2cd89df}} 
+\index{objet@{objet}!get\+PosY@{get\+PosY}}
+\index{get\+PosY@{get\+PosY}!objet@{objet}}
+\subsubsection{\texorpdfstring{get\+Pos\+Y()}{getPosY()}}
+{\footnotesize\ttfamily float objet\+::get\+PosY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classobjet_a0ea9eddbe8de1422f9d5100f1905f1b3}\label{classobjet_a0ea9eddbe8de1422f9d5100f1905f1b3}} 
+\index{objet@{objet}!get\+Rect@{get\+Rect}}
+\index{get\+Rect@{get\+Rect}!objet@{objet}}
+\subsubsection{\texorpdfstring{get\+Rect()}{getRect()}}
+{\footnotesize\ttfamily S\+D\+L\+\_\+\+Rect $\ast$ objet\+::get\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classobjet_a570029d148bc7cff4293561ae91c2c11}\label{classobjet_a570029d148bc7cff4293561ae91c2c11}} 
+\index{objet@{objet}!set\+File@{set\+File}}
+\index{set\+File@{set\+File}!objet@{objet}}
+\subsubsection{\texorpdfstring{set\+File()}{setFile()}}
+{\footnotesize\ttfamily void objet\+::set\+File (\begin{DoxyParamCaption}\item[{char $\ast$}]{file }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classobjet_aedb6bb9d4a7fb03ff4b60a47afa22793}\label{classobjet_aedb6bb9d4a7fb03ff4b60a47afa22793}} 
+\index{objet@{objet}!set\+Pop@{set\+Pop}}
+\index{set\+Pop@{set\+Pop}!objet@{objet}}
+\subsubsection{\texorpdfstring{set\+Pop()}{setPop()}}
+{\footnotesize\ttfamily void objet\+::set\+Pop (\begin{DoxyParamCaption}\item[{bool}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classobjet_a62fef9f460ed7236684f6ddaaae4ce2c}\label{classobjet_a62fef9f460ed7236684f6ddaaae4ce2c}} 
+\index{objet@{objet}!set\+Pos@{set\+Pos}}
+\index{set\+Pos@{set\+Pos}!objet@{objet}}
+\subsubsection{\texorpdfstring{set\+Pos()}{setPos()}}
+{\footnotesize\ttfamily void objet\+::set\+Pos (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classobjet_ac741f7e1b5d8bcb2174e698b801cdd24}\label{classobjet_ac741f7e1b5d8bcb2174e698b801cdd24}} 
+\index{objet@{objet}!set\+Texture@{set\+Texture}}
+\index{set\+Texture@{set\+Texture}!objet@{objet}}
+\subsubsection{\texorpdfstring{set\+Texture()}{setTexture()}}
+{\footnotesize\ttfamily void objet\+::set\+Texture (\begin{DoxyParamCaption}\item[{S\+D\+L\+\_\+\+Renderer $\ast$}]{ren,  }\item[{const char $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{classobjet_a0e1c8a51f415667f4b612b951bb401b8}\label{classobjet_a0e1c8a51f415667f4b612b951bb401b8}} 
+\index{objet@{objet}!pop@{pop}}
+\index{pop@{pop}!objet@{objet}}
+\subsubsection{\texorpdfstring{pop}{pop}}
+{\footnotesize\ttfamily bool objet\+::pop\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classobjet_a439fb5a8f7648ce62e31b9027c707742}\label{classobjet_a439fb5a8f7648ce62e31b9027c707742}} 
+\index{objet@{objet}!pos\+Obj@{pos\+Obj}}
+\index{pos\+Obj@{pos\+Obj}!objet@{objet}}
+\subsubsection{\texorpdfstring{pos\+Obj}{posObj}}
+{\footnotesize\ttfamily \hyperlink{classComplex}{Complex} objet\+::pos\+Obj\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classobjet_aeeaf84712cb013837845cac02ebe2b1e}\label{classobjet_aeeaf84712cb013837845cac02ebe2b1e}} 
+\index{objet@{objet}!s@{s}}
+\index{s@{s}!objet@{objet}}
+\subsubsection{\texorpdfstring{s}{s}}
+{\footnotesize\ttfamily \hyperlink{classtexture}{texture}$\ast$ objet\+::s = new \hyperlink{classtexture}{texture}()\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+/home/antoine/\+Documents/\+L2/\+L\+I\+F\+A\+P4/\+Project O\+R\+U\+C\+S/project-\/orcus/src/\hyperlink{objet_8h}{objet.\+h}\item 
+/home/antoine/\+Documents/\+L2/\+L\+I\+F\+A\+P4/\+Project O\+R\+U\+C\+S/project-\/orcus/src/\hyperlink{objet_8cpp}{objet.\+cpp}\end{DoxyCompactItemize}
