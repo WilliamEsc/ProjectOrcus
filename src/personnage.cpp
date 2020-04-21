@@ -9,13 +9,6 @@ personnage::personnage(){
     destRect.w=64;
     destRect.x=(SCREEN_WIDTH-64)/2;
     destRect.y=(SCREEN_HEIGHT-64)/2;
-    for(int k=0;k<225;k++){
-                    bt[k]=false;
-                    tab[k].h=64;
-                    tab[k].w=64;
-                    tab[k].x=0;
-                    tab[k].x=0;
-    }
 }
 
 personnage::~personnage(){
@@ -100,21 +93,6 @@ void personnage::deplace(float f,double ang,int collision[124][124],SDL_Renderer
                     collide=true;
                 }
             }
-        }
-    }
-
-    int k=0;
-    for(int i=postmp.getComplexY()-7;i<postmp.getComplexY()+8;i++){
-        for(int j=postmp.getComplexX()-6;j<postmp.getComplexX()+7;j++){
-            if(collision[i][j]!=-1){
-                if(k<200){
-                bt[k]=true;
-                tab[k].x=(j-postmp.getComplexX()+6)*64;
-                tab[k].y=(i-postmp.getComplexY()+5)*64;
-                }
-                
-            }
-        k++;
         }
     }
     
