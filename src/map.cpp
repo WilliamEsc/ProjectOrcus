@@ -27,8 +27,8 @@ map::map(SDL_Renderer* renderer)
     // loadCalque("Data/calque2.txt",calque2);
     // loadCalque("Data/calque3.txt",calque3);
     loadCalque("Data/collision.txt",collision);
-    dest.w = 32;
-    dest.h = 32;
+    // dest.w = 32;
+    // dest.h = 32;
     src.w = SCREEN_WIDTH;
     src.h = SCREEN_HEIGHT;   
 }
