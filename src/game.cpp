@@ -152,9 +152,8 @@ void game::handleEvents()
     }
     if (keystates[SDL_SCANCODE_SPACE])
     {
-        b.setFire(true);
+        b.setFire(true, joueur);
         b.setAngle(joueur.getAngle());
-        b.setVit(joueur.getVit());
     }
 }
 
@@ -174,6 +173,7 @@ void game::update()
         s.setPop(false);
     }
     //b.tireBalle();
+    b.updateBalle(renderer);
 }
 
 void game::render()
@@ -194,7 +194,7 @@ void game::render()
         SDL_RenderDrawRect(renderer, &testRct);
     }
 
-    b.updateBalle(renderer);
+    b.renderBalle(renderer);
     //b.renderTexture(renderer);
 
     // t.setTexte("Point de vie",renderer,0,0);
