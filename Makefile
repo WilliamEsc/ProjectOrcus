@@ -39,8 +39,6 @@ obj/balle.o: src/balle.cpp src/balle.h
 obj/map.o: src/map.cpp src/map.h src/texture.h
 	g++ -Wall -c src/map.cpp -o obj/map.o -lSDL2 -lSDL2_image
 
-
-
 clean: 
 	rm -rf bin/* obj/*
 
