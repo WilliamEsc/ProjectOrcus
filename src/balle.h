@@ -2,6 +2,7 @@
 #define BALLE_H
 
 #include "objet.h"
+#include "personnage.h"
 
 class balle : public objet
 {
@@ -19,7 +20,7 @@ public:
     ~balle();
 
     Complex* getPos() const;
-    
+
     Complex* getVit() const;
     void setVit(Complex* j);
 
@@ -33,11 +34,12 @@ public:
     void setDestRectY(float y);   
 
     bool getFire();
+    void setFire(bool s, personnage j);
     void setFire(bool s); 
 
     void updateBalle(SDL_Renderer* ren);
-
     void LoadBalle(SDL_Renderer* ren);
+    void renderBalle(SDL_Renderer *ren);
 };
 
 #endif
