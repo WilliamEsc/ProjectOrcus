@@ -6,7 +6,7 @@
 class balle : public objet
 {
 private:
-    Complex vit;
+    Complex* vit;
     double angle;
     float f ;
     SDL_Rect SrcRect;
@@ -19,7 +19,10 @@ public:
     ~balle();
 
     Complex* getPos() const;
-    Complex getVit() const;
+    
+    Complex* getVit() const;
+    void setVit(Complex* j);
+
     double getAngle()const;
     void setAngle(double angle);
 
@@ -32,7 +35,7 @@ public:
     bool getFire();
     void setFire(bool s); 
 
-    void updateBalle(SDL_Renderer* ren, bool state);
+    void updateBalle(SDL_Renderer* ren);
 
     void LoadBalle(SDL_Renderer* ren);
 };
