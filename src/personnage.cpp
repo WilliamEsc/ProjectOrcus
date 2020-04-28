@@ -11,16 +11,16 @@ personnage::personnage(){
     destRect.y=(SCREEN_HEIGHT-64)/2;
 }
 
-personnage::personnage(float x,float y){
-    pos=new Complex(x,y);
-    vit=new Complex(x,y-1);
-    angle=0;
-    pdv=100;
-    destRect.h=64;
-    destRect.w=64;
-    destRect.x=(SCREEN_WIDTH-64)/2;
-    destRect.y=(SCREEN_HEIGHT-64)/2;
-}
+// personnage::personnage(float x,float y){
+//     pos=new Complex(x,y);
+//     vit=new Complex(x,y-1);
+//     angle=0;
+//     pdv=100;
+//     destRect.h=64;
+//     destRect.w=64;
+//     destRect.x=(SCREEN_WIDTH-64)/2;
+//     destRect.y=(SCREEN_HEIGHT-64)/2;
+// }
 
 personnage::~personnage(){
     delete pos;
