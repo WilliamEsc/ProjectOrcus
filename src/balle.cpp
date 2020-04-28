@@ -8,7 +8,7 @@ balle ::balle() : objet()
     DestRect.w = 22;
     DestRect.x = (SCREEN_WIDTH - 64) / 2;
     DestRect.y = (SCREEN_HEIGHT - 64) / 2;
-    vit.setComplexXY(0, 0);
+    vit = new Complex(0, 0);
     fire = false;
 }
 
@@ -24,9 +24,14 @@ balle ::~balle() {}
 //     return pos.getComplexY();
 // }
 
-Complex balle::getVit() const
+Complex *balle::getVit() const
 {
     return vit;
+}
+
+void balle ::setVit(Complex *j)
+{
+    vit = j;
 }
 
 double balle::getAngle() const
@@ -75,10 +80,10 @@ void balle ::LoadBalle(SDL_Renderer *ren)
     setTexture(ren, getFileName());
 }
 
-void balle::updateBalle(SDL_Renderer *ren, bool state)
+void balle::updateBalle(SDL_Renderer *ren)
 {
-    Complex post;
-    if (state)
+    Complex *post;
+    if (fire)
     {
         // std::cout << "balle affiché" << std::endl;
         if ((DestRect.x >= SCREEN_WIDTH || DestRect.y >= SCREEN_HEIGHT) ||
@@ -91,28 +96,28 @@ void balle::updateBalle(SDL_Renderer *ren, bool state)
         else
         {
             std::cout << "angle = " << angle << std::endl;
-            post.setComplexX(DestRect.x);
-            post.setComplexY(DestRect.y);
-            std::cout << "post = " << post.getComplexX() << ", " << post.getComplexY() << std::endl;
+            post->setComplexX(DestRect.x);
+            post->setComplexY(DestRect.y);
+            std::cout << "post = " << post->getComplexX() << ", " << post->getComplexY() << std::endl;
 
-            Complex e(sin(angle * 3.14 / 180), cos(angle * 3.14 / 180));
-            std::cout << "e = " << e.getComplexX() << ", " << e.getComplexY() << std::endl;
+            // Complex e(sin(angle * 3.14 / 180), cos(angle * 3.14 / 180));
+            // std::cout << "e = " << e.getComplexX() << ", " << e.getComplexY() << std::endl;
 
-            std::cout << " vit= " << vit.getComplexX() << ", " << vit.getComplexY() << std::endl;
-            vit.setComplexXY(
-                ((vit.getComplexX() - post.getComplexX()) * e.getComplexX()) + post.getComplexX(),
-                ((vit.getComplexY() - post.getComplexY()) * e.getComplexY()) + post.getComplexY());
-            //vit = ((vit - post) * e) + post;
-            std::cout << " vit= " << vit.getComplexX() << ", " << vit.getComplexY() << std::endl;
+            // std::cout << " vit= " << vit.getComplexX() << ", " << vit.getComplexY() << std::endl;
+            // vit.setComplexXY(
+            //     ((vit.getComplexX() - post.getComplexX()) * e.getComplexX()) + post.getComplexX(),
+            //     ((vit.getComplexY() - post.getComplexY()) * e.getComplexY()) + post.getComplexY());
+            // //vit = ((vit - post) * e) + post;
+            // std::cout << " vit= " << vit.getComplexX() << ", " << vit.getComplexY() << std::endl;
 
-            Complex tr = vit - post;
+            Complex tr = *vit - *post;
             std::cout << " tr= " << tr.getComplexX() << ", " << tr.getComplexY() << std::endl;
 
-            post = post + tr * f;
+            *post = *post + tr * f;
 
-            std::cout << "post = " << post.getComplexX() << ", " << post.getComplexY() << std::endl;
-            setDestRectX(post.getComplexX());
-            setDestRectY(post.getComplexY());
+            std::cout << "post = " << post->getComplexX() << ", " << post->getComplexY() << std::endl;
+            setDestRectX(post->getComplexX());
+            setDestRectY(post->getComplexY());
 
             std::cout << "posBalle = " << getDestRectX() << ", " << getDestRectY() << std::endl;
             s->renderTexture(s->getTexture(), ren, DestRect);
