@@ -69,9 +69,19 @@ bool balle ::getFire()
     return fire;
 }
 
-void balle ::setFire(bool s)
+void balle :: setFire(bool s)
+{
+    fire = s ;
+}
+
+void balle ::setFire(bool s, personnage j)
 {
     fire = s;
+
+    posObj = *j.getPos() ;
+    std::cout << "post = " << getPosX() << ", " << getPosY() << std::endl;
+    vit = j.getVit();
+    std::cout << " vit= " << getVit()->getComplexX() << ", " << getVit()->getComplexY() << std::endl;
 }
 
 void balle ::LoadBalle(SDL_Renderer *ren)
@@ -82,7 +92,6 @@ void balle ::LoadBalle(SDL_Renderer *ren)
 
 void balle::updateBalle(SDL_Renderer *ren)
 {
-    Complex *post;
     if (fire)
     {
         // std::cout << "balle affiché" << std::endl;
@@ -96,37 +105,35 @@ void balle::updateBalle(SDL_Renderer *ren)
         else
         {
             std::cout << "angle = " << angle << std::endl;
-            post->setComplexX(DestRect.x);
-            post->setComplexY(DestRect.y);
-            std::cout << "post = " << post->getComplexX() << ", " << post->getComplexY() << std::endl;
-
             // Complex e(sin(angle * 3.14 / 180), cos(angle * 3.14 / 180));
             // std::cout << "e = " << e.getComplexX() << ", " << e.getComplexY() << std::endl;
 
             // std::cout << " vit= " << vit.getComplexX() << ", " << vit.getComplexY() << std::endl;
-            // vit.setComplexXY(
+            // vit.setComplexXY(    
             //     ((vit.getComplexX() - post.getComplexX()) * e.getComplexX()) + post.getComplexX(),
             //     ((vit.getComplexY() - post.getComplexY()) * e.getComplexY()) + post.getComplexY());
             // //vit = ((vit - post) * e) + post;
             // std::cout << " vit= " << vit.getComplexX() << ", " << vit.getComplexY() << std::endl;
 
-            Complex tr = *vit - *post;
+            Complex postmp = posObj;
+
+            Complex tr = *vit - posObj;
             std::cout << " tr= " << tr.getComplexX() << ", " << tr.getComplexY() << std::endl;
+    
+            posObj = posObj + tr * f;
 
-            *post = *post + tr * f;
-
-            std::cout << "post = " << post->getComplexX() << ", " << post->getComplexY() << std::endl;
-            setDestRectX(post->getComplexX());
-            setDestRectY(post->getComplexY());
+             std::cout << "post = " << getPosX() << ", " << getPosY() << std::endl;
+            setDestRectX((getPosX() - postmp.getComplexX() + 6) * 64);
+            setDestRectY((getPosY() - postmp.getComplexY() + 6) * 64);
 
             std::cout << "posBalle = " << getDestRectX() << ", " << getDestRectY() << std::endl;
-            s->renderTexture(s->getTexture(), ren, DestRect);
-
+            
             std::cout << " " << std::endl;
         }
     }
-    // else
-    // {
-    //     std::cout << "balle non-affiché" << std::endl;
-    // }
+}
+
+void balle :: renderBalle(SDL_Renderer *ren)
+{
+    s->renderTexture(s->getTexture(), ren, DestRect);
 }
