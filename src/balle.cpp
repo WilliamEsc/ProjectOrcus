@@ -1,24 +1,18 @@
 #include "balle.h"
 
-balle ::balle() 
+balle ::balle() : objet()
 {
-    // setPos(400, 300);
-    pos = j.getPos();
-    vit = j.getVit();
-    //o->setDest(j.getRect());
     angle = 0;
-    tr = new Complex(0, 0);
-    f = 1;
-    b1 = false;
-    b2 = false;
+    f = 0.005;
+    DestRect.h = 22;
+    DestRect.w = 22;
+    DestRect.x = (SCREEN_WIDTH - 64) / 2;
+    DestRect.y = (SCREEN_HEIGHT - 64) / 2;
+    vit.setComplexXY(0, 0);
+    fire = false;
 }
 
 balle ::~balle() {}
-
-Complex *balle::getPos() const
-{
-    return pos;
-}
 
 // float balle :: getPosX() const
 // {
@@ -30,7 +24,7 @@ Complex *balle::getPos() const
 //     return pos.getComplexY();
 // }
 
-Complex *balle::getVit() const
+Complex balle::getVit() const
 {
     return vit;
 }
@@ -40,55 +34,94 @@ double balle::getAngle() const
     return angle;
 }
 
-float balle ::getDistanceX()
+void balle ::setAngle(double ang)
 {
-    return distanceX;
+    angle = ang;
 }
 
-float balle ::getDistanceY()
+float balle ::getDestRectX()
 {
-    return distanceY;
+    return DestRect.x;
 }
 
-bool balle ::getB1()
+float balle ::getDestRectY()
 {
-    return b1;
+    return DestRect.y;
 }
 
-bool balle ::getB2()
+void balle ::setDestRectX(float x)
 {
-    return b2;
+    DestRect.x = x;
 }
 
-void balle::ajoutAngle(double deg)
+void balle ::setDestRectY(float y)
 {
-    Complex e(cos(-deg * 3.14 / 180), sin(-deg * 3.14 / 180));
-    *vit = ((*vit - *pos) * e) + *pos;
-    angle += deg;
+    DestRect.y = y;
 }
 
-void balle ::tireBalle()
+bool balle ::getFire()
 {
-    float x;
-    float y;
-
-    //déplacement par rapport position écran
-
-    *tr = (*vit - *pos);
-
-    *pos = *pos + *tr * f;
-    *vit = *vit + *tr * f;
-
-    //déplacement par rapport position carte
-
-    // x = o->getRectX() + tr->getComplexX() * f;
-    // y = o->getRectY() + tr->getComplexY() * f;
-
-    // o->setDest(x, y);
+    return fire;
 }
 
-// o->renderTexture(o->getTexture(),ren,o->getRect2());
-
-void balle::updateBalle()
+void balle ::setFire(bool s)
 {
+    fire = s;
+}
+
+void balle ::LoadBalle(SDL_Renderer *ren)
+{
+    setFile("Data/balle.png");
+    setTexture(ren, getFileName());
+}
+
+void balle::updateBalle(SDL_Renderer *ren, bool state)
+{
+    Complex post;
+    if (state)
+    {
+        // std::cout << "balle affiché" << std::endl;
+        if ((DestRect.x >= SCREEN_WIDTH || DestRect.y >= SCREEN_HEIGHT) ||
+            (DestRect.x <= 0 || DestRect.y <= 0))
+        {
+            setFire(false);
+            DestRect.x = (SCREEN_WIDTH - 64) / 2;
+            DestRect.y = (SCREEN_HEIGHT - 64) / 2;
+        }
+        else
+        {
+            std::cout << "angle = " << angle << std::endl;
+            post.setComplexX(DestRect.x);
+            post.setComplexY(DestRect.y);
+            std::cout << "post = " << post.getComplexX() << ", " << post.getComplexY() << std::endl;
+
+            Complex e(sin(angle * 3.14 / 180), cos(angle * 3.14 / 180));
+            std::cout << "e = " << e.getComplexX() << ", " << e.getComplexY() << std::endl;
+
+            std::cout << " vit= " << vit.getComplexX() << ", " << vit.getComplexY() << std::endl;
+            vit.setComplexXY(
+                ((vit.getComplexX() - post.getComplexX()) * e.getComplexX()) + post.getComplexX(),
+                ((vit.getComplexY() - post.getComplexY()) * e.getComplexY()) + post.getComplexY());
+            //vit = ((vit - post) * e) + post;
+            std::cout << " vit= " << vit.getComplexX() << ", " << vit.getComplexY() << std::endl;
+
+            Complex tr = vit - post;
+            std::cout << " tr= " << tr.getComplexX() << ", " << tr.getComplexY() << std::endl;
+
+            post = post + tr * f;
+
+            std::cout << "post = " << post.getComplexX() << ", " << post.getComplexY() << std::endl;
+            setDestRectX(post.getComplexX());
+            setDestRectY(post.getComplexY());
+
+            std::cout << "posBalle = " << getDestRectX() << ", " << getDestRectY() << std::endl;
+            s->renderTexture(s->getTexture(), ren, DestRect);
+
+            std::cout << " " << std::endl;
+        }
+    }
+    // else
+    // {
+    //     std::cout << "balle non-affiché" << std::endl;
+    // }
 }
