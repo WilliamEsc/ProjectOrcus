@@ -2,24 +2,16 @@
 #define BALLE_H
 
 #include "objet.h"
-#include "complex.h"
-#include "personnage.h"
 
-class balle
+class balle : public objet
 {
 private:
-    Complex* pos;
-    Complex* vit;
-    Complex* tr ;
+    Complex vit;
     double angle;
-
-    personnage j ;
     float f ;
-
-    bool b1;
-    bool b2; 
-    float distanceX ;
-    float distanceY ;
+    SDL_Rect SrcRect;
+    SDL_Rect DestRect;
+    bool fire;
 
 public:
     balle();
@@ -27,20 +19,22 @@ public:
     ~balle();
 
     Complex* getPos() const;
-    Complex* getVit() const;
+    Complex getVit() const;
     double getAngle()const;
-    float getDistanceX();
-    float getDistanceY();
-    bool getB1();
-    bool getB2();
-    float getPosX()const;
-    float getPosY()const;
+    void setAngle(double angle);
 
-    void ajoutAngle(double deg);
+    float getDestRectX();
+    float getDestRectY();
 
-    void updateBalle();
+    void setDestRectX(float x);
+    void setDestRectY(float y);   
 
-    void tireBalle();
+    bool getFire();
+    void setFire(bool s); 
+
+    void updateBalle(SDL_Renderer* ren, bool state);
+
+    void LoadBalle(SDL_Renderer* ren);
 };
 
 #endif
