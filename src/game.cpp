@@ -154,6 +154,7 @@ void game::handleEvents()
     {
         b.setFire(true);
         b.setAngle(joueur.getAngle());
+        b.setVit(joueur.getVit());
     }
 }
 
@@ -193,7 +194,7 @@ void game::render()
         SDL_RenderDrawRect(renderer, &testRct);
     }
 
-    b.updateBalle(renderer,b.getFire());
+    b.updateBalle(renderer);
     //b.renderTexture(renderer);
 
     // t.setTexte("Point de vie",renderer,0,0);
