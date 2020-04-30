@@ -12,29 +12,26 @@ class map
         map(SDL_Renderer* rend);
         ~map();
 
-        void loadCalque(const char* str,int calque[124][124]);
+        void setMapPng(SDL_Renderer* renderer,const char * file);
+        texture* getMapPNG()const;
+
+        void setCollision(const int & i,const int & j,const int & val);
+        int* getCollision()const;
+        int getCollision(const int & i,const int & j)const;
+
+        void loadCollision(const char* str);
+
+        void loadCalque(const char* str,int calque[][124]);
         void drawMap(SDL_Renderer* rend,const Complex &posJ);
         void operator>>(std::istream& is);
-
-        int collision[124][124];
 
 
     private:
 
-        SDL_Rect src, dest;
-
-        // texture * dirt;
-        // texture * water=new texture();
-        // texture * stone;
-
+        int * Collision=new int[15376];
         // texture * tileset= new texture();
         texture * mappng= new texture();
         // texture * error= new texture();
-
-        // int calque1[100][100];
-    	// int calque2[100][100];
-	    // int calque3[100][100];
-
 };
 
 #endif
