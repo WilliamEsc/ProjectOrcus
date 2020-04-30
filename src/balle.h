@@ -7,12 +7,11 @@
 class balle : public objet
 {
 private:
+
+    Complex* posInit;
     Complex* vit;
     double angle;
     float f ;
-    SDL_Rect SrcRect;
-    SDL_Rect DestRect;
-    bool fire;
 
 public:
     balle();
@@ -34,12 +33,12 @@ public:
     void setDestRectY(float y);   
 
     bool getFire();
-    void setFire(bool s, personnage j);
+    void Fire(const personnage & j);
     void setFire(bool s); 
 
     void updateBalle(SDL_Renderer* ren);
     void LoadBalle(SDL_Renderer* ren);
-    void renderBalle(SDL_Renderer *ren);
+    void renderBalle(SDL_Renderer *ren,Complex posJ);
 };
 
 #endif
