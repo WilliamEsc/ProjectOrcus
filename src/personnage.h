@@ -2,6 +2,7 @@
 #define PERSONNAGE_H
 
 #include "complex.h"
+#include "texture.h"
 #include "def.h"
 
 
@@ -11,24 +12,26 @@ protected:
     Complex* vit;
     double angle;
     int pdv;
-    SDL_Texture* Pion;
-    SDL_Rect destRect;
+    texture* persos=new texture;
 
 
 public:
 
     personnage();
+    personnage(const float & x,const float & y);
     ~personnage();
-    SDL_Texture* getTexture()const;
-    SDL_Rect* getRect();
+    texture* getTexture()const;
+    void setDest(const float & x,const float & y);
+    SDL_Rect* getRect() const;
     Complex* getPos()const;
     Complex* getVit()const;
     double getAngle()const;
     int getPdv()const;
-    void setPdv(int n);
-    void setTexture(SDL_Renderer* renderer,SDL_Surface* surface);
-    void ajoutAngle(double deg);
-    void deplace(float f,double ang,int collision[124][124],SDL_Renderer* renderer);
+    void setPdv(const int & n);
+    void setTexture(SDL_Renderer* renderer,const char* file);
+    void drawPersonnage(SDL_Renderer* renderer);
+    bool Collision(const Complex & pos,const int collision[][124]) const;
+    bool Collision(const Complex & pos,const int* collision) const;
 };
 
 
