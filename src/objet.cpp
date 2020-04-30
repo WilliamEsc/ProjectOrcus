@@ -1,9 +1,17 @@
 #include "objet.h"
 
+objet::objet(float x,float y)
+{
+    posObj.setComplexXY(x,y);
+    pop=true;
+    s->setDest(0,0,64,64);
+}
+
 objet::objet()
 {
-    posObj.setComplexXY(25,25);
+    posObj.setComplexXY(0,0);
     pop=true;
+    s->setDest(0,0,64,64);
 }
 
 bool objet::getPop() const
@@ -21,6 +29,11 @@ void objet::setPos(float x,float y)
     posObj.setComplexXY(x,y);
 }
 
+Complex objet::getPos() const
+{
+    return posObj;
+}
+
 float objet::getPosX() const
 {
     return posObj.getComplexX();
@@ -31,22 +44,28 @@ float objet::getPosY() const
     return posObj.getComplexY();
 }
 
-void objet::setTexture(SDL_Renderer *ren, const char* file)
+texture* objet::getTexture()const
 {
-    s->setTexture(s->loadTexture(s->getFileName(),ren));
+    return s;
 }
 
-void objet::drawObjet(SDL_Renderer *ren, float x, float y) const
+void objet::setTexture(SDL_Renderer *ren, const char* file)
 {
-    s->renderTextureCplx(s->getTexture(),ren,x,y);
+    s->setFileName(file);
+    s->setTexture(s->loadTexture(ren));
+}
+
+void objet::drawObjet(SDL_Renderer *ren) const
+{
+    s->renderTextureNoSrc(ren);
 }
 
 SDL_Rect* objet::getRect()
 {
-    return s->getRect();
+    return s->getDest();
 }
 
-void objet :: setFile(char* file)
+void objet :: setFile(const char* file)
 {
     s->setFileName(file);
 }
@@ -56,4 +75,8 @@ const char* objet :: getFileName()
     return s->getFileName() ;
 }
 
-objet::~objet(){}
+objet::~objet()
+{
+    delete s;
+    s=NULL;
+}
