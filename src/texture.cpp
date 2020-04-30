@@ -7,10 +7,10 @@
         tex = nullptr ;
     }
 
-    SDL_Texture* texture::loadTexture(const char *file, SDL_Renderer *ren)
+    SDL_Texture* texture::loadTexture(SDL_Renderer *ren)
     {
         SDL_Texture *texture = nullptr;
-        SDL_Surface *surface = IMG_Load(file);
+        SDL_Surface *surface = IMG_Load(fileName);
 
         if (surface != nullptr)
         {
@@ -18,12 +18,16 @@
             SDL_FreeSurface(surface);
             if(texture == nullptr)
             {
-               std::cout << " error CreateTextureFromSurface " << std::endl;
+                std::cout << " error CreateTextureFromSurface " << std::endl;
+            }
+            else 
+            {
+                std::cout <<fileName<< " Image load " << std::endl;
             }
         }
-        else 
+        else
         {
-             std::cout << " Image load " << std::endl;
+            std::cout <<fileName<< " Erreur Surface " << std::endl;
         }
         return texture ;
     }
@@ -41,34 +45,34 @@
             {
                std::cout << " error CreateTextureFromSurface " << std::endl;
             }
+            else 
+            {
+                std::cout << " Font load " << std::endl;
+            }
         }
-        else 
+        else
         {
-             std::cout << " Font load " << std::endl;
+            std::cout << " Erreur Surface " << std::endl;
         }
+        
         return texture ;
     }
 
-    void texture::renderTexture(SDL_Texture*tex, SDL_Renderer *ren, SDL_Rect dst){
-        dest=dst;
+    void texture::renderTextureNoSrc(SDL_Renderer *ren){
         SDL_RenderCopy(ren, tex, NULL, &dest);
     }
 
-    void texture::renderTexture(SDL_Texture*tex, SDL_Renderer *ren,SDL_Rect src, SDL_Rect dst){
-        dest=dst;
+    void texture::renderTexture(SDL_Renderer *ren){
         SDL_RenderCopy(ren, tex, &src, &dest);
     }
 
-    void texture::renderTextureSrc(SDL_Texture*tex, SDL_Renderer *ren, SDL_Rect src){
+    void texture::renderTextureNoDest(SDL_Renderer *ren){
         SDL_RenderCopy(ren, tex, &src, NULL);
     }
 
-    void texture::renderTextureCplx(SDL_Texture*tex, SDL_Renderer *ren, float posx, float posy)
+    void texture::renderTextureEx(SDL_Renderer *ren,double ang)
     {
-        dest.x=posx;
-        dest.y=posy;
-        dest.h=dest.w=64;
-        SDL_RenderCopy(ren, tex,NULL,&dest);
+        SDL_RenderCopyEx(ren,tex,NULL,&dest,ang,NULL,SDL_FLIP_NONE);
     }
 
     const char *texture::getFileName()
@@ -76,7 +80,7 @@
         return fileName;
     }
 
-    void texture::setFileName(char * file)
+    void texture::setFileName(const char * file)
     {
         fileName = file ;
     }
@@ -86,27 +90,27 @@
         tex = t ;
     }
 
-    SDL_Texture *texture::getTexture()
+    SDL_Texture *texture::getSDLTexture()
     {
         return tex;
     }
 
-    SDL_Rect* texture::getRect()
+    SDL_Rect* texture::getDest()
     {
         return &dest;
     }
 
-    SDL_Rect texture::getRect2()
+    SDL_Rect texture::getDest2()
     {
         return dest;
     }
 
-    int texture::getRectX()
+    int texture::getDestX()
     {
         return dest.x ;
     }
 
-    int texture::getRectY()
+    int texture::getDestY()
     {
         return dest.y ;
     }
@@ -128,4 +132,23 @@
     void texture :: setDest(const SDL_Rect rect)
     {
         dest = rect ;
+    }
+
+    void texture :: setSrc(float x,float y, float w, float h)
+    {
+        src.x = x;
+        src.y = y;
+        src.w = w;
+        src.h = h;
+    }
+
+    void texture :: setSrc(float x, float y)
+    {
+        src.x = x;
+        src.y = y;
+    }
+
+    void texture :: setSrc(const SDL_Rect rect)
+    {
+        src = rect ;
     }
