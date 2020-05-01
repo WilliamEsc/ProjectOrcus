@@ -1,82 +1,40 @@
-all : bin/affichage
+CXX = g++
+OBJ = obj
+SRC = src
+BIN = bin
 
-bin/affichage: obj/main.o obj/game.o obj/complex.o obj/personnage.o obj/texture.o obj/map.o obj/objet.o obj/soin.o obj/cles.o obj/balle.o obj/text.o obj/hero.o obj/ennemie.o
-	g++ obj/main.o obj/game.o obj/personnage.o obj/complex.o obj/texture.o obj/map.o obj/objet.o obj/soin.o obj/cles.o obj/balle.o obj/text.o obj/hero.o obj/ennemie.o -o bin/affichage -lSDL2 -lSDL2_image -lSDL2_ttf
-
-obj/main.o: src/main.cpp src/terrain.h src/obstacle.h src/game.h src/complex.h src/hero.h src/ennemie.h src/map.h src/texture.h src/objet.h src/soin.h src/cles.h src/text.h
-	g++ -Wall -c src/main.cpp -o obj/main.o
-
-obj/game.o : src/game.cpp src/game.h src/complex.h src/hero.h src/map.h src/objet.h src/soin.h src/cles.h src/balle.h src/ennemie.h
-	g++ -Wall -c src/game.cpp -o obj/game.o -lSDL2 -lSDL2_image
-
-obj/terrain.o: src/terrain.cpp src/terrain.h src/obstacle.h
-	g++ -Wall -c src/terrain.cpp -o obj/terrain.o -lSDL2 -lSDL2_image
-
-obj/obstacle.o: src/obstacle.cpp src/obstacle.h
-	g++ -Wall -c src/obstacle.cpp -o obj/obstacle.o 
-
-obj/personnage.o: src/personnage.cpp src/personnage.h src/complex.h
-	g++ -Wall -c src/personnage.cpp -o obj/personnage.o -lSDL2 -lSDL2_image
-
-obj/complex.o: src/complex.cpp src/complex.h
-	g++ -Wall -c src/complex.cpp -o obj/complex.o
-
-obj/texture.o: src/texture.cpp src/texture.h 
-	g++ -Wall -c src/texture.cpp -o obj/texture.o -lSDL2 -lSDL2_image -lSDL2_ttf
-
-obj/text.o: src/text.cpp src/text.h
-	g++ -Wall -c src/text.cpp -o obj/text.o -lSDL2 -lSDL2_ttf
-
-obj/objet.o: src/objet.cpp src/objet.h
-	g++ -Wall -c src/objet.cpp -o obj/objet.o -lSDL2 -lSDL2_ttf 
-
-obj/soin.o: src/soin.cpp src/soin.h 
-	g++ -Wall -c src/soin.cpp -o obj/soin.o
-
-obj/cles.o: src/cles.cpp src/cles.h 
-	g++ -Wall -c src/cles.cpp -o obj/cles.o  
-
-obj/balle.o: src/balle.cpp src/balle.h 
-	g++ -Wall -c src/balle.cpp -o obj/balle.o 
-
-obj/map.o: src/map.cpp src/map.h src/texture.h
-	g++ -Wall -c src/map.cpp -o obj/map.o -lSDL2 -lSDL2_image
-
-obj/hero.o: src/hero.cpp src/hero.h src/personnage.h
-	g++ -Wall -c src/hero.cpp -o obj/hero.o
-
-obj/ennemie.o: src/ennemie.cpp src/ennemie.h src/personnage.h
-	g++ -Wall -c src/ennemie.cpp -o obj/ennemie.o
+MAIN := main
 
 
+POINTC := $(shell find $(SRC)/* -type f -name '*.cpp')
+POINTH := $(shell find $(SRC)/* -type f -name '*.h')
+POINTO := $(patsubst $(SRC)/%,$(OBJ)/%,$(POINTC))
+POINTO := $(POINTO:.cpp=.o)
 
+EXEC := Orcus
+
+RM = rm
+
+LIBS := -lSDL2 -lSDL2_image -lSDL2_ttf
+
+OPT := -Wall -ggdb
+
+all : dirs $(BIN)/$(EXEC)
+
+dirs : 
+	@mkdir -p $(OBJ) $(BIN)
 
 clean: 
-	rm -rf bin/* obj/*
+	$(RM) -rf $(OBJ) $(BIN)
 
+run: dirs $(BIN)/$(EXEC)
+	./$(BIN)/$(EXEC)
 
-# CORE = main.cpp game.cpp terrain.cpp obstacle.cpp 
-# 	   personnage.cpp complex.cpp texture.cpp text.cpp
-# 	   soin.cpp map.cpp
+$(OBJ)/$(MAIN).o : $(SRC)/$(MAIN).cpp
+	$(CXX) $(OPT) $< -c -o $@
 
-# FINAL_TARGET = affichage
+$(OBJ)/%.o : $(SRC)/%.cpp $(SRC)/%.h
+	$(CXX) $(OPT) $< -c -o $@
 
-# LIBS_SDL = -lSDL2 -lSDL2_ttf -lSDL2_image 
-
-# CC					= g++
-# LD 					= g++
-# LDFLAGS  			=
-# CPPFLAGS 			= -Wall -ggdb   #-O2   # pour optimiser
-# OBJ_DIR 			= obj
-# SRC_DIR 			= src
-# BIN_DIR 			= bin
-# INCLUDE_DIR			= -Isrc 
-
-# $(BIN_DIR)/$(FINAL_TARGET): $(SRC_DIR:%.cpp=$(OBJ_DIR)/%.o)
-# 	$(LD) $+ -o $@ $(LDFLAGS) $(LIBS_SDL)
-
-# $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-# 	$(CC) -c $(CPPFLAGS) $(LIBS_SDL) $(INCLUDE_DIR) $< -o $@ 
-
-# clean:
-# 	rm -rf $(OBJ_DIR)/*.o $(BIN_DIR)/$(FINAL_TARGET_TXT)
+$(BIN)/$(EXEC) : $(POINTO)
+	$(CXX) $(OPT) $^ -o "$@" $(LIBS)
