@@ -65,16 +65,6 @@ void balle ::setDestRectY(float y)
     s->setDest(s->getDestX(), y);
 }
 
-bool balle ::getFire()
-{
-    return pop;
-}
-
-void balle ::setFire(bool s)
-{
-    pop = s;
-}
-
 void balle ::Fire(const Complex &posJ, const Complex &vitJ)
 {
         posObj.setComplexXY(posJ.getComplexX()+0.5,posJ.getComplexY()+0.5);
