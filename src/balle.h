@@ -14,17 +14,18 @@ private:
     float f ;
 
 public:
-    balle();
+    balle(const float & fl);
 
     ~balle();
-
-    Complex* getPos() const;
 
     Complex* getVit() const;
     void setVit(Complex* j);
 
     double getAngle()const;
     void setAngle(double angle);
+
+    float getForce()const;
+    void setForce(const float & fl);
 
     float getDestRectX();
     float getDestRectY();
@@ -33,12 +34,13 @@ public:
     void setDestRectY(float y);   
 
     bool getFire();
-    void Fire(const personnage & j);
+    void Fire(const Complex &pos,const Complex &vit);
     void setFire(bool s); 
 
     void updateBalle(SDL_Renderer* ren);
-    void LoadBalle(SDL_Renderer* ren);
-    void renderBalle(SDL_Renderer *ren,Complex posJ);
+    void renderBalle(SDL_Renderer *ren,const Complex & posJ,SDL_Texture* texture);
+
+    bool Hit(const Complex & pos);
 };
 
 #endif

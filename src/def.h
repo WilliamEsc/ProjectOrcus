@@ -4,10 +4,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <string>
 #include <fstream>
 #include <iostream>
 #include <math.h>
-#include <ctime>
+#include <time.h>
 #include <vector>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>

@@ -7,25 +7,25 @@
 #include "map.h"
 #include "soin.h"
 #include "cles.h"
-#include "balle.h"
-#include "text.h"
+#include "loot.h"
 #include <iostream>
 
 class game
 {
 private:
     /* data */
+    bool success;
     bool isRunning;
     hero joueur;
-    std::vector<ennemie*> target;
     SDL_Window * window;
     SDL_Renderer *renderer;
+    std::vector<ennemie*> target;
     std::vector<soin*> heal;
+    loot* drop;
     cles* key;
-    balle b;
-    text t;
     map* m;
-
+    texture* GameOver=new texture;
+    texture* Victory=new texture;
  
     
 

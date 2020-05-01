@@ -7,7 +7,10 @@ text::text()
     font = TTF_OpenFont("fonts/Life_is_goofy.ttf", 50);
 }
 
-text::~text() {} ;
+text::~text()
+{
+    delete t;
+}
 
 const char * text::getTexte()
 {

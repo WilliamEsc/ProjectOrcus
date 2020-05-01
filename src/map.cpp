@@ -21,7 +21,7 @@ map::map(SDL_Renderer* renderer)
 
 map::~map()
 {
-    delete Collision;
+    delete []Collision;
     delete mappng;
     mappng=NULL;
 }

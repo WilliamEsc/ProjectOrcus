@@ -7,6 +7,7 @@ ennemie::ennemie(const float &x, const float &y, const Complex &posJ, const int 
     rangeAtck = 2;
     delayAtck = 3;
     rangeAgro = 4;
+    degat=10;
     lastAtck = 0.0;
     vitDepl = 0.002;
     persos->setDest((pos->getComplexX() - posJ.getComplexX() + 6) * 64, (pos->getComplexY() - posJ.getComplexY() + 5) * 64);
@@ -18,67 +19,75 @@ ennemie::~ennemie()
     depl = NULL;
 }
 
-void ennemie::setDepl(Complex* cplx)
+void ennemie::setDepl(Complex *cplx)
 {
-    if(cplx==NULL)
+    if (cplx == NULL)
         delete depl;
-    depl=cplx;
+    depl = cplx;
 }
-void ennemie::setType(const int & t)
+void ennemie::setType(const int &t)
 {
-    type=t;
+    type = t;
 }
-void ennemie::setRangeAtck(const int & t)
+void ennemie::setRangeAtck(const int &t)
 {
-    rangeAtck=t;
+    rangeAtck = t;
 }
-void ennemie::setDelayAtck(const int & t)
+void ennemie::setDelayAtck(const int &t)
 {
-    delayAtck=t;
+    delayAtck = t;
 }
-void ennemie::setRangeAgro(const int & t)
+void ennemie::setRangeAgro(const int &t)
 {
-    rangeAgro=t;
+    rangeAgro = t;
 }
-void ennemie::setVitDepl(const float & t)
+void ennemie::setVitDepl(const float &t)
 {
-    vitDepl=t;
+    vitDepl = t;
 }
-void ennemie::setLastAtck(const std::time_t & t)
+void ennemie::setLastAtck(const float &t)
 {
-    lastAtck=t;
+    lastAtck = t;
+}
+void ennemie::setDegat(const int & i)
+{
+    degat=i;
 }
 
-Complex* ennemie::getDepl() const
+Complex *ennemie::getDepl() const
 {
     return depl;
 }
-int ennemie::getType()const
+int ennemie::getType() const
 {
     return type;
 }
-int ennemie::getRangeAtck()const
+int ennemie::getRangeAtck() const
 {
     return rangeAtck;
 }
-int ennemie::getDelayAtck()const
+int ennemie::getDelayAtck() const
 {
     return delayAtck;
 }
-int ennemie::getRangeAgro()const
+int ennemie::getRangeAgro() const
 {
     return rangeAgro;
 }
-float ennemie::getVitDepl()const
+int ennemie::getDegat() const
+{
+    return degat;
+}
+float ennemie::getVitDepl() const
 {
     return vitDepl;
 }
-std::time_t ennemie::getLastAtck()const
+float ennemie::getLastAtck() const
 {
     return lastAtck;
 }
 
-void ennemie::deplaceVersJoueur(const Complex &posJ, const int* collision)
+void ennemie::deplaceVersJoueur(const Complex &posJ, const int *collision)
 {
     Complex tr = posJ - *pos;
     if (tr.norme() > 1)
@@ -113,9 +122,9 @@ bool ennemie::atckJoueur(const Complex &posJ)
 {
     if ((posJ - *pos).norme() < rangeAtck)
     {
-        if ((std::time(nullptr) - lastAtck) >= delayAtck)
+        if ((clock() - lastAtck)/CLOCKS_PER_SEC >= delayAtck)
         {
-            lastAtck = std::time(nullptr);
+            lastAtck = clock();
             return true;
         }
         return false;
@@ -123,7 +132,7 @@ bool ennemie::atckJoueur(const Complex &posJ)
     return false;
 }
 
-void ennemie::deplacement(const int* collision)
+void ennemie::deplacement(const int *collision)
 {
     switch (type)
     {
@@ -140,7 +149,7 @@ void ennemie::deplacement(const int* collision)
     }
 }
 
-void ennemie::deplacementDebilos(const int* collision)
+void ennemie::deplacementDebilos(const int *collision)
 {
     if (depl == NULL)
     {
@@ -150,7 +159,7 @@ void ennemie::deplacementDebilos(const int* collision)
             x += 0.001;
         if (y == 0)
             y += 0.001;
-        depl = new Complex(pos->getComplexX() + x/3, pos->getComplexY() + y/3);
+        depl = new Complex(pos->getComplexX() + x / 3, pos->getComplexY() + y / 3);
     }
     if ((pos->getComplexX() >= depl->getComplexX() - 0.1 &&
          pos->getComplexX() <= depl->getComplexX() + 0.1) &&
@@ -163,7 +172,7 @@ void ennemie::deplacementDebilos(const int* collision)
             x += 0.001;
         if (y == 0)
             y += 0.001;
-        depl->setComplexXY(pos->getComplexX() + x/3, pos->getComplexY() + y/3);
+        depl->setComplexXY(pos->getComplexX() + x / 3, pos->getComplexY() + y / 3);
     }
     Complex tr = *depl - *pos;
     Complex postmp = *pos + tr.normalize() * vitDepl / 5;
@@ -179,7 +188,7 @@ void ennemie::deplacementDebilos(const int* collision)
     }
 }
 
-void ennemie::deplacementRando(const int* collision)
+void ennemie::deplacementRando(const int *collision)
 {
     if (depl == NULL)
     {

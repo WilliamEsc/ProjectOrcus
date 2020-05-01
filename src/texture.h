@@ -18,7 +18,9 @@ public:
     SDL_Texture* loadTextureText(const char * texte, TTF_Font *font, SDL_Color color, SDL_Renderer *ren);
     void renderTextureNoDest(SDL_Renderer *ren);
     void renderTextureNoSrc(SDL_Renderer *ren);
+    void renderTextureNoSrc(SDL_Renderer *ren,SDL_Texture* texture);
     void renderTexture(SDL_Renderer *ren);
+    void renderTextureNothing(SDL_Renderer *ren);
     void renderTextureEx(SDL_Renderer *ren,double ang);
     
     const char *getFileName();

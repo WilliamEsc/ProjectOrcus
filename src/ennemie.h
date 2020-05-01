@@ -9,9 +9,9 @@ class ennemie: public personnage
 {
     protected:
     
-    int type,rangeAtck,delayAtck,rangeAgro;
+    int type,rangeAtck,delayAtck,rangeAgro,degat;
     float vitDepl;
-    std::time_t lastAtck;
+    clock_t lastAtck;
     Complex* depl;
 
     public:
@@ -25,15 +25,17 @@ class ennemie: public personnage
     void setDelayAtck(const int & t);
     void setRangeAgro(const int & t);
     void setVitDepl(const float & t);
-    void setLastAtck(const std::time_t & t);
+    void setLastAtck(const float & t);
+    void setDegat(const int & i);
 
     Complex* getDepl() const;
     int getType()const;
     int getRangeAtck()const;
     int getDelayAtck()const;
     int getRangeAgro()const;
+    int getDegat()const;
     float getVitDepl()const;
-    std::time_t getLastAtck()const;
+    float getLastAtck()const;
 
     void deplaceVersJoueur(const Complex & posJ,const int* collision);
     void tourneVersJoueur(const Complex & posJ);

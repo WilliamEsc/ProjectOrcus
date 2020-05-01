@@ -66,6 +66,14 @@
         SDL_RenderCopy(ren, tex, &src, &dest);
     }
 
+    void texture::renderTextureNoSrc(SDL_Renderer *ren,SDL_Texture* texture){
+        SDL_RenderCopy(ren, texture, NULL, &dest);
+    }
+
+    void texture::renderTextureNothing(SDL_Renderer *ren){
+        SDL_RenderCopy(ren, tex, NULL, NULL);
+    }
+
     void texture::renderTextureNoDest(SDL_Renderer *ren){
         SDL_RenderCopy(ren, tex, &src, NULL);
     }
@@ -80,9 +88,9 @@
         return fileName;
     }
 
-    void texture::setFileName(const char * file)
+    void texture::setFileName(const char * fil)
     {
-        fileName = file ;
+        fileName = fil ;
     }
     
     void texture::setTexture(SDL_Texture *t)
