@@ -2,7 +2,7 @@
 
 Bienvenue dans Projet Orcus ! 
 
-## Créateur ##
+## Créateurs ##
 
 - Ali MESSELMANI P1811574
 - William ESCRIVA P1702268
