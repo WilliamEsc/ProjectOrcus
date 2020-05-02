@@ -68,7 +68,7 @@ void arme::setCadence(const float &f)
     cadence = f;
 }
 
-void arme::tir(SDL_Renderer *render, const Complex &pos, const Complex &vit, const float &angle)
+void arme::tir(const Complex &pos, const Complex &vit, const float &angle)
 {
     float ti = (clock() - lastAtck);
     if (ti / CLOCKS_PER_SEC > cadence)
