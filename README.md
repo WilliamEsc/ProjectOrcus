@@ -36,7 +36,7 @@ Des kits de soin sont éparpillés un peu partout sur l'île, il vous redonneron
  ### Linux ###
 
 * Décompresser l'archive
-* Dans le terminal, placez-vous dans le dossier du jeu et taper la commande : 
+* Dans le terminal, placez-vous à la racine du dossier du jeu et taper la commande : 
 ```
             make 
 ```
@@ -45,6 +45,21 @@ Des kits de soin sont éparpillés un peu partout sur l'île, il vous redonneron
             bin/Orcus 
 ```
 Et voila, vous pouvez jouer !
+
+Concernant le documentation, toujour à la racine du dossier :
+* taper la commande :
+```
+doxygen doc/image.docy
+```
+* Ensuite, taper :
+```
+cd doc/html 
+```
+* Pour finir, taper :
+```
+firefox index.html &
+```
+Une page web devrait s'ouvrir avec le documentation si vous utilisez **firefox** comme navigateur.
 
  ### Windows ###
 
