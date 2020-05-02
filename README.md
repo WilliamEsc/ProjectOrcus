@@ -47,7 +47,7 @@ Des kits de soin sont éparpillés un peu partout sur l'île, il vous redonneron
 Et voila, vous pouvez jouer !
 
 Concernant le **documentation**, toujour à la racine du dossier :
-* taper la commande :
+* Taper la commande :
 ```
 doxygen doc/image.docy
 ```
