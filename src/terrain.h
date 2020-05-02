@@ -7,14 +7,12 @@ class terrain
 {
 private:
     /* data */
-    obstacle * tab ;
-    
+    obstacle *tab;
+
 public:
     terrain();
     ~terrain();
-    void affichage() ;
+    void affichage();
 };
- 
 
-
-#endif 
+#endif

@@ -7,7 +7,7 @@ ennemie::ennemie(const float &x, const float &y, const Complex &posJ, const int 
     rangeAtck = 2;
     delayAtck = 3;
     rangeAgro = 4;
-    degat=10;
+    degat = 10;
     lastAtck = 0.0;
     vitDepl = 0.002;
     persos->setDest((pos->getComplexX() - posJ.getComplexX() + 6) * 64, (pos->getComplexY() - posJ.getComplexY() + 5) * 64);
@@ -49,9 +49,9 @@ void ennemie::setLastAtck(const float &t)
 {
     lastAtck = t;
 }
-void ennemie::setDegat(const int & i)
+void ennemie::setDegat(const int &i)
 {
-    degat=i;
+    degat = i;
 }
 
 Complex *ennemie::getDepl() const
@@ -101,7 +101,7 @@ void ennemie::deplaceVersJoueur(const Complex &posJ, const int *collision)
     }
 }
 
-void ennemie::tourneVersJoueur(const Complex &posJ)
+void ennemie::tourneVers(const Complex &posJ)
 {
     Complex tr = posJ - *pos;
     double cos = acos(tr.getComplexX() / tr.norme());
@@ -122,7 +122,7 @@ bool ennemie::atckJoueur(const Complex &posJ)
 {
     if ((posJ - *pos).norme() < rangeAtck)
     {
-        if ((clock() - lastAtck)/CLOCKS_PER_SEC >= delayAtck)
+        if ((clock() - lastAtck) / CLOCKS_PER_SEC >= delayAtck)
         {
             lastAtck = clock();
             return true;
@@ -207,13 +207,7 @@ void ennemie::deplacementRando(const int *collision)
     }
     Complex tr = *depl - *pos;
     Complex postmp = *pos + tr.normalize() * vitDepl / 2;
-    double cos = acos(tr.getComplexX() / tr.norme());
-    if (tr.getComplexY() <= 0)
-        angle = -90 + cos * 180 / 3.14;
-    else
-    {
-        angle = -90 - cos * 180 / 3.14;
-    }
+    tourneVers(*depl);
     if (!Collision(postmp, collision))
     {
         pos->setComplexX(postmp.getComplexX());

@@ -1,7 +1,21 @@
 #include "game.h"
 
-game::game(){};
-game::~game(){};
+game::game()
+{
+
+}
+game::~game()
+{
+    for (size_t i = 0; i < target.size(); i++)
+        delete target[i];
+    for (size_t i = 0; i < heal.size(); i++)
+        delete heal[i];
+    delete m;
+    delete GameOver;
+    delete Victory;
+    delete drop;
+    delete key;
+}
 
 void game::init(const char *title, int posX, int posY, int width, int height, bool fullscreen)
 {
@@ -75,7 +89,7 @@ void game::init(const char *title, int posX, int posY, int width, int height, bo
         heal.push_back(newSoin);
     }
 
-    drop=new loot(0,48,78);
+    drop = new loot(0, 48, 78);
     drop->setTexture(renderer);
 
     key = new cles(51, 82);
@@ -170,7 +184,7 @@ void game::update()
             target[i]->setDest((target[i]->getPos()->getComplexX() - joueur.getPos()->getComplexX() + 6) * 64, (target[i]->getPos()->getComplexY() - joueur.getPos()->getComplexY() + 5) * 64);
             if (target[i]->aggro(*joueur.getPos()))
             {
-                target[i]->tourneVersJoueur(*joueur.getPos());
+                target[i]->tourneVers(*joueur.getPos());
                 target[i]->deplaceVersJoueur(*joueur.getPos(), m->getCollision());
                 target[i]->setDepl(NULL);
                 if (target[i]->atckJoueur(*joueur.getPos()))
@@ -243,15 +257,6 @@ void game::render()
 
 void game::clean()
 {
-    for (size_t i = 0; i < target.size(); i++)
-        delete target[i];
-    for (size_t i = 0; i < heal.size(); i++)
-        delete heal[i];
-    delete m;
-    delete GameOver;
-    delete Victory;
-    delete drop;
-    delete key;
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     TTF_Quit();

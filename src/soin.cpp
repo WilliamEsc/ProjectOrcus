@@ -1,17 +1,15 @@
 #include "soin.h"
 
-soin::soin(float x,float y): objet(x,y)
+soin::soin(const float &x, const float &y) : objet(x, y)
 {
-
 }
 
 soin::~soin()
 {
-
 }
 
-void soin::soignerPersos(hero & Joueur)
+void soin::soignerPersos(hero &Joueur)
 {
-    Joueur.setPdv(Joueur.getPdv()+10);
-    pop=false;
+    Joueur.setPdv(Joueur.getPdv() + 10);
+    pop = false;
 }

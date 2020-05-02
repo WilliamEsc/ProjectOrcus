@@ -1,10 +1,9 @@
 #ifndef COMPLEX_H
 #define COMPLEX_H
 
-/**
- * Une classe complexe qui contient tout les opérateurs de calculs 
- */
-
+/*! \class Complex
+* \brief Une classe complexe qui contient tout les opérateurs de calculs
+*/
 class Complex
 {
 private:

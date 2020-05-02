@@ -10,39 +10,62 @@
 #include "loot.h"
 #include <iostream>
 
+/*! \class game
+* \brief Classe qui comporte tous les objets du jeu
+*/
 class game
 {
 private:
     /* data */
-    bool success;
-    bool isRunning;
-    hero joueur;
-    SDL_Window * window;
-    SDL_Renderer *renderer;
-    std::vector<ennemie*> target;
-    std::vector<soin*> heal;
-    loot* drop;
-    cles* key;
-    map* m;
-    texture* GameOver=new texture;
-    texture* Victory=new texture;
- 
-    
+    bool success;                    ///< booleen reussite du personnage
+    bool isRunning;                  ///< booleen jeu en cours
+    hero joueur;                     ///< héro (personnage joueur)
+    SDL_Window *window;              ///< fenetre SDL
+    SDL_Renderer *renderer;          ///< render SDL
+    std::vector<ennemie *> target;   ///< tableau dynamique de pointer d'ennemie alloué sur le tas
+    std::vector<soin *> heal;        ///< tableau dynamique de pointer de soin alloué sur le tas
+    loot *drop;                      ///< pointer de loot alloué sur le tas
+    cles *key;                       ///< pointer de cles alloué sur le tas
+    map *m;                          ///< pointer de carte du jeu alloué sur le tas
+    texture *GameOver = new texture; ///< pointer de ecran de defaite alloué sur le tas
+    texture *Victory = new texture;  ///< pointer de ecran de succes alloué sur le tas
 
 public:
+    /**
+     *\brief constructeur du jeu
+     */
     game();
+    /**
+     *\brief destructeur du jeu
+     */
     ~game();
 
-    void init(const char* title, int posX, int posY, int width, int height, bool fullscreen);
-    
+    /**
+     *\brief initialise la fenetre SDL et les objet necessaire pour le jeu.
+     */
+    void init(const char *title, int posX, int posY, int width, int height, bool fullscreen);
+
+    /**
+     *\brief gere les actions du joueur
+     */
     void handleEvents();
-    // void heal();
+    /**
+     *\brief mets a jours les positions et active les objets si besoin
+     */
     void update();
+    /**
+     *\brief appel toutes les fonctions d'affichage
+     */
     void render();
+    /**
+     *\brief accesseur de la position y de l'objet
+     */
     void clean();
 
+    /**
+     *\brief accesseur de la position y de l'objet
+     */
     bool running();
 };
 
-
-#endif 
+#endif
