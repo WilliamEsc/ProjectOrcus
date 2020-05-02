@@ -118,7 +118,7 @@ void game::handleEvents()
         joueur.deplace(f, ang, m->getCollision());
         if (keystates[SDL_SCANCODE_SPACE])
         {
-            joueur.tir(renderer);
+            joueur.tir();
         }
     }
     if (keystates[SDL_SCANCODE_ESCAPE])
