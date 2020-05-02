@@ -75,9 +75,9 @@ void hero::drawPersonnage(SDL_Renderer *renderer)
     SDL_RenderFillRect(renderer, &barrePdv);
 }
 
-void hero::tir(SDL_Renderer *render)
+void hero::tir()
 {
-    wep->tir(render,*pos,*vit,angle);
+    wep->tir(*pos,*vit,angle);
 }
 
 bool hero::Hit(const Complex &pos)
