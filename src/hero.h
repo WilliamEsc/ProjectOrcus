@@ -23,7 +23,7 @@ class hero: public personnage
     void setBarrePdv(const float & x,const float & y,const float & h,const float & w);
     SDL_Rect getBarrePdv()const;
 
-    void tir(SDL_Renderer *render);
+    void tir();
     void ajoutAngle(const double & deg);
     void deplace(const float & f,const double & ang,const int* collision);
     bool Hit(const Complex &pos);
