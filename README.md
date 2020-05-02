@@ -49,3 +49,18 @@ Et voila, vous pouvez jouer !
  ### Windows ###
 
     Le projet ne compile pas encore sur windows...
+
+## Organisation de l'archive ##
+
+Notre archive se décompose en **8 sous-dossiers**, qui sont les suivants : 
+
+- *bin/* : il contient les éxécutables
+- *obj/* : il contient les fichiers .o 
+- *src/* :  il contient les fichiers .h et .cpp 
+- *fonts/* : il contient les polices de caractère
+- *Data/* : il contient les ressources de notre jeu (images, sprites, ...)
+- *doc/* : il contient tout le documentation doxygen de notre projet
+- *projetcTXT/* : il contient le mode texte de notre projet
+- *Cahier des charges/* : il contient les cahier des charges du projet ainsi que le diagramme des classes
+
+Et à la racine de l'archive nous avons le **Makefile** et le **readme**   
