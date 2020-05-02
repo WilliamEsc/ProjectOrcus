@@ -31,15 +31,15 @@ Des kits de soin sont éparpillés un peu partout sur l'île, il vous redonneron
 
         - Décompresser l'archive
         - Dans le terminal, placez-vous dans le dossier du jeu et taper la commande : 
-            ```
+```
             make 
-            ```
+```
         - Taper la commande : 
-            ``` 
-            bin/Orcus `
-            ``
+``` 
+            bin/Orcus 
+```
         Et voila, vous pouvez jouer !
 
  ### Windows ###
- 
+
     Le projet ne compile pas encore sur windows...
