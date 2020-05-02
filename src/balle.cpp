@@ -1,6 +1,6 @@
 #include "balle.h"
 
-balle ::balle(const float & fl) : objet()
+balle ::balle(const float &fl) : objet()
 {
     angle = 0;
     f = fl;
@@ -55,9 +55,9 @@ float balle::getForce() const
 {
     return f;
 }
-void balle::setForce(const float & fl)
+void balle::setForce(const float &fl)
 {
-    f=fl;
+    f = fl;
 }
 
 void balle ::setDestRectY(float y)
@@ -67,9 +67,9 @@ void balle ::setDestRectY(float y)
 
 void balle ::Fire(const Complex &posJ, const Complex &vitJ)
 {
-        posObj.setComplexXY(posJ.getComplexX()+0.5,posJ.getComplexY()+0.5);
-        posInit->setComplexXY(posJ.getComplexX()+0.5,posJ.getComplexY()+0.5);
-        vit->setComplexXY(vitJ.getComplexX()+0.5,vitJ.getComplexY()+0.5);
+    posObj.setComplexXY(posJ.getComplexX() + 0.5, posJ.getComplexY() + 0.5);
+    posInit->setComplexXY(posJ.getComplexX() + 0.5, posJ.getComplexY() + 0.5);
+    vit->setComplexXY(vitJ.getComplexX() + 0.5, vitJ.getComplexY() + 0.5);
 }
 
 void balle::updateBalle(SDL_Renderer *ren)
@@ -84,20 +84,20 @@ void balle::updateBalle(SDL_Renderer *ren)
         pop = false;
 }
 
-void balle ::renderBalle(SDL_Renderer *ren, const Complex &posJ,SDL_Texture* texture)
+void balle ::renderBalle(SDL_Renderer *ren, const Complex &posJ, SDL_Texture *texture)
 {
-        s->setDest((posObj.getComplexX() - posJ.getComplexX() + 6) * 64, (posObj.getComplexY() - posJ.getComplexY() + 5) * 64);
-        s->renderTextureNoSrc(ren,texture);
+    s->setDest((posObj.getComplexX() - posJ.getComplexX() + 6) * 64, (posObj.getComplexY() - posJ.getComplexY() + 5) * 64);
+    s->renderTextureNoSrc(ren, texture);
 }
 
 bool balle::Hit(const Complex &pos)
 {
-        Complex posBalle(posObj.getComplexX() + 0.125, posObj.getComplexY() + 0.125);
-        Complex posCible(pos.getComplexX() + 0.5, pos.getComplexY() + 0.5);
-        if ((posBalle - posCible).norme() < 0.625)
-        {
-            pop = false;
-            return true;
-        }
+    Complex posBalle(posObj.getComplexX() + 0.125, posObj.getComplexY() + 0.125);
+    Complex posCible(pos.getComplexX() + 0.5, pos.getComplexY() + 0.5);
+    if ((posBalle - posCible).norme() < 0.625)
+    {
+        pop = false;
+        return true;
+    }
     return false;
 }

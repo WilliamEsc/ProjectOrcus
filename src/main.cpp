@@ -1,12 +1,13 @@
-#include "game.h" 
+#include "game.h"
 
-int main(int argc, const char* argv[]) {
-    
-    game g ;
+int main(int argc, const char *argv[])
+{
+
+    game g;
 
     g.init("écran", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 832, 704, false);
 
-    while (g.running()) //game is running 
+    while (g.running()) //game is running
     {
         /* handle any user input
         update all object...
@@ -15,11 +16,9 @@ int main(int argc, const char* argv[]) {
         g.handleEvents();
         g.update();
         g.render();
-
     }
-    
+
     g.clean();
 
     return 0;
-
 }

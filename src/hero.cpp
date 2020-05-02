@@ -6,7 +6,7 @@ hero::hero() : personnage()
     barrePdv.x = persos->getDestX();
     barrePdv.y = persos->getDestY() - 10;
     barrePdv.h = 10;
-    barrePdv.w = persos->getDest()->w;
+    barrePdv.w = persos->getDest().w;
 }
 
 hero::~hero()
@@ -64,20 +64,21 @@ bool hero::estArrive()
     return (pos->getComplexX() >= 83 && pos->getComplexX() <= 85 && pos->getComplexY() >= 107 && pos->getComplexX() <= 110);
 }
 
-void hero::drawPersonnage(SDL_Renderer *renderer)
+void hero::drawPersonnage(SDL_Renderer *ren)
 {
-    personnage::drawPersonnage(renderer);
-    wep->rendering(renderer, *pos);
+    personnage::drawPersonnage(ren);
+    wep->rendering(ren, *pos);
     float vert = 255 * (((float)pdv) / 100);
     float rouge = 255 * (1 - ((float)pdv) / 100);
-    barrePdv.w = persos->getDest()->w * (((float)pdv) / 100);
-    SDL_SetRenderDrawColor(renderer, rouge, vert, 0, 0);
-    SDL_RenderFillRect(renderer, &barrePdv);
+    barrePdv.w = persos->getDest().w * (((float)pdv) / 100);
+    SDL_SetRenderDrawColor(ren, rouge, vert, 0, 0);
+    SDL_RenderFillRect(ren, &barrePdv);
+    SDL_SetRenderDrawColor(ren, 0, 0, 0, 0);
 }
 
 void hero::tir()
 {
-    wep->tir(*pos,*vit,angle);
+    wep->tir(*pos, *vit, angle);
 }
 
 bool hero::Hit(const Complex &pos)
@@ -85,8 +86,8 @@ bool hero::Hit(const Complex &pos)
     return wep->Hit(pos);
 }
 
-void hero::setTexture(SDL_Renderer *renderer, const char *file,const char *file2)
+void hero::setTexture(SDL_Renderer *ren, const char *file, const char *file2)
 {
-    personnage::setTexture(renderer,file);
-    wep->setTexture(renderer,file2);
+    personnage::setTexture(ren, file);
+    wep->setTexture(ren, file2);
 }

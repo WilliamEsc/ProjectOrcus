@@ -1,6 +1,6 @@
 #include "loot.h"
 
-loot::loot(int t, float x, float y) : objet(x, y)
+loot::loot(const int & t,const float & x,const float & y) : objet(x, y)
 {
     type = t;
 }
@@ -20,10 +20,9 @@ void loot::setTexture(SDL_Renderer *ren)
     default:
         break;
     }
-
 }
 
-void loot::looting(SDL_Renderer *renderer, hero &J)
+void loot::looting(SDL_Renderer *ren, hero &J)
 {
     switch (type)
     {
@@ -31,7 +30,7 @@ void loot::looting(SDL_Renderer *renderer, hero &J)
         J.getArme()->setCadence(0.1);
         J.getArme()->setForce(0.1);
         J.getArme()->setDegat(50);
-        J.setTexture(renderer, "Data/persos2.png","Data/balle.png");
+        J.setTexture(ren, "Data/persos2.png", "Data/balle.png");
         break;
 
     default:

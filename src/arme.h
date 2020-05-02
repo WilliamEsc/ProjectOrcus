@@ -4,15 +4,18 @@
 #include "balle.h"
 #include "personnage.h"
 
+/*! \class arme
+* \brief l'arme du joueur qui permettera d'effectuer les tirs
+*/
 class arme
 {
 private:
-    clock_t lastAtck;
-    float cadence;
-    float force;
-    int degat;
-    std::vector<balle *> bul;
-    SDL_Texture *tex;
+    clock_t lastAtck;         ///< timer de la derniere attaque
+    float cadence;            ///< cadence de tir de l'arme
+    float force;              ///< vitesse de déplacement des balles
+    int degat;                ///< degats des balles
+    std::vector<balle *> bul; ///< tableau dynamique de pointer de balle
+    SDL_Texture *tex;         ///< texture des balles
 
 public:
     /**
@@ -88,7 +91,7 @@ public:
      * @param vit Complex: vit servira de direction a la balle créer.
      * @param angle float: angle servira a l'affichage dans le bon sens de la balle.
      */
-    void tir( const Complex &pos, const Complex &vit, const float &angle);
+    void tir(const Complex &pos, const Complex &vit, const float &angle);
     /**
      *\brief met a jour les position de toute les balles dans le vector bul
      * @param render SDL_Renderer: le renderer de la fenetre SDL..

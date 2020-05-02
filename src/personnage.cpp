@@ -14,7 +14,7 @@ personnage::personnage(const float &x, const float &y)
 {
     pos = new Complex(x, y);
     vit = new Complex(x, y - 1);
-    pop=true;
+    pop = true;
     angle = 0;
     pdv = 100;
     persos->setDest(0, 0, 64, 64);
@@ -46,7 +46,7 @@ void personnage::setDest(const float &x, const float &y)
     persos->setDest(x, y);
 }
 
-SDL_Rect *personnage::getRect() const
+SDL_Rect personnage::getRect() const
 {
     return persos->getDest();
 }
@@ -112,15 +112,15 @@ bool personnage::Collision(const Complex &postmp, const int *collision) const
 void personnage::getHit(const int &dmg)
 {
     pdv -= dmg;
-    if(pdv<=0)
+    if (pdv <= 0)
     {
-        pop=false;
-    }   
+        pop = false;
+    }
 }
 
 void personnage::setPop(const bool b)
 {
-    pop=b;
+    pop = b;
 }
 
 bool personnage::getPop() const
