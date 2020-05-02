@@ -4,7 +4,7 @@
 #include "objet.h"
 #include "hero.h"
 
-/*! \class balle
+/*! \class soin
 * \brief classe représentant les objets de soin
 */
 class soin : public objet
