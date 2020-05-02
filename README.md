@@ -28,7 +28,7 @@ Pour se déplacer, utiliser les touches suivantes :
     - A pour tourner à gauche 
     - D pour tourner à droite 
 
-Attention tous de même à ne pas vous faire toucher par les zombies, ce qui ferais chuter votre barre de vie et une fois vide c'est **GAME OVER**. Mais ne vous inquiétez pas !
+Attention tout de même à ne pas vous faire toucher par les zombies, ce qui ferais chuter votre barre de vie et une fois vide c'est **GAME OVER**. Mais ne vous inquiétez pas !
 Des kits de soin sont éparpillés un peu partout sur l'île, il vous redonnerons un peu de santé... 
 
 ## Consignes d'installattion ## 
@@ -46,7 +46,7 @@ Des kits de soin sont éparpillés un peu partout sur l'île, il vous redonneron
 ```
 Et voila, vous pouvez jouer !
 
-Concernant le documentation, toujour à la racine du dossier :
+Concernant le **documentation**, toujour à la racine du dossier :
 * taper la commande :
 ```
 doxygen doc/image.docy
