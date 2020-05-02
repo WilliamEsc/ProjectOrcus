@@ -2,6 +2,12 @@
 
 Bienvenue dans Projet Orcus ! 
 
+## Créateur ##
+
+- Ali MESSELMANI P1811574
+- William ESCRIVA P1702268
+- Antoine DUMAS P1802788
+
 ## Voici les règles du jeu : 
 
 **Vous devez vous échapper d'une île infesté de zombies.** 
