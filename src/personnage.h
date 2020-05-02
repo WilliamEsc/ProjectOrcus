@@ -5,7 +5,7 @@
 #include "texture.h"
 #include "def.h"
 
-/*! \class balle
+/*! \class personnage
 * \brief classe représentant tous les personnages du jeu
 */
 class personnage
