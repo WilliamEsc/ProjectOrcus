@@ -15,6 +15,7 @@ game::~game()
     delete Victory;
     delete drop;
     delete key;
+    delete menu;
 }
 
 void game::init(const char *title, int posX, int posY, int width, int height, bool fullscreen)
@@ -101,6 +102,10 @@ void game::init(const char *title, int posX, int posY, int width, int height, bo
     success = false;
     Victory->setFileName("Data/Victory.jpg");
     Victory->setTexture(Victory->loadTexture(renderer));
+
+    //Initialisation de l´écran du debut
+    menu->setFileName("Data/menu.png");
+    menu->setTexture(menu->loadTexture(renderer));
 }
 
 void game::handleEvents()
@@ -268,3 +273,14 @@ bool game::running()
 {
     return isRunning;
 }
+
+void game :: setRunning(bool i){
+    isRunning = i ;
+}
+
+void game :: renderMenu(){
+    SDL_RenderClear(renderer);
+    menu->renderTextureNothing(renderer);
+    SDL_RenderPresent(renderer);
+}
+
