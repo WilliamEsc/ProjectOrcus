@@ -29,6 +29,7 @@ private:
     map *m;                          ///< pointer de carte du jeu alloué sur le tas
     texture *GameOver = new texture; ///< pointer de ecran de defaite alloué sur le tas
     texture *Victory = new texture;  ///< pointer de ecran de succes alloué sur le tas
+    texture* menu = new texture;
 
 public:
     /**
@@ -66,6 +67,9 @@ public:
      *\brief accesseur de la position y de l'objet
      */
     bool running();
+    void setRunning(bool i);
+
+    void renderMenu();
 };
 
 #endif
