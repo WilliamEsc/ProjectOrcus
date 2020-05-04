@@ -81,34 +81,6 @@ void personnage::drawPersonnage(SDL_Renderer *renderer)
     persos->renderTextureEx(renderer, -angle);
 }
 
-bool personnage::Collision(const Complex &postmp, const int *collision) const
-{
-    for (int i = postmp.getComplexY() - 1; i < postmp.getComplexY() + 1; i++)
-    {
-        for (int j = postmp.getComplexX() - 1; j < postmp.getComplexX() + 1; j++)
-        {
-            if (collision[(i * 124) + j] != -1)
-            {
-                if (( ///en haut a gauche
-                        (j < postmp.getComplexX() + 0.25 && j + 1 > postmp.getComplexX() + 0.25) &&
-                        (i < postmp.getComplexY() + 0.25 && i + 1 > postmp.getComplexY() + 0.25)) ||
-                    ( ///en bas a droite
-                        (j < postmp.getComplexX() + 0.75 && j + 1 > postmp.getComplexX() + 0.75) &&
-                        (i < postmp.getComplexY() + 0.75 && i + 1 > postmp.getComplexY() + 0.75)) ||
-                    ( ///en haut a droite
-                        (j < postmp.getComplexX() + 0.75 && j + 1 > postmp.getComplexX() + 0.75) &&
-                        (i < postmp.getComplexY() + 0.25 && i + 1 > postmp.getComplexY() + 0.25)) ||
-                    ((j < postmp.getComplexX() + 0.25 && j + 1 > postmp.getComplexX() + 0.25) &&
-                     (i < postmp.getComplexY() + 0.75 && i + 1 > postmp.getComplexY() + 0.75)))
-                {
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
-}
-
 void personnage::getHit(const int &dmg)
 {
     pdv -= dmg;
