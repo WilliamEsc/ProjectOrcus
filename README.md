@@ -49,7 +49,7 @@ Et voila, vous pouvez jouer !
 Concernant le **documentation**, toujour à la racine du dossier :
 * Taper la commande :
 ```
-doxygen doc/image.docy
+doxygen doc/image.doxy
 ```
 * Ensuite, taper :
 ```
