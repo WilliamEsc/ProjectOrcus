@@ -15,7 +15,7 @@ EXEC := Orcus
 
 RM = rm
 
-LIBS := -lSDL2 -lSDL2_image -lSDL2_ttf
+LIBS := -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
 OPT := -Wall -ggdb
 
