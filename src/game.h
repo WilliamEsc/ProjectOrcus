@@ -29,7 +29,13 @@ private:
     map *m;                          ///< pointer de carte du jeu alloué sur le tas
     texture *GameOver = new texture; ///< pointer de ecran de defaite alloué sur le tas
     texture *Victory = new texture;  ///< pointer de ecran de succes alloué sur le tas
-    texture* menu = new texture;
+    texture *menu = new texture;
+    Mix_Music *musique;
+    //The sound effects that will be used
+    Mix_Chunk *bite = NULL;
+    Mix_Chunk *fire = NULL ;
+    float last = 0.0;
+    float cad = 0.8;
 
 public:
     /**
@@ -70,6 +76,8 @@ public:
     void setRunning(bool i);
 
     void renderMenu();
+    void Music();
+    void pauseMusic();
 };
 
 #endif
