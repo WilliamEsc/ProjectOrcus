@@ -96,7 +96,7 @@ public:
      *\brief met a jour les position de toute les balles dans le vector bul
      * @param render SDL_Renderer: le renderer de la fenetre SDL..
      */
-    void update(SDL_Renderer *render);
+    void update(SDL_Renderer *render, const int *collision);
     /**
      *\brief affiche dans la fenetre SDL les balles par rapport a la position du joueur.
      * @param render SDL_Renderer: le renderer de la fenetre SDL..
