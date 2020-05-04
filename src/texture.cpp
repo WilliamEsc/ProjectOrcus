@@ -31,6 +31,32 @@ SDL_Texture *texture::loadTexture(SDL_Renderer *ren)
     return texture;
 }
 
+SDL_Texture *texture::loadTextureText(const char *texte, TTF_Font *font, SDL_Color color, SDL_Renderer *ren)
+{
+    SDL_Texture *texture = nullptr;
+    SDL_Surface *surface = TTF_RenderText_Solid(font, texte, color);
+
+    if (surface != nullptr)
+    {
+        texture = SDL_CreateTextureFromSurface(ren, surface);
+        SDL_FreeSurface(surface);
+        if (texture == nullptr)
+        {
+            std::cout << " error CreateTextureFromSurface " << std::endl;
+        }
+        else
+        {
+            std::cout << " Font load " << std::endl;
+        }
+    }
+    else
+    {
+        std::cout << " Erreur Surface " << std::endl;
+    }
+
+    return texture;
+}
+
 void texture::renderTextureNoSrc(SDL_Renderer *ren)
 {
     SDL_RenderCopy(ren, tex, NULL, &dest);
