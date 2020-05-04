@@ -10,6 +10,7 @@ int main(int argc, const char *argv[])
     bool game = true;
 
     g.init("écran", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 832, 704, false);
+    g.Music();
 
     while (game) //game is running
     {
@@ -33,6 +34,7 @@ int main(int argc, const char *argv[])
                 break;
 
             case SDLK_SPACE: // On lance le jeu 
+                g.pauseMusic();
                 while (g.running())
                 {
                     g.handleEvents();
@@ -40,6 +42,7 @@ int main(int argc, const char *argv[])
                     g.render();
                 }
                 g.setRunning(true);
+                g.pauseMusic();
                 break;
             }
             break;
