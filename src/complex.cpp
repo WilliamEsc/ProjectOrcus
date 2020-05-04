@@ -89,6 +89,34 @@ void Complex::Divise(const float f)
     y /= f;
 }
 
+bool Collision(const Complex &postmp, const int *collision,const float &min,const float &max)
+{
+    for (int i = postmp.getComplexY() - 1; i < postmp.getComplexY() + 1; i++)
+    {
+        for (int j = postmp.getComplexX() - 1; j < postmp.getComplexX() + 1; j++)
+        {
+            if (collision[(i * 124) + j] != -1)
+            {
+                if (( ///en haut a gauche
+                        (j < postmp.getComplexX() + min && j + 1 > postmp.getComplexX() + min) &&
+                        (i < postmp.getComplexY() + min && i + 1 > postmp.getComplexY() + min)) ||
+                    ( ///en bas a droite
+                        (j < postmp.getComplexX() + max && j + 1 > postmp.getComplexX() + max) &&
+                        (i < postmp.getComplexY() + max && i + 1 > postmp.getComplexY() + max)) ||
+                    ( ///en haut a droite
+                        (j < postmp.getComplexX() + max && j + 1 > postmp.getComplexX() + max) &&
+                        (i < postmp.getComplexY() + min && i + 1 > postmp.getComplexY() + min)) ||
+                    ((j < postmp.getComplexX() + min && j + 1 > postmp.getComplexX() + min) &&
+                     (i < postmp.getComplexY() + max && i + 1 > postmp.getComplexY() + max)))
+                {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
 Complex operator+(const Complex &cplx1, const Complex &cplx2)
 {
     Complex ret(cplx1.getComplexX() + cplx2.getComplexX(), cplx1.getComplexY() + cplx2.getComplexY());
