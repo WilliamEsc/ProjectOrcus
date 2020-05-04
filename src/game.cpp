@@ -123,7 +123,7 @@ void game::init(const char *title, int posX, int posY, int width, int height, bo
 
     //Initialisation des sons
     bite = Mix_LoadWAV("Data/Bite.mp3");
-    fire = Mix_LoadWAV("Data/AK47.mp3");
+    fire = Mix_LoadWAV("M4A1.wav");
 }
 
 void game::handleEvents()
