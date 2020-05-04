@@ -81,11 +81,11 @@ void arme::tir(const Complex &pos, const Complex &vit, const float &angle)
     }
 }
 
-void arme::update(SDL_Renderer *render)
+void arme::update(SDL_Renderer *render, const int *collision)
 {
     for (size_t i = 0; i < bul.size(); i++)
     {
-        bul[i]->updateBalle(render);
+        bul[i]->updateBalle(render,collision);
         if (!bul[i]->getPop())
         {
             delete bul[i];
@@ -98,6 +98,7 @@ void arme::rendering(SDL_Renderer *render, const Complex &pos)
 {
     for (size_t i = 0; i < bul.size(); i++)
     {
+      
         bul[i]->renderBalle(render, pos, tex);
     }
 }
