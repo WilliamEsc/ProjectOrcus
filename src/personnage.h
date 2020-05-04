@@ -91,12 +91,7 @@ public:
      * @param ren SDL_Renderer: le renderer de la fenetre SDL.
      */
     void drawPersonnage(SDL_Renderer *renderer);
-    /**
-     *\brief verifie que pos est dans un endroit valide
-     * @param pos complex: position a testé.
-     * @param collision pointer de tableau d'int: map des endroit non valide.
-     */
-    bool Collision(const Complex &pos, const int *collision) const;
+
     /**
      *\brief le personnage se fait touché
      * @param dmg int: dmg sera enlevé des pdv du personnage.
