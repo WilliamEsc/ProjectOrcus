@@ -50,7 +50,7 @@ void hero::deplace(const float &f, const double &ang, const int *collision)
     Complex postmp = *pos;
     Complex tr = *vit - postmp;
     postmp = postmp - tr * f;
-    if (!Collision(postmp, collision))
+    if (!Collision(postmp, collision,0.25,0.75))
     {
         pos->setComplexX(postmp.getComplexX());
         pos->setComplexY(postmp.getComplexY());
