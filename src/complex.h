@@ -56,4 +56,13 @@ Complex operator*(const float f, const Complex &cplx1);
 ///< produit d'une constante et d'un complexe
 Complex operator/(const Complex &cplx1, const float f);
 ///< division d'un complexe et d'une constante
+
+/**
+ *\brief verifie que pos est dans un endroit valide
+ * @param pos complex: position a testé.
+ * @param collision pointer de tableau d'int: map des endroit non valide.
+ * @param min float: deplacement necessaire pour avoir le côté superieur gauche de la hitbox par rapport au complex postmp.
+ * @param max float: deplacement necessaire pour avoir le côté inferieur droit de la hitbox par rapport au complex postmp.
+ */
+bool Collision(const Complex &postmp, const int *collision, const float &min, const float &max);
 #endif

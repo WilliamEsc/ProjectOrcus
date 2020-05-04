@@ -241,7 +241,7 @@ void game::update()
             }
         }
         success = joueur.estArrive();
-        joueur.getArme()->update(renderer);
+        joueur.getArme()->update(renderer, m->getCollision());
     }
 }
 
@@ -272,7 +272,6 @@ void game::render()
         //SDL_RenderCopy(renderer,joueur.getTexture(),NULL,joueur.getRect());
 
         joueur.drawPersonnage(renderer);
-
         // SDL_RenderDrawPoint(renderer,(b.getPosX()+0.125 - joueur.getPos()->getComplexX() + 6) * 64,(b.getPosY()+0.125 - joueur.getPos()->getComplexY() + 5) * 64);
 
         for (size_t i = 0; i < target.size(); i++)

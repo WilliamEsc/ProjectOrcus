@@ -72,14 +72,18 @@ void balle ::Fire(const Complex &posJ, const Complex &vitJ)
     vit->setComplexXY(vitJ.getComplexX() + 0.5, vitJ.getComplexY() + 0.5);
 }
 
-void balle::updateBalle(SDL_Renderer *ren)
+void balle::updateBalle(SDL_Renderer *ren, const int *collision)
 {
+    Complex tr = *vit - posObj;
     if (pop)
     {
-        Complex tr = *vit - posObj;
         posObj = posObj + tr * f;
         *vit = posObj + tr;
     }
+    if(Collision(posObj,collision,0.06,0.18))
+    {
+        pop=false;
+    }  
     if ((posObj - *posInit).norme() > 5)
         pop = false;
 }
