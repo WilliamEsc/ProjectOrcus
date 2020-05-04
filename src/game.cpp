@@ -2,7 +2,6 @@
 
 game::game()
 {
-
 }
 game::~game()
 {
@@ -52,6 +51,11 @@ void game::init(const char *title, int posX, int posY, int width, int height, bo
     if (TTF_Init() < 0)
     {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "[DEBUG] > %s", TTF_GetError());
+    }
+
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024) == -1) //Initialisation de l'API Mixer
+    {
+        printf("%s", Mix_GetError());
     }
 
     // Initialisation joueur
@@ -106,6 +110,20 @@ void game::init(const char *title, int posX, int posY, int width, int height, bo
     //Initialisation de l´écran du debut
     menu->setFileName("Data/menu.png");
     menu->setTexture(menu->loadTexture(renderer));
+
+    //Initialisation de la musique
+    musique = Mix_LoadMUS("Data/musiqueIntro.mp3");
+    if (musique == NULL)
+    {
+        printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
+        success = false;
+    }
+    else
+        printf("Music load !");
+
+    //Initialisation des sons
+    bite = Mix_LoadWAV("Data/Bite.mp3");
+    fire = Mix_LoadWAV("Data/AK47.mp3");
 }
 
 void game::handleEvents()
@@ -137,7 +155,16 @@ void game::handleEvents()
         joueur.deplace(f, ang, m->getCollision());
         if (keystates[SDL_SCANCODE_SPACE])
         {
+            // if(cad == 0.1) {
+            //     fire = NULL ;
+            //     fire = Mix_LoadWAV("Data/AK47.mp3");
+            // } 
+            float ti = (clock() - last);
             joueur.tir();
+            if (ti / CLOCKS_PER_SEC > cad){
+                Mix_PlayChannel(1, fire, 0);
+                last = clock();
+            }
         }
     }
     if (keystates[SDL_SCANCODE_ESCAPE])
@@ -180,6 +207,7 @@ void game::update()
             if ((*joueur.getPos() - drop->getPos()).norme() < 1)
             {
                 drop->looting(renderer, joueur);
+                cad = 0.1 ;
                 delete drop;
                 drop = NULL;
             }
@@ -195,6 +223,7 @@ void game::update()
                 if (target[i]->atckJoueur(*joueur.getPos()))
                 {
                     joueur.getHit(target[i]->getDegat());
+                    Mix_PlayChannel(-1, bite, 0);
                 }
             }
             else
@@ -264,6 +293,14 @@ void game::clean()
 {
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
+    Mix_FreeMusic(musique);
+    //Free the sound effects
+    Mix_FreeChunk(bite);
+    Mix_FreeChunk(fire);
+    fire = NULL;
+    bite = NULL;
+    musique = NULL;
+    Mix_CloseAudio();
     TTF_Quit();
     SDL_Quit();
     std::cout << " Game Cleaned " << std::endl;
@@ -274,13 +311,45 @@ bool game::running()
     return isRunning;
 }
 
-void game :: setRunning(bool i){
-    isRunning = i ;
+void game ::setRunning(bool i)
+{
+    isRunning = i;
 }
 
-void game :: renderMenu(){
+void game ::renderMenu()
+{
     SDL_RenderClear(renderer);
     menu->renderTextureNothing(renderer);
     SDL_RenderPresent(renderer);
 }
 
+void game ::Music()
+{
+    Mix_PlayMusic(musique, -1);
+}
+
+void game ::pauseMusic()
+{
+    //If there is no music playing
+    if (Mix_PlayingMusic() == 0)
+    {
+        //Play the music
+        Mix_PlayMusic(musique, -1);
+    }
+    //If music is being played
+    else
+    {
+        //If the music is paused
+        if (Mix_PausedMusic() == 1)
+        {
+            //Resume the music
+            Mix_ResumeMusic();
+        }
+        //If the music is playing
+        else
+        {
+            //Pause the music
+            Mix_PauseMusic();
+        }
+    }
+}
