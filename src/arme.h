@@ -3,6 +3,7 @@
 
 #include "balle.h"
 #include "personnage.h"
+#include "def.h"
 
 /*! \class arme
 * \brief l'arme du joueur qui permettera d'effectuer les tirs
@@ -16,6 +17,7 @@ private:
     int degat;                ///< degats des balles
     std::vector<balle *> bul; ///< tableau dynamique de pointer de balle
     SDL_Texture *tex;         ///< texture des balles
+
 
 public:
     /**
