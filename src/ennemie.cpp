@@ -93,7 +93,7 @@ void ennemie::deplaceVersJoueur(const Complex &posJ, const int *collision)
     if (tr.norme() > 1)
     {
         Complex postmp = *pos + tr.normalize() * vitDepl;
-        if (!Collision(postmp, collision))
+        if (!Collision(postmp, collision,0.25,0.75))
         {
             pos->setComplexX(postmp.getComplexX());
             pos->setComplexY(postmp.getComplexY());
@@ -176,7 +176,7 @@ void ennemie::deplacementDebilos(const int *collision)
     }
     Complex tr = *depl - *pos;
     Complex postmp = *pos + tr.normalize() * vitDepl / 5;
-    if (!Collision(postmp, collision))
+    if (!Collision(postmp, collision,0.25,0.75))
     {
         pos->setComplexX(postmp.getComplexX());
         pos->setComplexY(postmp.getComplexY());
@@ -208,7 +208,7 @@ void ennemie::deplacementRando(const int *collision)
     Complex tr = *depl - *pos;
     Complex postmp = *pos + tr.normalize() * vitDepl / 2;
     tourneVers(*depl);
-    if (!Collision(postmp, collision))
+    if (!Collision(postmp, collision,0.25,0.75))
     {
         pos->setComplexX(postmp.getComplexX());
         pos->setComplexY(postmp.getComplexY());
