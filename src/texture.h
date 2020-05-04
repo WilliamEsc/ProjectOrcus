@@ -24,6 +24,14 @@ public:
      */
     SDL_Texture *loadTexture(SDL_Renderer *ren);
     /**
+     *\brief charge la texture de type texte
+     * @param texte pointer de char: texte a afficher.
+     * @param font pointer de TTF_FONT: police du texte.
+     * @param color SDL_Color: couleur du texte.
+     * @param ren SDL_Renderer: le renderer de la fenetre SDL.
+     */
+    SDL_Texture *loadTextureText(const char *texte, TTF_Font *font, SDL_Color color, SDL_Renderer *ren);
+    /**
      *\brief affiche la texture sans le parametre Dest
      * @param ren SDL_Renderer: le renderer de la fenetre SDL.
      */
