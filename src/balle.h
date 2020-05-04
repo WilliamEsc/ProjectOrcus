@@ -96,7 +96,7 @@ public:
      *\brief met a jour la position de la balle
      * @param ren SDL_Renderer: le renderer de la fenetre SDL.
      */
-    void updateBalle(SDL_Renderer *ren);
+    void updateBalle(SDL_Renderer *ren, const int *collision);
     /**
      *\brief affiche la balle dans la fenetre SDL (n'utilisera pas sa texture pour des soucis de performances)
      * @param ren SDL_Renderer: le renderer de la fenetre SDL.
